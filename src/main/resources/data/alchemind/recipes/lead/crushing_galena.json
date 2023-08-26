@@ -1,0 +1,24 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "alchemind:galena"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:crushed_lead_ore",
+      "chance": 0.6
+    },
+    {
+      "item": "alchemind:lead_nugget",
+      "chance": 0.6
+    },
+    {
+      "item": "alchemind:pyrite",
+      "count": 2,
+      "chance": 0.3
+    }
+  ],
+  "processingTime": 250
+}

@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:dense_aero"
+    }
+  ]
+}

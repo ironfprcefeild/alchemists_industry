@@ -1,0 +1,21 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "alchemind:amethyst_powder"
+    },
+    {
+      "fluid": "create:potion",
+      "nbt": {
+        "Bottle": "REGULAR",
+        "Potion": "minecraft:regeneration"
+      },
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:amethyst_shard"
+    }
+  ]
+}

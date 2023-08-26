@@ -1,0 +1,29 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "alchemind:philosophers_stone"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:philosophers_fragment"
+    },
+    {
+      "item": "alchemind:philosophers_fragment"
+    },
+    {
+      "item": "alchemind:philosophers_fragment"
+    },
+    {
+      "item": "alchemind:philosophers_fragment"
+    },
+    {
+      "item": "alchemind:philosophers_fragment"
+    },
+    {
+      "item": "alchemind:philosophers_fragment"
+    }
+  ],
+  "processingTime": 500
+}

@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "fluid": "alchemind:source_shade",
+      "nbt": {},
+      "amount": 350
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:echo_shard"
+    }
+  ]
+}

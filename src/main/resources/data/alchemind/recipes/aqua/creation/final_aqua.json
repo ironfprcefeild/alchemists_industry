@@ -1,0 +1,20 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "alchemind:loose_aqua"
+    },
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "fluid": "alchemind:source_aqua",
+      "nbt": {},
+      "amount": 1000
+    }
+  ]
+}

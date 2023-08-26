@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "alchemind:pewter_nugget"
+    }
+  },
+  "result": {
+    "item": "alchemind:pewter_ingot",
+    "count": 1
+  }
+}

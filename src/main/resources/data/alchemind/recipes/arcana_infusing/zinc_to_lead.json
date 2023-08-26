@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:arcana_infusing",
+  "ingredients": [
+    {
+      "item": "create:zinc_ingot"
+    }
+  ],
+  "output": {
+    "item": "alchemind:lead_ingot"
+  },
+  "arcana_required": 500
+}

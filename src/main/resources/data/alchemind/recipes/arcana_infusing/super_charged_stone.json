@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:arcana_infusing",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item": "minecraft:gold_ingot"
+  },
+  "arcana_required": 500
+}

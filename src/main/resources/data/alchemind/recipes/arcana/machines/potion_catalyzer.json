@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "f": {
+      "item": "create:fluid_tank"
+    },
+    "c": {
+      "item": "alchemind:arcane_casing"
+    },
+    "m": {
+      "item": "alchemind:arcane_mechanism"
+    },
+    "p": {
+      "item": "create:fluid_pipe"
+    },
+    "g": {
+      "item": "alchemind:galaxium_shard"
+    }
+  },
+  "pattern": [
+    "gfg",
+    "cmc",
+    " f ",
+    " p ",
+    " p ",
+    " p "
+  ],
+  "result": {
+    "count": 1,
+    "item": "alchemind:essence_mixer"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:arcana_infusing",
+  "ingredients": [
+    {
+      "item": "alchemind:pewter_ingot"
+    }
+  ],
+  "output": {
+    "item": "alchemind:arcanum_ingot"
+  },
+  "arcana_required": 5000
+}

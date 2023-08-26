@@ -1,0 +1,110 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:limestone"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_terra"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_terra"
+        },
+        [
+          {
+            "item": "minecraft:iron_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_terra"
+        },
+        [
+          {
+            "item": "minecraft:gold_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_terra"
+        },
+        [
+          {
+            "item": "minecraft:copper_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_terra"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:solid_terra"
+    }
+  ],
+  "loops": 1
+}

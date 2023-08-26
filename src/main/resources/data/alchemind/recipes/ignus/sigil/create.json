@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "alchemind:blank_sigil"
+    },
+    {
+      "fluid": "alchemind:source_ignus",
+      "nbt": {},
+      "amount": 100
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:ignus_sigil"
+    }
+  ]
+}

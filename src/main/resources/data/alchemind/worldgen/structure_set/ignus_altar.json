@@ -1,0 +1,19 @@
+{
+
+  "structures": [
+    {
+      "structure": "alchemind:ignus_altar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1891028891,
+
+    "spacing": 30,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}

@@ -1,0 +1,23 @@
+{
+
+  "name": "alchemind:terra_altar/terra_altar",
+
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+
+        "location": "alchemind:terra_altar",
+
+        "processors": "minecraft:empty",
+
+        "projection": "terrain_matching",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

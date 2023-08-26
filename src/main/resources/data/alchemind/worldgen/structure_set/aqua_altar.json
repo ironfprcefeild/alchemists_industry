@@ -1,0 +1,19 @@
+{
+
+  "structures": [
+    {
+      "structure": "alchemind:aqua_altar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1891028814,
+
+    "spacing": 30,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}

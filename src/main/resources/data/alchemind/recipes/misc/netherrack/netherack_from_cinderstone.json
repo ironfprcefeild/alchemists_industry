@@ -1,0 +1,39 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "alchemind:cinderstone"
+    },
+    {
+      "fluid": "alchemind:source_terra",
+      "nbt": {},
+      "amount": 200
+    },
+
+    {
+      "fluid": "create:potion",
+      "nbt": {
+        "Bottle": "REGULAR",
+        "Potion": "minecraft:healing"
+      },
+      "amount": 50
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:netherrack",
+      "count": 6,
+      "chance": 0.5
+    },
+    {
+      "item": "minecraft:netherrack",
+      "count": 3,
+      "chance": 0.75
+    },
+    {
+      "item": "minecraft:netherrack",
+      "count": 3,
+      "chance": 0.25
+    }
+  ]
+}

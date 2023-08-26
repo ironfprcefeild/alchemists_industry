@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "alchemind:solid_ignus",
+    "alchemind:loose_ignus",
+    "alchemind:solid_terra",
+    "alchemind:loose_terra",
+    "alchemind:sculking_terra",
+    "alchemind:solid_aqua",
+    "alchemind:loose_aqua",
+    "alchemind:solid_aero",
+    "alchemind:loose_aero",
+    "alchemind:galena",
+    "alchemind:lead_block",
+    "alchemind:pewter_block"
+  ]
+}

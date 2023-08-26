@@ -1,0 +1,235 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "alchemind:philosophers_dust"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_gunk"
+  },
+  "sequence": [
+
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_aero",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_aqua",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_ignus",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_terra",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_gheigh",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_order",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_movere",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_potere",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_glima",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_shade",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_vivorn",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        },
+        {
+          "fluid": "alchemind:source_mortith",
+          "nbt": {},
+          "amount": 100
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_gunk"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:philosophers_gunk",
+      "count": 1
+    }
+  ],
+  "loops": 2
+}

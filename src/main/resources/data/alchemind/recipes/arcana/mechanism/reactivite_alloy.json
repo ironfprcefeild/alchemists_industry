@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "alchemind:glamerite_powder"
+    },
+    {
+      "item": "alchemind:pyrite_powder"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:glamerite_alloy"
+    }
+  ],
+  "heatRequirement": "heated"
+}

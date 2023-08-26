@@ -1,0 +1,22 @@
+{
+  "type": "alchemind:essence_mixing",
+  "ingredients": [
+    {
+      "fluid": "alchemind:source_ignus",
+      "amount": 500
+    },
+    {
+      "fluid": "alchemind:source_order",
+      "amount": 500
+    },
+    {
+      "fluid": "alchemind:source_terra",
+      "amount": 90
+    }
+  ],
+  "output": {
+    "fluid": "alchemind:source_shade",
+    "amount": 1000
+  },
+  "arcana_required": 500
+}

@@ -1,0 +1,21 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "fluid": "create:potion",
+      "nbt": {
+        "Bottle": "REGULAR",
+        "Potion": "minecraft:poison"
+      },
+      "amount": 25
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:spider_eye"
+    }
+  ]
+}

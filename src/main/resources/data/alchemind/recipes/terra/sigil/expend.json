@@ -1,0 +1,14 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "alchemind:terra_sigil"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "alchemind:source_terra",
+      "amount": 200
+    }
+  ]
+}

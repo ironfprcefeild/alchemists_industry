@@ -1,0 +1,84 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:cinder_flour"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_netherrack"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        [
+          {
+            "item": "minecraft:blackstone"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        {
+          "fluid": "minecraft:lava",
+          "nbt": {},
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        {
+          "fluid": "alchemind:source_ignus",
+          "nbt": {},
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:cinder_scrap"
+    }
+  ],
+  "loops": 1
+}

@@ -1,0 +1,14 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "minecraft:flint_and_steel"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:trapped_ember",
+      "count": 3
+    }
+  ]
+}

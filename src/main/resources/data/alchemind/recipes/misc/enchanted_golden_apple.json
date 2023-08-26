@@ -1,0 +1,153 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:golden_apple"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_enchanted_golden_apple"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        },
+        [
+          {
+            "item": "minecraft:lapis_lazuli"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:regeneration"
+          },
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:fire_resistance"
+          },
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:healing"
+          },
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:turtle_master"
+          },
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:swiftness"
+          },
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_enchanted_golden_apple"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:enchanted_golden_apple"
+    }
+  ],
+  "loops": 8
+}

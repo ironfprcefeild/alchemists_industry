@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:solid_aqua"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:sculk"
+    },
+    {
+      "fluid": "alchemind:source_mortith",
+      "nbt": {},
+      "amount": 30
+    },
+    {
+      "fluid": "alchemind:source_shade",
+      "nbt": {},
+      "amount": 30
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:sculking_terra",
+      "count": 4
+    }
+  ]
+}

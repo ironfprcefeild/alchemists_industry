@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "alchemind:healthy_netherrack"
+    }
+  ],
+  "output": {
+    "item": "alchemind:unstable_debris"
+  },
+  "chance": 0.05
+}

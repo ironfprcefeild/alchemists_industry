@@ -1,0 +1,179 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "alchemind:philosophers_gunk"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_stone"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "minecraft:iron_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "minecraft:gold_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "minecraft:copper_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "create:zinc_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "create:brass_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "alchemind:lead_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "alchemind:pewter_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "minecraft:diamond"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_stone"
+        },
+        [
+          {
+            "item": "minecraft:emerald"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_stone"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:philosophers_stone"
+    }
+  ],
+  "loops": 1
+}

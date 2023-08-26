@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create:scorchia"
+    },
+    {
+      "fluid": "alchemind:source_terra",
+      "nbt": {},
+      "amount": 100
+    }
+  ],
+  "results": [
+    {
+      "item": "create:asurine"
+    }
+  ]
+}

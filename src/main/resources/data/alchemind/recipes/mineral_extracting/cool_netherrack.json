@@ -1,0 +1,24 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "alchemind:pure_basalt"
+    },
+    {
+      "item": "alchemind:cinderite"
+    },
+    {
+      "fluid": "create:chocolate",
+      "nbt": {},
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:healthy_netherrack"
+    }
+  ]
+}

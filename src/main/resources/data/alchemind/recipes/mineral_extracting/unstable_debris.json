@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate"
+    }
+  ],
+  "output": {
+    "item": "alchemind:warped_diamond_dust"
+  },
+  "chance": 0.005
+}

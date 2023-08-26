@@ -1,0 +1,26 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "alchemind:sculking_terra"
+    },
+    {
+      "item": "alchemind:sculking_terra"
+    },
+    {
+      "item": "minecraft:calcite"
+    },
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:jukebox"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:sculk_shrieker",
+      "chance": 0.5
+    }
+  ]
+}

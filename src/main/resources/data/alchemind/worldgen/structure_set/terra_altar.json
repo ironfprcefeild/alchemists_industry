@@ -1,0 +1,19 @@
+{
+
+  "structures": [
+    {
+      "structure": "alchemind:terra_altar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1891028892,
+
+    "spacing": 30,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}

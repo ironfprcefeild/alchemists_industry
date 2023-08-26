@@ -1,0 +1,15 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "alchemind:fluffy_aero"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "alchemind:source_aero",
+      "nbt": {},
+      "amount": 1000
+    }
+  ]
+}

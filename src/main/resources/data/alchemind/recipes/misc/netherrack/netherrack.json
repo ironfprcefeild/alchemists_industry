@@ -1,0 +1,21 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "fluid": "create:potion",
+      "nbt": {
+        "Bottle": "REGULAR",
+        "Potion": "minecraft:poison"
+      },
+      "amount": 65
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:pufferfish"
+    }
+  ]
+}

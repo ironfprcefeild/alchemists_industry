@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:spawns_cold_variant_frogs",
+    "#minecraft:is_end"
+  ]
+}

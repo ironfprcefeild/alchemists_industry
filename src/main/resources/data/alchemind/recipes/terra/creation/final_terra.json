@@ -1,0 +1,15 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "alchemind:solid_terra"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "alchemind:source_terra",
+      "nbt": {},
+      "amount": 1000
+    }
+  ]
+}

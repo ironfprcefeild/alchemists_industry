@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "alchemind:pewter_ingot"
+    },
+    {
+      "item": "create:copper_sheet"
+    },
+    {
+      "item": "create:zinc_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:brass_ingot",
+      "count": 5
+    }
+  ],
+  "heatRequirement": "heated"
+}

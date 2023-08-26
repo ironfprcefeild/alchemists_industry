@@ -1,0 +1,105 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:basalt"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_netherrack"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        [
+          {
+            "item": "minecraft:blackstone"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        [
+          {
+            "item": "create:cinder_flour"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:healing"
+          },
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        },
+        {
+          "fluid": "alchemind:source_ignus",
+          "nbt": {},
+          "amount": 50
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_netherrack"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:cinder_scrap"
+    }
+  ],
+  "loops": 1
+}

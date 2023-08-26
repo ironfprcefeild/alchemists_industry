@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create:zinc_ingot"
+    },
+    {
+      "fluid": "alchemind:source_ignus",
+      "nbt": {},
+      "amount": 400
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ]
+}

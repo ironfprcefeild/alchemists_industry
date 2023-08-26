@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:packed_ice"
+    },
+    {
+      "fluid": "alchemind:source_aqua",
+      "nbt": {},
+      "amount": 75
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:ice",
+      "count": 2
+    }
+  ]
+}

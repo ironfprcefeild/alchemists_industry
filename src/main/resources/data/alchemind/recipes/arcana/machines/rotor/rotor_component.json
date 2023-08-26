@@ -1,0 +1,37 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+
+    "m": {
+      "item": "alchemind:arcane_mechanism"
+    },
+    "g": {
+      "item": "alchemind:galaxium_shard"
+    },
+    "p": {
+      "item": "create:propeller"
+    },
+    "t": {
+      "item": "alchemind:accelerating_crystal"
+    },
+    "w": {
+      "item": "create:whisk"
+    },
+    "b": {
+      "item": "create:metal_bracket"
+    }
+  },
+  "pattern": [
+    "   b   ",
+    "   b   ",
+    " ptbtp ",
+    "ggmbmgg",
+    "ggtttgg",
+    " wwpww "
+  ],
+  "result": {
+    "count": 1,
+    "item": "alchemind:rotor_component"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "fluid": "alchemind:source_aero",
+      "nbt": {},
+      "amount": 125
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:coal"
+    }
+  ]
+}

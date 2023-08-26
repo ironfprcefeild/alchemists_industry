@@ -1,0 +1,175 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:golden_sheet"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_totem_of_undying"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:regeneration"
+          },
+          "amount": 500
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        [
+          {
+            "item": "minecraft:emerald"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        [
+          {
+            "item": "minecraft:golden_apple"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        [
+          {
+            "item": "minecraft:golden_apple"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        [
+          {
+            "item": "minecraft:emerald"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        [
+          {
+            "item": "create:golden_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:regeneration"
+          },
+          "amount": 500
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_totem_of_undying"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:totem_of_undying"
+    }
+  ],
+  "loops": 1
+}

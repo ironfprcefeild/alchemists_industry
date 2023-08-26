@@ -1,0 +1,19 @@
+{
+
+  "structures": [
+    {
+      "structure": "alchemind:aero_altar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1891028893,
+
+    "spacing": 30,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}

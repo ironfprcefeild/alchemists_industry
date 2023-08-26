@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alchemind:pewter_block"
+    }
+  ],
+  "result": {
+    "item": "alchemind:pewter_ingot",
+    "count": 9
+  }
+}

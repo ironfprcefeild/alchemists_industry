@@ -1,0 +1,14 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "alchemind:impure_ghast_tear"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:ghast_tear",
+      "chance": 0.4
+    }
+  ]
+}

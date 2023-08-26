@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alchemind:solid_ignus",
+    "alchemind:solid_terra",
+    "alchemind:galena",
+    "alchemind:lead_block",
+    "alchemind:pewter_block",
+    "alchemind:corvium",
+    "alchemind:crystal_glass"
+  ]
+}

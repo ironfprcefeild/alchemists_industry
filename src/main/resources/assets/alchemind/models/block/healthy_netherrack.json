@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "alchemind:block/healthy_netherrack"
+  }
+}

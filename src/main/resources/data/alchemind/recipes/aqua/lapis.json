@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:flint"
+    },
+    {
+      "fluid": "alchemind:source_aqua",
+      "nbt": {},
+      "amount": 100
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:lapis_lazuli"
+    }
+  ]
+}

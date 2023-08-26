@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "fluid": "alchemind:source_potere",
+      "nbt": {},
+      "amount": 150
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:powerpowder"
+    }
+  ]
+}

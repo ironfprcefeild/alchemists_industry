@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "alchemind:solid_terra"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:loose_terra",
+      "chance": 1
+    }
+  ],
+  "processingTime": 15
+}

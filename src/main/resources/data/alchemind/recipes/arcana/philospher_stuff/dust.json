@@ -1,0 +1,55 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "1": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "2": {
+      "item": "minecraft:redstone"
+    },
+    "3": {
+      "item": "minecraft:gunpowder"
+    },
+    "4": {
+      "item": "alchemind:amethyst_powder"
+    },
+    "5": {
+      "item": "alchemind:glamerite_powder"
+    },
+    "6": {
+      "item": "alchemind:reactivite_powder"
+    },
+    "7": {
+      "item": "alchemind:pyrite_powder"
+    },
+    "8": {
+      "item": "create:cinder_flour"
+    },
+    "9": {
+      "item": "create:wheat_flour"
+    },
+    "a": {
+      "item": "alchemind:shinedust"
+    },
+    "b": {
+      "item": "alchemind:powerpowder"
+    },
+    "c": {
+      "item": "alchemind:zoomdust"
+    }
+  },
+  "pattern": [
+    "  1 2  ",
+    "  1 2  ",
+    "3345566",
+    "  4 9  ",
+    "77889aa",
+    "  b c  ",
+    "  c c  "
+  ],
+  "result": {
+    "count": 1,
+    "item": "alchemind:philosophers_dust"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "fluidTag": "forge:milk",
+      "nbt": {},
+      "amount": 700
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:loose_slime_ball"
+    }
+  ]
+}

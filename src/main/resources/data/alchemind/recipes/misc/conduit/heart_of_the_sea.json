@@ -1,0 +1,39 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:sponge"
+    },
+    {
+      "item": "minecraft:sponge"
+    },
+    {
+      "item": "minecraft:sponge"
+    },
+    {
+      "item": "minecraft:sea_lantern"
+    },
+    {
+      "item": "minecraft:sea_lantern"
+    },
+    {
+      "item": "minecraft:sea_lantern"
+    },
+    {
+      "fluid": "alchemind:source_movere",
+      "nbt": {},
+      "amount": 1000
+    },
+    {
+      "fluid": "alchemind:source_glima",
+      "nbt": {},
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:heart_of_the_sea",
+      "count": 1
+    }
+  ]
+}

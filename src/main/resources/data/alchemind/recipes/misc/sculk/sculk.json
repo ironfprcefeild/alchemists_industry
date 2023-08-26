@@ -1,0 +1,23 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:sculk_sensor"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:sculk",
+      "chance": 0.5
+    },
+    {
+      "item": "minecraft:sculk",
+      "chance": 0.5
+    },
+    {
+      "item": "minecraft:sculk",
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 100
+}

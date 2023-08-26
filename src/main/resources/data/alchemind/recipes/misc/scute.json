@@ -1,0 +1,13 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "minecraft:shulker_shell"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:scute"
+    }
+  ]
+}

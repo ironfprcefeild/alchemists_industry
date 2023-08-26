@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "fluid": "alchemind:source_aero",
+      "nbt": {},
+      "amount": 750
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:impure_ghast_tear"
+    }
+  ]
+}

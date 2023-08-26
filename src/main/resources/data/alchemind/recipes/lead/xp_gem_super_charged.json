@@ -1,0 +1,14 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "alchemind:charged_stone"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:experience_gem",
+      "count": 3
+    }
+  ]
+}

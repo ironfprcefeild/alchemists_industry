@@ -1,0 +1,84 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:precision_mechanism"
+  },
+  "transitionalItem": {
+    "item": "alchemind:incomplete_arcane_mechanism"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:precision_mechanism"
+        },
+        [
+          {
+            "item": "alchemind:glamerite_alloy"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        },
+        [
+          {
+            "item": "alchemind:reactivite_alloy"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        },
+        [
+          {
+            "item": "alchemind:arcane_casing"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_arcane_mechanism"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:arcane_mechanism"
+    }
+  ],
+  "loops": 1
+}

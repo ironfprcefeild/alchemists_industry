@@ -1,0 +1,33 @@
+{
+
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:prismarine_crystals"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    },
+    {
+      "item": "minecraft:shulker_shell"
+    },
+    {
+      "fluid": "create:potion",
+      "nbt": {
+        "Bottle": "REGULAR",
+        "Potion": "minecraft:slow_falling"
+      },
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:shulker_shell",
+      "count": 2
+    }
+  ],
+  "heatRequirement": "heated"
+}

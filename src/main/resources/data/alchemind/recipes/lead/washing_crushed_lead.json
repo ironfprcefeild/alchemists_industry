@@ -1,0 +1,24 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "create:crushed_lead_ore"
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:lead_nugget",
+      "count": 9
+    },
+    {
+      "item": "alchemind:flicker_stone",
+      "count": 1,
+      "chance": 0.2
+    },
+    {
+      "item": "alchemind:amethyst_powder",
+      "count": 1,
+      "chance": 0.2
+    }
+  ]
+}

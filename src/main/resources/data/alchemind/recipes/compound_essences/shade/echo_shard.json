@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:observer"
+    },
+    {
+      "fluid": "alchemind:source_shade",
+      "nbt": {},
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:sculk_sensor"
+    }
+  ]
+}

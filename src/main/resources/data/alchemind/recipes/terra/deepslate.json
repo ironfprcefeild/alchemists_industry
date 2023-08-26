@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "fluid": "alchemind:source_terra",
+      "nbt": {},
+      "amount": 50
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:deepslate"
+    }
+  ]
+}

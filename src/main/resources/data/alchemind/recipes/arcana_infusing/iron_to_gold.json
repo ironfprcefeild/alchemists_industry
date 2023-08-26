@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:arcana_infusing",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  },
+  "arcana_required": 1000
+}

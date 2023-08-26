@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:arrow"
+    },
+    {
+      "fluid": "alchemind:source_glima",
+      "nbt": {},
+      "amount": 10
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:spectral_arrow"
+    }
+  ]
+}

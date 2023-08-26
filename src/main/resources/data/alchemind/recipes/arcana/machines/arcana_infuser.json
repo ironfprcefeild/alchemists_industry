@@ -1,0 +1,27 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "c": {
+      "item": "alchemind:arcane_casing"
+    },
+    "s": {
+      "item": "create:spout"
+    },
+    "m": {
+      "item": "alchemind:arcane_mechanism"
+    },
+    "p": {
+      "item": "alchemind:philosophers_fragment"
+    }
+  },
+  "pattern": [
+    "ccc",
+    "cpc",
+    "msm"
+  ],
+  "result": {
+    "count": 1,
+    "item": "alchemind:arcana_infuser"
+  }
+}

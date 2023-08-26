@@ -1,0 +1,12 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "minecraft:end_stone"
+    }
+  ],
+  "output": {
+    "item": "alchemind:galaxite"
+  },
+  "chance": 0.10
+}

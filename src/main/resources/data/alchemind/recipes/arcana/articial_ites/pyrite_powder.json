@@ -1,0 +1,29 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "alchemind:pure_basalt"
+    },
+    {
+      "item": "create:cinder_flour"
+    },
+    {
+      "item": "create:scorchia"
+    },
+    {
+      "item": "minecraft:red_sand"
+    },
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "alchemind:glamerite_powder",
+      "chance": 0.25
+    }
+  ],
+  "heatRequirement": "heated"
+}
