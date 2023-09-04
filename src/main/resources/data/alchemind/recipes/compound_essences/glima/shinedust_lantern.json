@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "i  ",
-    " f ",
-    "   "
+    "fif",
+    "fif",
+    "fif"
   ],
   "key": {
     "i": {
-      "item": "alchemind:pyrite"
+      "item": "alchemind:shinedust"
     },
     "f": {
-      "item": "minecraft:iron_nugget"
+      "item": "alchemind:crystal_glass"
     }
   },
   "result": {
-    "item": "minecraft:flint_and_steel",
+    "item": "alchemind:shinedust_lantern",
     "count": 1
   }
 }

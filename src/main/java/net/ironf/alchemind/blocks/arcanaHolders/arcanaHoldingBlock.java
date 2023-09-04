@@ -1,4 +1,4 @@
-package net.ironf.alchemind.blocks.custom;
+package net.ironf.alchemind.blocks.arcanaHolders;
 
 import com.mojang.logging.LogUtils;
 import net.ironf.alchemind.BlockDimPos;
@@ -6,6 +6,7 @@ import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -36,9 +37,16 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
 
 
         if (!Level.isClientSide){
+
             BlockDimPos blockPos = new BlockDimPos(preblockPos,Level);
 
+            //Increase Arcana
+
+            arcana_maps.ArcanaMap.put(blockPos,  arcana_maps.ArcanaMap.get(blockPos)+passiveGen);
+
+            //Distribute arcana
             if (sends) {
+
                 int Dis = 0;
 
                 BlockDimPos TempBlockPos = new BlockDimPos(blockPos.above(), blockPos.getDimension());
@@ -67,32 +75,32 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
                 }
 
 
+
+
                 //Distribute
                 if (Dis != 0) {
-                    int toDistribute = Integer.min(arcana_maps.ArcanaMap.get(blockPos), maximumTransfer) / Dis;
+                    int toDistribute = Integer.min(arcana_maps.ArcanaMap.get(blockPos), Mth.roundToward(maximumTransfer,1)) / Dis;
 
-
-                    TempBlockPos = new BlockDimPos(blockPos.above(), blockPos.getDimension());
+                    TempBlockPos = new BlockDimPos(blockPos.above(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.below(), blockPos.getDimension());
+                    TempBlockPos = new BlockDimPos(blockPos.below(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.east(), blockPos.getDimension());
+                    TempBlockPos = new BlockDimPos(blockPos.east(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.west(), blockPos.getDimension());
+                    TempBlockPos = new BlockDimPos(blockPos.west(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.north(), blockPos.getDimension());
+                    TempBlockPos = new BlockDimPos(blockPos.north(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.south(), blockPos.getDimension());
+                    TempBlockPos = new BlockDimPos(blockPos.south(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
                 }
             }
-            //Increase Arcana
-            arcana_maps.ArcanaMap.put(blockPos,  arcana_maps.ArcanaMap.get(blockPos)+passiveGen);
+
 
             //Limit At maximum
             if ( arcana_maps.ArcanaMap.get(blockPos) >= maximumArcana) {
@@ -102,8 +110,6 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
                 arcana_maps.IsArcanaTaker.put(blockPos, true);
             }
         }
-
-
     }
 
     public static void feed(BlockDimPos target, BlockDimPos sender, int amount){
@@ -111,14 +117,12 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
             arcana_maps.ArcanaMap.put(target, arcana_maps.ArcanaMap.get(target) + amount);
             arcana_maps.ArcanaMap.put(sender, arcana_maps.ArcanaMap.get(sender) - amount);
         }
-
-
     }
     @Override
     public void onPlace(BlockState blockState, Level level, BlockPos preblockPos, BlockState state, boolean b) {
         if (!level.isClientSide) {
 
-            LOGGER.info("arcana holder placed");
+            //LOGGER.info("Arcana Holder placed");
 
             BlockDimPos blockPos = new BlockDimPos(preblockPos, level);
             arcana_maps.ArcanaMap.put(blockPos, 0);
@@ -130,25 +134,13 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
     @Override
     public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState1, boolean b) {
         if (!level.isClientSide){
-            LOGGER.info("arcana holder exploded");
+            //LOGGER.info("Arcana Holder removed");
 
             arcana_maps.IsArcanaTaker.put(new BlockDimPos(blockPos,level),false);
         }
         super.onRemove(blockState, level, blockPos, blockState1, b);
     }
 
-    @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos preblockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        if (!level.isClientSide) {
-            BlockDimPos blockPos = new BlockDimPos(preblockPos,level);
-            if (player.isHolding(ModItems.ARCANA_DETECTOR.get()) && interactionHand == InteractionHand.MAIN_HAND){
-                player.sendSystemMessage(Component.literal(" " +  arcana_maps.ArcanaMap.get(blockPos)));
-            }
-        }
-
-
-        return super.use(blockState, level, preblockPos, player, interactionHand, blockHitResult);
-    }
 
     @Override
     public RenderShape getRenderShape(BlockState p_49232_) {
@@ -160,4 +152,6 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
         return null;
     }
+
+
 }

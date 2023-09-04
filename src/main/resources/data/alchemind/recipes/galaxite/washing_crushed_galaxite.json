@@ -2,13 +2,18 @@
   "type": "create:splashing",
   "ingredients": [
     {
-      "item": "create:crushed_raw_lead"
+      "item": "alchemind:crushed_galaxite"
     }
   ],
   "results": [
     {
-      "item": "alchemind:lead_nugget",
-      "count": 9
+      "item": "alchemind:galaxite_bead",
+      "count": 5,
+      "chance": 0.3
+    },
+    {
+      "item": "alchemind:galaxite_bead",
+      "count": 4
     },
     {
       "item": "alchemind:charged_stone",
@@ -16,9 +21,9 @@
       "chance": 0.3
     },
     {
-      "item": "alchemind:amethyst_powder",
+      "item": "alchemind:galena",
       "count": 1,
-      "chance": 0.2
+      "chance": 0.5
     }
   ]
 }

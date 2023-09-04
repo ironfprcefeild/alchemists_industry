@@ -1,5 +1,20 @@
 {
   "variants": {
-    "": {"model": "alchemind:block/crystal_glass"}
+    "facing=north": {
+      "model": "alchemind:block/arcana_radiator",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "alchemind:block/arcana_radiator",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "alchemind:block/arcana_radiator",
+      "y": 360
+    },
+    "facing=east": {
+      "model": "alchemind:block/arcana_radiator",
+      "y": 180
+    }
   }
 }

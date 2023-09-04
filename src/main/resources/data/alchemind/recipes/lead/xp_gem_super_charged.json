@@ -2,13 +2,13 @@
   "type": "create:pressing",
   "ingredients": [
     {
-      "item": "alchemind:charged_stone"
+      "item": "alchemind:super_charged_stone"
     }
   ],
   "results": [
     {
-      "item": "create:experience_gem",
-      "count": 3
+      "item": "create:experience_nugget",
+      "count": 16
     }
   ]
 }

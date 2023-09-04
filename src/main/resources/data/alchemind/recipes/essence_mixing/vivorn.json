@@ -6,7 +6,7 @@
       "amount": 500
     },
     {
-      "fluid": "alchemind:source_ignus",
+      "fluid": "alchemind:source_terra",
       "amount": 500
     },
     {
@@ -15,7 +15,7 @@
     }
   ],
   "output": {
-    "fluid": "alchemind:source_gheigh",
+    "fluid": "alchemind:source_vivorn",
     "amount": 1000
   },
   "arcana_required": 500

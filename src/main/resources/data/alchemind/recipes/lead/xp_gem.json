@@ -2,12 +2,12 @@
   "type": "create:pressing",
   "ingredients": [
     {
-      "item": "minecraft:flint_and_steel"
+      "item": "alchemind:charged_stone"
     }
   ],
   "results": [
     {
-      "item": "alchemind:trapped_ember",
+      "item": "create:experience_nugget",
       "count": 3
     }
   ]

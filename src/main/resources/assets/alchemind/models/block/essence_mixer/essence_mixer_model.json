@@ -1,0 +1,33 @@
+{
+  "loader": "forge:obj",
+  "flip-v": true,
+  "model": "alchemind:models/block/essence_mixer/essence_mixer.obj",
+  "textures": {
+    "0": "alchemind:block/essence_mixer",
+    "particle": "alchemind:block/pewter_block"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "scale": [0.41, 0.41, 0.42]
+    },
+    "thirdperson_lefthand": {
+      "scale": [0.41, 0.41, 0.42]
+    },
+    "firstperson_righthand": {
+      "scale": [0.41, 0.41, 0.42]
+    },
+    "firstperson_lefthand": {
+      "scale": [0.41, 0.41, 0.42]
+    },
+    "ground": {
+      "scale": [0.41, 0.41, 0.42]
+    },
+    "gui": {
+      "rotation": [86, 180, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "fixed": {
+      "scale": [0.41, 0.41, 0.42]
+    }
+  }
+}

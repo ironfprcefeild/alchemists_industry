@@ -2,19 +2,20 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "item": "alchemind:solid_ignus"
+      "item": "alchemind:glamerite"
     },
     {
-      "fluid": "minecraft:lava",
+      "item": "minecraft:soul_sand"
+    },
+    {
+      "fluid": "minecraft:water",
       "nbt": {},
       "amount": 1000
     }
   ],
   "results": [
     {
-      "fluid": "alchemind:source_ignus",
-      "nbt": {},
-      "amount": 1000
+      "item": "alchemind:glamerite_powder"
     }
   ],
   "heatRequirement": "heated"

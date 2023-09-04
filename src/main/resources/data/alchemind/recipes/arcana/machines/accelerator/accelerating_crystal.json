@@ -1,27 +1,27 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "create:precision_mechanism"
+    "item": "create:brass_sheet"
   },
   "transitionalItem": {
-    "item": "alchemind:incomplete_arcane_mechanism"
+    "item": "alchemind:incomplete_accelerating_crystal"
   },
   "sequence": [
     {
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "create:precision_mechanism"
+          "item": "create:brass_sheet"
         },
         [
           {
-            "item": "alchemind:glamerite_alloy"
+            "item": "create:rose_quartz_lamp"
           }
         ]
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_arcane_mechanism"
+          "item": "alchemind:incomplete_accelerating_crystal"
         }
       ]
     },
@@ -29,17 +29,17 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_arcane_mechanism"
+          "item": "alchemind:incomplete_accelerating_crystal"
         },
         [
           {
-            "item": "alchemind:reactivite_alloy"
+            "item": "create:rose_quartz_lamp"
           }
         ]
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_arcane_mechanism"
+          "item": "alchemind:incomplete_accelerating_crystal"
         }
       ]
     },
@@ -47,7 +47,43 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_arcane_mechanism"
+          "item": "alchemind:incomplete_accelerating_crystal"
+        },
+        [
+          {
+            "item": "alchemind:arcane_mechanism"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_accelerating_crystal"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_accelerating_crystal"
+        },
+        [
+          {
+            "item": "alchemind:amethyst_powder"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "alchemind:incomplete_accelerating_crystal"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "alchemind:incomplete_accelerating_crystal"
         },
         [
           {
@@ -57,28 +93,16 @@
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_arcane_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "alchemind:incomplete_arcane_mechanism"
-        }
-      ],
-      "results": [
-        {
-          "item": "alchemind:incomplete_arcane_mechanism"
+          "item": "alchemind:incomplete_accelerating_crystal"
         }
       ]
     }
   ],
   "results": [
     {
-      "item": "alchemind:arcane_mechanism"
+      "item": "alchemind:accelerating_crystal",
+      "count": 6
     }
   ],
-  "loops": 1
+  "loops": 2
 }

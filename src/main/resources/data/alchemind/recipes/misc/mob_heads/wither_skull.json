@@ -2,27 +2,24 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "minecraft:gunpowder"
-    },
-    {
-      "item": "minecraft:gunpowder"
-    },
-    {
-      "item": "minecraft:moss_block"
-    },
-    {
-      "item": "create:copper_diving_helmet"
+      "item": "minecraft:skeleton_skull"
     },
     {
       "fluid": "alchemind:source_mortith",
+      "nbt": {},
+      "amount": 1000
+    },
+    {
+      "fluid": "minecraft:lava",
       "nbt": {},
       "amount": 1000
     }
   ],
   "results": [
     {
-      "item": "minecraft:creeper_head",
-      "count": 1
+      "item": "minecraft:wither_skeleton_skull",
+      "count": 1,
+      "chance": 0.1
     }
   ]
 }

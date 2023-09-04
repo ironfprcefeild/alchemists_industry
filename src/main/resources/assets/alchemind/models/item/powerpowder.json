@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/aqua_bucket"
+    "layer0": "alchemind:item/powerpowder"
   }
 }

@@ -12,6 +12,18 @@
     "alchemind:loose_aero",
     "alchemind:galena",
     "alchemind:lead_block",
-    "alchemind:pewter_block"
+    "alchemind:pewter_block",
+    "alchemind:shinedust_lantern",
+    "alchemind:cinderite",
+    "alchemind:cinderstone",
+    "alchemind:arcana_radiator",
+    "alchemind:arcana_infuser",
+    "alchemind:mineral_extractor",
+    "alchemind:potion_catalyzer",
+    "alchemind:arcana_accelerator",
+    "alchemind:healthy_netherrack",
+    "alchemind:infused_endstone",
+    "alchemind:arcane_casing",
+    "alchemind:zoomdust_block"
   ]
 }

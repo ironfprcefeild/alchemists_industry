@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/terra_bucket"
+    "layer0": "alchemind:item/glima_bucket"
   }
 }

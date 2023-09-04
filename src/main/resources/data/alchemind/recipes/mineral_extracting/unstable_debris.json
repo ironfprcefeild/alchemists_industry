@@ -2,11 +2,14 @@
   "type": "alchemind:mineral_extracting",
   "ingredients": [
     {
-      "item": "minecraft:deepslate"
+      "item": "alchemind:healthy_netherrack"
     }
   ],
   "output": {
-    "item": "alchemind:warped_diamond_dust"
+    "item": "alchemind:unstable_debris"
   },
-  "chance": 0.005
+  "chance": 0.05,
+  "break_chance": 1,
+  "arcana_required": 25,
+  "extraction_speed": 0
 }

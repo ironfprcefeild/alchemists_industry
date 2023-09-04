@@ -9,7 +9,7 @@
     "item": "alchemind:cinderstone"
   },
   "chance": 0.4,
-  "break_chance": 0.6,
+  "break_chance": 0.60,
   "arcana_required": 25,
   "extraction_speed": 0
 }

@@ -2,20 +2,20 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "item": "alchemind:glamerite"
+      "item": "alchemind:pyrite"
     },
     {
-      "item": "minecraft:red_sand"
+      "item": "minecraft:clay"
     },
     {
-      "fluid": "minecraft:water",
+      "fluid": "minecraft:lava",
       "nbt": {},
       "amount": 1000
     }
   ],
   "results": [
     {
-      "item": "minecraft:glamerite_powder"
+      "item": "alchemind:pyrite_powder"
     }
   ],
   "heatRequirement": "heated"

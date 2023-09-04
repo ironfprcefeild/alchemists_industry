@@ -2,7 +2,7 @@
   "type": "create:splashing",
   "ingredients": [
     {
-      "item": "create:crushed_lead_ore"
+      "item": "create:crushed_raw_lead"
     }
   ],
   "results": [
@@ -11,9 +11,9 @@
       "count": 9
     },
     {
-      "item": "alchemind:flicker_stone",
+      "item": "alchemind:charged_stone",
       "count": 1,
-      "chance": 0.2
+      "chance": 0.3
     },
     {
       "item": "alchemind:amethyst_powder",

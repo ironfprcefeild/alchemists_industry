@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "minecraft:item/golden_apple"
+    "layer0": "alchemind/item:incomplete_enchanted_golden_apple"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "alchemind:galaxite"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "name": "alchemind:galaxite_bead"
+        }
+      ]
+    }
+  ]
+}

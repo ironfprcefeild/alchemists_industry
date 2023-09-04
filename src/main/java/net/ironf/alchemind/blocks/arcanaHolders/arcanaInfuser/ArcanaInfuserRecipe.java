@@ -1,7 +1,7 @@
-package net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor;
+package net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.simibubi.create.foundation.fluid.FluidIngredient;
+import com.mojang.logging.LogUtils;
 import net.ironf.alchemind.Alchemind;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
@@ -12,20 +12,27 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
+import org.slf4j.Logger;
+
+import java.util.HashMap;
+
+public class ArcanaInfuserRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
     private final ItemStack output;
 
-    private final float chance;
+    private final float arcanaRequired;
 
     private final NonNullList<Ingredient> recipeItems;
 
-    public MineralExtractorRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, float chance) {
+
+
+    public ArcanaInfuserRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, float arcanaRequired) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
-        this.chance = chance;
+        this.arcanaRequired = arcanaRequired;
     }
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
@@ -72,26 +79,26 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
     }
 
 
-    public float getChance(){
-        return chance;
+    public float getArcanaRequired(){
+        return arcanaRequired;
     }
 
 
 
-    public static class Type implements RecipeType<MineralExtractorRecipe> {
+    public static class Type implements RecipeType<ArcanaInfuserRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "mineral_extracting";
+        public static final String ID = "arcana_infusing";
     }
 
 
-    public static class Serializer implements RecipeSerializer<MineralExtractorRecipe> {
+    public static class Serializer implements RecipeSerializer<ArcanaInfuserRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(Alchemind.MODID, "mineral_extracting");
+                new ResourceLocation(Alchemind.MODID, "arcana_infusing");
 
         @Override
-        public MineralExtractorRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+        public ArcanaInfuserRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
@@ -101,14 +108,14 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            float chance = GsonHelper.getAsFloat(pSerializedRecipe, "chance");
+            float arcana_required = GsonHelper.getAsFloat(pSerializedRecipe, "arcana_required");
 
 
-            return new MineralExtractorRecipe(pRecipeId, output, inputs,chance);
+            return new ArcanaInfuserRecipe(pRecipeId, output, inputs,arcana_required);
         }
 
         @Override
-        public @Nullable MineralExtractorRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public @Nullable ArcanaInfuserRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
@@ -117,13 +124,13 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = buf.readItem();
 
-            float chance = buf.readFloat();
+            float arcana = buf.readFloat();
 
-            return new MineralExtractorRecipe(id, output, inputs, chance);
+            return new ArcanaInfuserRecipe(id, output, inputs, arcana);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, MineralExtractorRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, ArcanaInfuserRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
 
             for (Ingredient ing : recipe.getIngredients()) {
@@ -131,7 +138,7 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
             }
 
 
-            buf.writeFloat(recipe.getChance());
+            buf.writeFloat(recipe.getArcanaRequired());
 
             buf.writeItemStack(recipe.getResultItem(), false);
         }

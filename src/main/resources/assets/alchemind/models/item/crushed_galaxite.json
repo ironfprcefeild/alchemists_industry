@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/fluffy_aero"
+    "layer0": "alchemind:item/crushed_galaxite"
   }
 }

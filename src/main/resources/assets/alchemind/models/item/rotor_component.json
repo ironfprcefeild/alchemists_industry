@@ -1,6 +1,7 @@
+
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/aero_bucket"
+    "layer0": "alchemind:item/rotor_component"
   }
 }

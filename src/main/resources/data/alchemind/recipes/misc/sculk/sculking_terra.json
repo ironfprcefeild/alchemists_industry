@@ -5,9 +5,7 @@
       "item": "minecraft:sculk"
     },
     {
-      "fluid": "alchemind:source_mortith",
-      "nbt": {},
-      "amount": 30
+      "item": "alchemind:solid_terra"
     },
     {
       "fluid": "alchemind:source_shade",

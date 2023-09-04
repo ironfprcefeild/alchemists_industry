@@ -2,11 +2,14 @@
   "type": "alchemind:mineral_extracting",
   "ingredients": [
     {
-      "item": "alchemind:healthy_netherrack"
+      "item": "minecraft:end_stone"
     }
   ],
   "output": {
-    "item": "alchemind:unstable_debris"
+    "item": "alchemind:galaxite_bead"
   },
-  "chance": 0.05
+  "chance": 0.5,
+  "break_chance": 0.5,
+  "arcana_required": 50,
+  "extraction_speed": 0
 }

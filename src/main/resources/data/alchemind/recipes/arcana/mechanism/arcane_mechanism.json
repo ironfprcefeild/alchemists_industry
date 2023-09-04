@@ -1,27 +1,27 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:basalt"
+    "item": "create:precision_mechanism"
   },
   "transitionalItem": {
-    "item": "alchemind:incomplete_netherrack"
+    "item": "alchemind:incomplete_arcane_mechanism"
   },
   "sequence": [
     {
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "create:precision_mechanism"
         },
         [
           {
-            "item": "minecraft:blackstone"
+            "item": "alchemind:glamerite_alloy"
           }
         ]
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ]
     },
@@ -29,56 +29,49 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         },
         [
           {
-            "item": "create:cinder_flour"
+            "item": "alchemind:reactivite_alloy"
           }
         ]
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ]
     },
     {
-      "type": "create:filling",
+      "type": "create:cutting",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
-        },
-        {
-          "fluid": "create:potion",
-          "nbt": {
-            "Bottle": "REGULAR",
-            "Potion": "minecraft:healing"
-          },
-          "amount": 50
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ],
+      "processingTime": 100,
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ]
     },
     {
-      "type": "create:filling",
+      "type": "create:deploying",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         },
-        {
-          "fluid": "alchemind:source_ignus",
-          "nbt": {},
-          "amount": 50
-        }
+        [
+          {
+            "item": "alchemind:arcane_casing"
+          }
+        ]
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ]
     },
@@ -86,20 +79,33 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_arcane_mechanism"
         }
       ]
     }
   ],
   "results": [
     {
-      "item": "alchemind:cinder_scrap"
+      "item": "alchemind:arcane_mechanism",
+      "chance": 20
+    },
+    {
+      "item": "alchemind:arcane_casing",
+      "chance": 10
+    },
+    {
+      "item": "alchemind:pewter_block",
+      "chance": 1
+    },
+    {
+      "item": "alchemind:galaxite_bead",
+      "chance": 1
     }
   ],
-  "loops": 1
+  "loops": 4
 }

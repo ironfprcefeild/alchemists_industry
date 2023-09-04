@@ -2,10 +2,10 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "item": "alchemind:glamerite"
+      "item": "alchemind:reactivite"
     },
     {
-      "item": "minecraft:red_sand"
+      "item": "minecraft:sand"
     },
     {
       "fluid": "minecraft:water",
@@ -15,7 +15,7 @@
   ],
   "results": [
     {
-      "item": "minecraft:glamerite_powder"
+      "item": "alchemind:reactivite_powder"
     }
   ],
   "heatRequirement": "heated"

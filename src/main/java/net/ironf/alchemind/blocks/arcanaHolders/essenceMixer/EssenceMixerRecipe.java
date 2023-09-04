@@ -1,7 +1,8 @@
-package net.ironf.alchemind.recipe;
+package net.ironf.alchemind.blocks.arcanaHolders.essenceMixer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.ironf.alchemind.Alchemind;
 import net.minecraft.core.NonNullList;
@@ -14,18 +15,17 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     @Override
     public boolean matches(SimpleContainer container, Level level) {
-
         return false;
     }
-
     @Override
     public ItemStack assemble(SimpleContainer simpleContainer) {
         return null;
@@ -43,7 +43,11 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
 
 
     public FluidStack getResultFluid() {
-        return output.copy();
+        return output.getMatchingFluidStacks().get(0);
+    }
+
+    public NonNullList<FluidIngredient> getIngredientsFR() {
+        return Ingredients;
     }
 
     @Override
@@ -61,6 +65,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
+
     public static class Type implements RecipeType<EssenceMixerRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
@@ -68,20 +73,37 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
     }
 
 
-    public NonNullList<FluidIngredient> getFluidIngredients() {
-        return recipeFluids;
+    private final ResourceLocation id;
+    private final NonNullList<FluidIngredient> Ingredients;
+    private final FluidIngredient.FluidStackIngredient output;
+
+    private final Integer arcanaNeeded;
+
+
+    public EssenceMixerRecipe(ResourceLocation id, NonNullList<FluidIngredient> Ingredients, FluidIngredient.FluidStackIngredient output, Integer arcanaNeeded) {
+        this.id = id;
+        this.Ingredients = Ingredients;
+        this.output = output;
+        this.arcanaNeeded = arcanaNeeded;
     }
 
-    ResourceLocation id;
-    FluidStack output;
+    public Boolean tester (FluidStack[] toTest){
+        int helper = 0;
+        for (FluidStack f : toTest){
+            if (this.Ingredients.get(helper).test(f)){
+                if (helper == 2){
+                    return true;
+                }
+                helper++;
+            } else {
+                return false;
+            }
+        }
+        return null;
+    }
 
-    NonNullList<FluidIngredient> recipeFluids;
-
-    public EssenceMixerRecipe(ResourceLocation id, FluidStack output, NonNullList<FluidIngredient> recipeFluids) {
-        this.id = id;
-        this.output = output;
-        this.recipeFluids = recipeFluids;
-
+    public Integer getArcanaNeeded() {
+        return arcanaNeeded;
     }
 
     public static class Serializer implements RecipeSerializer<EssenceMixerRecipe> {
@@ -92,27 +114,16 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
         @Override
         public EssenceMixerRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
 
-
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<FluidIngredient> inputs = NonNullList.withSize(2, FluidIngredient.EMPTY);
+            NonNullList<FluidIngredient> inputs = NonNullList.withSize(3, FluidIngredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, FluidIngredient.deserialize(ingredients.get(i)));
             }
-
-            ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(pSerializedRecipe, "fluid_output"));
-            Fluid output = (Fluid)ForgeRegistries.FLUIDS.getValue(id);
-
-            int outputAmount = GsonHelper.getAsInt(pSerializedRecipe,"output_amount");
-
-            return new EssenceMixerRecipe(pRecipeId, new FluidStack(output, outputAmount), inputs);
+            FluidIngredient.FluidStackIngredient output = (FluidIngredient.FluidStackIngredient) FluidIngredient.deserialize(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+            Integer arcanaNeeded = GsonHelper.getAsInt(pSerializedRecipe,"arcana_required");
+            return new EssenceMixerRecipe(pRecipeId,inputs,output, arcanaNeeded);
         }
-
-
-
-
-
-
 
         @Override
         public @Nullable EssenceMixerRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
@@ -122,22 +133,22 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, FluidIngredient.read(buf));
             }
 
-            FluidStack output = buf.readFluidStack();
 
 
-            return new EssenceMixerRecipe(id, output, inputs);
+            return new EssenceMixerRecipe(id, inputs, (FluidIngredient.FluidStackIngredient) FluidIngredient.FluidStackIngredient.read(buf), buf.readInt());
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, EssenceMixerRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
 
-            for (FluidIngredient ing : recipe.getFluidIngredients()) {
+            for (FluidIngredient ing : recipe.Ingredients) {
                 ing.write(buf);
             }
-            buf.writeFluidStack(recipe.getResultFluid());
 
-
+            FluidIngredient.FluidStackIngredient output = recipe.output;
+            output.write(buf);
+            buf.writeInt(recipe.arcanaNeeded);
         }
     }
 

@@ -2,11 +2,11 @@
   "type": "alchemind:arcana_infusing",
   "ingredients": [
     {
-      "item": "minecraft:iron_ingot"
+      "item": "alchemind:pewter_ingot"
     }
   ],
   "output": {
-    "item": "minecraft:gold_ingot"
+    "item": "alchemind:arcanum_ingot"
   },
-  "arcana_required": 500
+  "arcana_required": 5000
 }

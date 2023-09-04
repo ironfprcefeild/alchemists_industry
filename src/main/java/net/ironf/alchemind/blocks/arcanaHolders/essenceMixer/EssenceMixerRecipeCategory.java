@@ -1,6 +1,9 @@
 package net.ironf.alchemind.blocks.arcanaHolders.essenceMixer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.compat.jei.EmptyBackground;
+import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -15,10 +18,13 @@ import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.ArcanaInfuserRecipe;
 import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.MineralExtractorRecipe;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
+import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+
+import static com.simibubi.create.compat.jei.category.CreateRecipeCategory.getRenderedSlot;
 
 public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerRecipe> {
     public final static ResourceLocation UID = new ResourceLocation(Alchemind.MODID, "essence_mixing");
@@ -29,7 +35,7 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
     private final IDrawable icon;
 
     public EssenceMixerRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
+        this.background = new EmptyBackground(177,125);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.ESSENCE_MIXER.get()));
     }
 
@@ -56,18 +62,38 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, EssenceMixerRecipe recipe, IFocusGroup focuses) {
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 120, 25)
+                .addFluidStack(recipe.getResultFluid().getFluid(),recipe.getResultFluid().getAmount())
+                .setBackground(getRenderedSlot(),-1,-1);
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 86, 30).addFluidStack(recipe.getIngredientsFR().get(0).getMatchingFluidStacks().get(0).getFluid(),recipe.getIngredientsFR().get(0).getMatchingFluidStacks().get(0).getAmount());
-        builder.addSlot(RecipeIngredientRole.INPUT, 86, 45).addFluidStack(recipe.getIngredientsFR().get(1).getMatchingFluidStacks().get(0).getFluid(),recipe.getIngredientsFR().get(1).getMatchingFluidStacks().get(0).getAmount());
-        builder.addSlot(RecipeIngredientRole.INPUT, 86, 60).addFluidStack(recipe.getIngredientsFR().get(2).getMatchingFluidStacks().get(0).getFluid(),recipe.getIngredientsFR().get(2).getMatchingFluidStacks().get(0).getAmount());
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 86, 15).addFluidStack(recipe.getResultFluid().getFluid(),recipe.getResultFluid().getAmount());
+        builder.addSlot(RecipeIngredientRole.INPUT, 120, 50)
+                .addFluidStack(recipe.getIngredientsFR().get(0).getMatchingFluidStacks().get(0).getFluid(),recipe.getIngredientsFR().get(0).getMatchingFluidStacks().get(0).getAmount())
+                .setBackground(getRenderedSlot(),-1,-1);
+        builder.addSlot(RecipeIngredientRole.INPUT, 120, 65)
+                .addFluidStack(recipe.getIngredientsFR().get(1).getMatchingFluidStacks().get(0).getFluid(),recipe.getIngredientsFR().get(1).getMatchingFluidStacks().get(0).getAmount())
+                .setBackground(getRenderedSlot(),-1,-1);
+        builder.addSlot(RecipeIngredientRole.INPUT, 120, 80)
+                .addFluidStack(recipe.getIngredientsFR().get(2).getMatchingFluidStacks().get(0).getFluid(),recipe.getIngredientsFR().get(2).getMatchingFluidStacks().get(0).getAmount())
+                .setBackground(getRenderedSlot(),-1,-1);
     }
 
     @Override
     public void draw(EssenceMixerRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
         Minecraft mc = Minecraft.getInstance();
-        mc.font.draw(stack, recipe.getArcanaNeeded() + " Arcana Required", 56, 5, 255);
+        mc.font.draw(stack, recipe.getArcanaNeeded() + " Arcana Required", 56, 5, 0);
+
+        new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
+                .draw(stack,80,60);
+
+        new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
+                .draw(stack,80,75);
+
+        new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
+                .draw(stack,80,90);
+
+        new SimpleAnimatedRecipeItem(ModBlocks.ESSENCE_MIXER.getDefaultState())
+                .draw(stack,80,45);
     }
 
 }

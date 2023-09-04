@@ -12,20 +12,22 @@
       "item": "alchemind:galaxium_shard"
     },
     "a": {
-      "item": "alchemind:accelerator"
+      "item": "alchemind:arcana_accelerator"
     },
     "s": {
       "item": "create:shaft"
+    },
+    "f": {
+      "item": "create:fluid_tank"
     }
   },
   "pattern": [
-    " s ",
-    "csc",
-    "gag",
-    "ara"
+    " crc ",
+    " sfs ",
+    "gaaag"
   ],
   "result": {
     "count": 1,
-    "item": "alchemind:arcana_rotor"
+    "item": "alchemind:arcana_rotor_base"
   }
 }

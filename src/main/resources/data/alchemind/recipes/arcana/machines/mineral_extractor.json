@@ -14,11 +14,11 @@
   },
   "pattern": [
     "ccc",
-    "c c",
-    "dmd"
+    "cmc",
+    "ddd"
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "item": "alchemind:mineral_extractor"
   }
 }

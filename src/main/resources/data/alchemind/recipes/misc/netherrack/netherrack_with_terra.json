@@ -1,83 +1,57 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "create:cinder_flour"
+    "item": "alchemind:cinder_scrap"
   },
   "transitionalItem": {
-    "item": "alchemind:incomplete_netherrack"
+    "item": "alchemind:incomplete_cinder_scrap"
   },
   "sequence": [
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "alchemind:incomplete_netherrack"
-        },
-        [
-          {
-            "item": "minecraft:blackstone"
-          }
-        ]
-      ],
-      "results": [
-        {
-          "item": "alchemind:incomplete_netherrack"
-        }
-      ]
-    },
+
     {
       "type": "create:filling",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_cinder_scrap"
         },
         {
-          "fluid": "minecraft:lava",
-          "nbt": {},
-          "amount": 250
-        }
-      ],
-      "results": [
-        {
-          "item": "alchemind:incomplete_netherrack"
-        }
-      ]
-    },
-    {
-      "type": "create:filling",
-      "ingredients": [
-        {
-          "item": "alchemind:incomplete_netherrack"
-        },
-        {
-          "fluid": "alchemind:source_ignus",
+          "fluid": "alchemind:source_terra",
           "nbt": {},
           "amount": 50
         }
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_cinder_scrap"
         }
       ]
     },
     {
-      "type": "create:pressing",
+      "type": "create:filling",
       "ingredients": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_cinder_scrap"
+        },
+        {
+          "fluid": "create:potion",
+          "nbt": {
+            "Bottle": "REGULAR",
+            "Potion": "minecraft:healing"
+          },
+          "amount": 100
         }
       ],
       "results": [
         {
-          "item": "alchemind:incomplete_netherrack"
+          "item": "alchemind:incomplete_cinder_scrap"
         }
       ]
     }
   ],
   "results": [
     {
-      "item": "alchemind:cinder_scrap"
+      "item": "minecraft:netherrack",
+      "count": 4
     }
   ],
   "loops": 1

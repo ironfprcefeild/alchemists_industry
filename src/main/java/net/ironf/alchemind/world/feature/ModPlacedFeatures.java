@@ -29,6 +29,20 @@ public class ModPlacedFeatures {
                     commonOrePlacement(1, // VeinsPerChunk
                             HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
 
+
+    public static final RegistryObject<PlacedFeature> GALAXITE_ORE_PLACED = PLACED_FEATURES.register("galaxite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.GALAXITE_VEIN_ORE.getHolder().get(), rareOrePlacement(5, // VeinsPerChunk
+                    HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
+
+
+
+    public static final RegistryObject<PlacedFeature> GALAXITE_SCATTERED_ORE_PLACED = PLACED_FEATURES.register("galaxite_scattered_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.GALAXITE_VEIN_ORE.getHolder().get(), rareOrePlacement(12, // VeinsPerChunk
+                    HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
+
+
+
+
     //Vanilla Helper Functions
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());

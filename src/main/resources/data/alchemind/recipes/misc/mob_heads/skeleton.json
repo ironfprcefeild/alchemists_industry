@@ -2,13 +2,13 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "minecraft:gunpowder"
+      "item": "minecraft:bone"
     },
     {
-      "item": "minecraft:gunpowder"
+      "item": "minecraft:bone"
     },
     {
-      "item": "minecraft:moss_block"
+      "item": "minecraft:calcite"
     },
     {
       "item": "create:copper_diving_helmet"
@@ -21,7 +21,7 @@
   ],
   "results": [
     {
-      "item": "minecraft:creeper_head",
+      "item": "minecraft:skeleton_skull",
       "count": 1
     }
   ]

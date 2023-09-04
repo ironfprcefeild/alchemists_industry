@@ -2,13 +2,16 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "minecraft:rotten_flesh"
+      "item": "minecraft:gunpowder"
     },
     {
-      "item": "minecraft:rotten_flesh"
+      "item": "minecraft:gunpowder"
     },
     {
-      "item": "minecraft:rotten_flesh"
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "create:copper_diving_helmet"
     },
     {
       "fluid": "alchemind:source_mortith",
@@ -18,7 +21,7 @@
   ],
   "results": [
     {
-      "item": "minecraft:zombie_head",
+      "item": "minecraft:creeper_head",
       "count": 1
     }
   ]

@@ -2,11 +2,11 @@
   "type": "alchemind:arcana_infusing",
   "ingredients": [
     {
-      "item": "minecraft:iron_ingot"
+      "item": "alchemind:charged_stone"
     }
   ],
   "output": {
-    "item": "minecraft:gold_ingot"
+    "item": "alchemind:super_charged_stone"
   },
-  "arcana_required": 500
+  "arcana_required": 1500
 }

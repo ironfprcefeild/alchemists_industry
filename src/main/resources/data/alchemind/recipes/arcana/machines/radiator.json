@@ -2,54 +2,29 @@
   "type": "create:mechanical_crafting",
   "acceptMirrored": false,
   "key": {
-    "1": {
-      "item": "minecraft:glowstone_dust"
+    "c": {
+      "item": "alchemind:arcane_casing"
     },
-    "2": {
-      "item": "minecraft:redstone"
+    "f": {
+      "item": "create:fluid_tank"
     },
-    "3": {
-      "item": "minecraft:gunpowder"
-    },
-    "4": {
-      "item": "alchemind:amethyst_powder"
-    },
-    "5": {
-      "item": "alchemind:glamerite_powder"
-    },
-    "6": {
-      "item": "alchemind:reactivite_powder"
-    },
-    "7": {
-      "item": "alchemind:pyrite_powder"
-    },
-    "8": {
-      "item": "create:cinder_flour"
-    },
-    "9": {
-      "item": "create:wheat_flour"
-    },
-    "a": {
-      "item": "alchemind:shinedust"
+    "m": {
+      "item": "alchemind:arcane_mechanism"
     },
     "b": {
-      "item": "alchemind:powerpowder"
+      "item": "create:blaze_burner"
     },
-    "c": {
-      "item": "alchemind:zoomdust"
+    "t": {
+      "item": "create:brass_sheet"
     }
   },
   "pattern": [
-    "  1 2  ",
-    "  1 2  ",
-    "3345566",
-    "  4 9  ",
-    "77889aa",
-    "  b c  ",
-    "  c c  "
+    "tccct",
+    "tfmft",
+    "tcbct"
   ],
   "result": {
-    "count": 1,
-    "item": "alchemind:philosophers_dust"
+    "count": 4,
+    "item": "alchemind:arcana_radiator"
   }
 }

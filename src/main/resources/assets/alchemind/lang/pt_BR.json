@@ -27,6 +27,7 @@
 "item.alchemind.pewter_nugget": "Pepita de Estanho",
 "item.alchemind.blank_sigil": "Selo em Branco",
 "item.alchemind.aero_sigil": "Selo de Aeris",
+"item.alchemind.blank_sigil.tool_tip": "Coloque essência e a drene para obter 100mb a mais do que você colocou! Transforme estanho em essência.",
 "item.alchemind.aqua_sigil": "Selo de Aqua",
 "item.alchemind.terra_sigil": "Selo de Terrenum",
 "item.alchemind.ignus_sigil": "Selo de Ignis",
@@ -46,5 +47,7 @@
 "block.alchemind.corvium": "Corvium",
 "block.alchemind.lead_block": "Bloco de Chumbo",
 "block.alchemind.pewter_block": "Bloco de Estanho",
-"block.alchemind.crystal_glass": "Vidro de Cristal"
+"block.alchemind.crystal_glass": "Vidro de Cristal",
+"block.alchemind.crystal_glass.tool_tip": "Consegue ver através do que os olhos não enxergam...",
+"alchemind.hold_shift": "Segure SHIFT para mais informações."
 }

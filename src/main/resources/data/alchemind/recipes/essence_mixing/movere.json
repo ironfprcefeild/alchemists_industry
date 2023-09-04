@@ -2,20 +2,20 @@
   "type": "alchemind:essence_mixing",
   "ingredients": [
     {
+      "fluid": "alchemind:source_aero",
+      "amount": 300
+    },
+    {
       "fluid": "alchemind:source_aqua",
-      "amount": 500
+      "amount": 300
     },
     {
-      "fluid": "alchemind:source_ignus",
-      "amount": 500
-    },
-    {
-      "fluid": "alchemind:source_reagent",
-      "amount": 90
+      "fluid": "alchemind:source_gheigh",
+      "amount": 300
     }
   ],
   "output": {
-    "fluid": "alchemind:source_gheigh",
+    "fluid": "alchemind:source_movere",
     "amount": 1000
   },
   "arcana_required": 500

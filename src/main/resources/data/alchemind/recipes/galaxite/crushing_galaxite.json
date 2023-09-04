@@ -2,21 +2,23 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "alchemind:galena"
+      "item": "alchemind:galaxite"
     }
   ],
   "results": [
     {
-      "item": "create:crushed_raw_lead",
-      "chance": 0.6
+      "item": "alchemind:galaxite_bead",
+      "chance": 0.5,
+      "count": 2
     },
     {
-      "item": "alchemind:lead_nugget",
-      "chance": 0.6
+      "item": "alchemind:galaxite_bead",
+      "chance": 0.5,
+      "count": 3
     },
     {
-      "item": "alchemind:pyrite",
-      "count": 2,
+      "item": "alchemind:crushed_galaxite",
+      "count": 1,
       "chance": 0.3
     }
   ],

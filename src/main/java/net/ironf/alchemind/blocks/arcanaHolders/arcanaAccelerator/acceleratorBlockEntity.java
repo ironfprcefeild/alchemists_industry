@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.List;
 
 public class acceleratorBlockEntity extends KineticBlockEntity {
-    public acceleratorBlockEntity(BlockEntityType<?> type,BlockPos pos, BlockState state) {
+    public acceleratorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(ModBlockEntities.ACCELERATOR.get(), pos, state);
     }
 

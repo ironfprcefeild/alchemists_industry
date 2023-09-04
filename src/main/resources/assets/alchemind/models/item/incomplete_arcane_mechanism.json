@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "create:item/golden_sheet"
+    "layer0": "alchemind:item/arcane_mechanism"
   }
 }

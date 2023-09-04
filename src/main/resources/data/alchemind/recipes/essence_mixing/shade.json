@@ -2,11 +2,11 @@
   "type": "alchemind:essence_mixing",
   "ingredients": [
     {
-      "fluid": "alchemind:source_aero",
+      "fluid": "alchemind:source_order",
       "amount": 500
     },
     {
-      "fluid": "alchemind:source_ignus",
+      "fluid": "alchemind:source_glima",
       "amount": 500
     },
     {
@@ -15,7 +15,7 @@
     }
   ],
   "output": {
-    "fluid": "alchemind:source_glima",
+    "fluid": "alchemind:source_shade",
     "amount": 1000
   },
   "arcana_required": 500

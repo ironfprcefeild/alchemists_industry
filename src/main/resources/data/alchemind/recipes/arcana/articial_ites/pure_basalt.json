@@ -2,11 +2,14 @@
   "type": "alchemind:mineral_extracting",
   "ingredients": [
     {
-      "item": "minecraft:end_stone"
+      "item": "minecraft:polished_basalt"
     }
   ],
   "output": {
-    "item": "alchemind:galaxite"
+    "item": "alchemind:pure_basalt"
   },
-  "chance": 0.10
+  "chance": 0.05,
+  "break_chance": 1,
+  "arcana_required": 25,
+  "extraction_speed": 55
 }

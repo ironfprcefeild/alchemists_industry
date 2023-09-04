@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": {"model": "alchemind:block/arcana_infuser"}
+    "": {"model": "alchemind:block/potion_catalyzer"}
   }
 }

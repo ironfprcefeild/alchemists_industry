@@ -2,7 +2,7 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "alchemind:glamerite_powder"
+      "item": "alchemind:reactivite_powder"
     },
     {
       "item": "alchemind:pyrite_powder"
@@ -10,7 +10,7 @@
   ],
   "results": [
     {
-      "item": "alchemind:glamerite_alloy"
+      "item": "alchemind:reactivite_alloy"
     }
   ],
   "heatRequirement": "heated"

@@ -47,27 +47,18 @@ public class EssenceMixer extends arcanaHoldingBlock implements IBE<EssenceMixer
         return createTickerHelper(blockEntityType, ModBlockEntities.ESSENCE_MIXER.get(), EssenceMixerBlockEntity::tick);
     }
 
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+
+
+
+
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+    public void onPlace(BlockState blockState, Level level, BlockPos preblockPos, BlockState state, boolean b) {
+        super.onPlace(blockState, level, preblockPos, state, b);
     }
 
-    @Override
-    public BlockState rotate(BlockState pState, Rotation pRotation) {
-        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
-    }
 
-    @Override
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
-        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
-    }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-    }
 
 
 

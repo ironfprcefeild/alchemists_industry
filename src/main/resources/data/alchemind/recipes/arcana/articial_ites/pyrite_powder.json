@@ -5,24 +5,30 @@
       "item": "alchemind:pure_basalt"
     },
     {
+      "item": "alchemind:corvium"
+    },
+    {
       "item": "create:cinder_flour"
     },
     {
       "item": "create:scorchia"
     },
     {
-      "item": "minecraft:red_sand"
+      "item": "minecraft:clay"
     },
     {
-      "fluid": "minecraft:water",
+      "fluid": "minecraft:lava",
       "nbt": {},
       "amount": 1000
     }
   ],
   "results": [
     {
-      "item": "alchemind:glamerite_powder",
-      "chance": 0.25
+      "item": "alchemind:pyrite_powder",
+      "chance": 0.15
+    },
+    {
+      "item": "alchemind:corvium"
     }
   ],
   "heatRequirement": "heated"

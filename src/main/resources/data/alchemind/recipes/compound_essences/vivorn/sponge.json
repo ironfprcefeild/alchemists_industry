@@ -2,7 +2,7 @@
   "type": "create:filling",
   "ingredients": [
     {
-      "item": "minecraft:bone_meal"
+      "item": "minecraft:hay_block"
     },
     {
       "fluid": "alchemind:source_vivorn",
@@ -12,7 +12,7 @@
   ],
   "results": [
     {
-      "item": "minecraft:bone"
+      "item": "minecraft:wet_sponge"
     }
   ]
 }

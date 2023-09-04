@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": {"model": "alchemind:block/mineral_extractor"}
+  }
+}

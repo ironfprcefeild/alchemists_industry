@@ -2,11 +2,11 @@
   "type": "alchemind:arcana_infusing",
   "ingredients": [
     {
-      "item": "minecraft:stick"
+      "item": "minecraft:iron_ingot"
     }
   ],
   "output": {
-    "item": "minecraft:diamond"
+    "item": "minecraft:gold_ingot"
   },
-  "arcana_required": 1000
+  "arcana_required": 500
 }

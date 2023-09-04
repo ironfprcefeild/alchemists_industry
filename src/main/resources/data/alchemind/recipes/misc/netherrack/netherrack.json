@@ -2,20 +2,20 @@
   "type": "create:filling",
   "ingredients": [
     {
-      "tag": "minecraft:fishes"
+      "item": "alchemind:cinder_scrap"
     },
     {
       "fluid": "create:potion",
       "nbt": {
         "Bottle": "REGULAR",
-        "Potion": "minecraft:poison"
+        "Potion": "minecraft:healing"
       },
-      "amount": 65
+      "amount": 100
     }
   ],
   "results": [
     {
-      "item": "minecraft:pufferfish"
+      "item": "minecraft:netherrack"
     }
   ]
 }

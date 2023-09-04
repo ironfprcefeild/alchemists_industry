@@ -2,20 +2,20 @@
   "type": "alchemind:essence_mixing",
   "ingredients": [
     {
-      "fluid": "alchemind:source_aero",
-      "amount": 500
+      "fluid": "alchemind:source_ignus",
+      "amount": 300
+    },
+    {
+      "fluid": "alchemind:source_order",
+      "amount": 300
     },
     {
       "fluid": "alchemind:source_terra",
-      "amount": 500
-    },
-    {
-      "fluid": "alchemind:source_reagent",
-      "amount": 90
+      "amount": 300
     }
   ],
   "output": {
-    "fluid": "alchemind:source_order",
+    "fluid": "alchemind:source_potere",
     "amount": 1000
   },
   "arcana_required": 500

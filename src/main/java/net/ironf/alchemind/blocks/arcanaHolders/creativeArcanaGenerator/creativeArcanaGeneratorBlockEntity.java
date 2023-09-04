@@ -12,31 +12,35 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class CreativeArcanaGeneratorBlockEntity extends BlockEntity implements IHaveGoggleInformation {
+public class creativeArcanaGeneratorBlockEntity extends BlockEntity implements IHaveGoggleInformation {
 
-    public CreativeArcanaGeneratorBlockEntity(BlockPos pos, BlockState state) {
+    public creativeArcanaGeneratorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CREATIVE_ARCANA_GENERATOR.get(), pos, state);
     }
 
 
-    public static void tick(Level level, BlockPos pos, BlockState blockState, CreativeArcanaGeneratorBlockEntity pEntity) {
+    public static void tick(Level level, BlockPos pos, BlockState blockState, creativeArcanaGeneratorBlockEntity pEntity) {
         if (level.isClientSide){
             return;
         }
 
-        arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(pos,level));
+        pEntity.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(pos,level));
 
-        CreativeArcanaGenerator.ArcanaTick(level, pos, 5000, 100, 100, true, false);
+        creativeArcanaGenerator.ArcanaTick(level, pos, 50000, 50000, 50000, true, false);
 
 
     }
 
-    static Integer arcanaRef;
+    public Integer arcanaRef;
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcanaRef.toString() + "/5000"));
+        tooltip.add(componentSpacing.plainCopy().append("Plenty"));
         return true;
     }
 
-
+    @Override
+    public void onLoad() {
+        this.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        super.onLoad();
+    }
 }

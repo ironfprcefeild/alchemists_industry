@@ -2,18 +2,25 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "minecraft:packed_ice"
+      "item": "alchemind:hard_galaxium"
     },
     {
-      "fluid": "alchemind:source_aqua",
+      "item": "alchemind:galaxite_bead"
+    },
+    {
+      "item": "alchemind:galaxite_bead"
+    },
+    {
+      "fluid": "alchemind:source_reagent",
       "nbt": {},
       "amount": 75
     }
   ],
   "results": [
     {
-      "item": "minecraft:ice",
-      "count": 2
+      "item": "alchemind:galaxium_shard",
+      "count": 1,
+      "chance": 0.1
     }
   ]
 }

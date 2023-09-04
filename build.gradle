@@ -2,9 +2,11 @@ plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
+
 }
 
-version = '0.1.0-1.19.2'
+version = '0.2.0.beta4-1.19.2-0.5.1'
 group = 'net.ironf.alchemind' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'alchemind'
 
@@ -123,6 +125,16 @@ repositories {
         name = 'tterrag maven'
         url = 'https://maven.tterrag.com/'
     }
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
     // flatDir {
     //     dir 'libs'
@@ -130,13 +142,32 @@ repositories {
 
 }
 
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.alchemind.refmap.json'
+    config 'alchemind.mixins.json'
+    debug.verbose = true
+    debug.export = true
+}
+
 dependencies {
 
+    //Minecraft
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.8'
 
+    //Create
     implementation fg.deobf("com.simibubi.create:create-${create_minecraft_version}:${create_version}:slim") { transitive = false }
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}")
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    //JEI
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+
+    //Mixins
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
 
 }
 

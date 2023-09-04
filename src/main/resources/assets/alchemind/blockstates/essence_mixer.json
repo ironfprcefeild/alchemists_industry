@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": {"model": "alchemind:block/essence_mixer/essence_mixer_model"}
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.ironf.alchemind.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [],
+  "mixins": [
+    "DrainSiphonMixinHandler"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

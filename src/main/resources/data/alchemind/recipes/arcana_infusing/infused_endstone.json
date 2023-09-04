@@ -2,11 +2,11 @@
   "type": "alchemind:arcana_infusing",
   "ingredients": [
     {
-      "item": "alchemind:pewter_ingot"
+      "item": "minecraft:end_stone"
     }
   ],
   "output": {
-    "item": "alchemind:arcanum_ingot"
+    "item": "alchemind:infused_endstone"
   },
-  "arcana_required": 5000
+  "arcana_required": 20
 }

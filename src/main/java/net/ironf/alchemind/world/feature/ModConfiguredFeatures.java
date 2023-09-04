@@ -47,9 +47,11 @@ public class ModConfiguredFeatures {
     public static final Supplier<List<OreConfiguration.TargetBlockState>> GALAXITE_SUPPLIER = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(new BlockMatchTest(Blocks.END_STONE), ModBlocks.GALAXITE.get().defaultBlockState())));
     public static final RegistryObject<ConfiguredFeature<?, ?>> GALAXITE_VEIN_ORE = CONFIGURED_FEATURES.register("galaxite_vein_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(GALAXITE_SUPPLIER.get(), 9)));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(GALAXITE_SUPPLIER.get(), 25)));
 
 
+    public static final RegistryObject<ConfiguredFeature<?, ?>> GALAXITE_SCATTERED_VEIN_ORE = CONFIGURED_FEATURES.register("galaxite_scattered_vein_ore",
+            () -> new ConfiguredFeature<>(Feature.SCATTERED_ORE, new OreConfiguration(GALAXITE_SUPPLIER.get(), 60)));
 
     public static void register(IEventBus eventBus) {
         CONFIGURED_FEATURES.register(eventBus);

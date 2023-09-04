@@ -2,20 +2,27 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "create:brass_ingot",
-      "count": 3
+      "item": "alchemind:arcanum_ingot"
     },
     {
-      "item": "alchemind:arcanum_ingot",
-      "count": 3
+      "item": "minecraft:emerald"
     },
     {
-      "item": "alchemind:unstable_debris"
+      "item": "alchemind:warped_diamond_dust"
+    },
+    {
+      "item": "alchemind:warped_diamond_dust"
+    },
+    {
+      "item": "alchemind:warped_diamond_dust"
+    },
+    {
+      "item": "minecraft:coal_block"
     }
   ],
   "results": [
     {
-      "item": "minecraft:ancient_debris"
+      "item": "minecraft:diamond"
     }
   ],
   "heatRequirement": "superheated"

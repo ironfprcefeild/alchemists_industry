@@ -1,20 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "iii",
+    "IiI",
     "iCi",
-    "iii"
+    "IiI"
   ],
   "key": {
     "i": {
       "item": "alchemind:pewter_nugget"
     },
+    "I": {
+      "item": "alchemind:pewter_ingot"
+    },
     "C": {
-      "item": "alchemind:charged_stone"
+      "item": "alchemind:super_charged_stone"
     }
   },
   "result": {
     "item": "alchemind:blank_sigil",
-    "count": 3
+    "count": 32
   }
 }

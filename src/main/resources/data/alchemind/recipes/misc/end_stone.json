@@ -2,17 +2,15 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "minecraft:packed_ice"
+      "item": "minecraft:coarse_dirt"
     },
     {
-      "fluid": "alchemind:source_aqua",
-      "nbt": {},
-      "amount": 75
+      "item": "alchemind:infused_endstone"
     }
   ],
   "results": [
     {
-      "item": "minecraft:ice",
+      "item": "minecraft:end_stone",
       "count": 2
     }
   ]

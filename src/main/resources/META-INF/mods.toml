@@ -9,9 +9,9 @@ modLoader="javafml" #mandatory
 loaderVersion="[43,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="All rights reserved"
+license="Creative Commons Attribution 4.0 International Public License"
 # A URL to refer people to when problems occur with this mod
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+#issueTrackerURL="https://discord.gg/qwAwVfJqYx" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
@@ -19,7 +19,7 @@ modId="alchemind" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version="0.0.4-1.19.2" #mandatory
+version="0.1.2-1.19.2" #mandatory
  # A display name for the mod
 displayName="Alchemist's Industry" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
@@ -27,9 +27,9 @@ displayName="Alchemist's Industry" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="examplemod.png" #optional
+logoFile="alchemind_logo.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java" #optional
+credits="Thanks for this example mod goes to Java, People who Contributed: Feellian - For creating the Russian translation and texturing the fluids, as well as loose and solid essence blocks. Kiberkotla - For Creating the textures for all the Lead Stuff, amethyst powder, impure ghast tear, and gunpowder dusts. YellowHawk - For Building the structures that spawn in game. Elenterius - Being consistently very helpful when I had questions. BlazeHen - For the Brazilian Portuguese translation " #optional
 # A text field displayed in the mod UI
 authors="Ironforcefeild" #optional
 # Display Test controls the display for your mod in the server connection screen
@@ -66,7 +66,7 @@ Enhance your create mod builds with the power of alchemy!
 [[dependencies.alchemind]]
     modId="create"
     mandatory=true
-    versionRange="[0.5.0.i,)"
+    versionRange="[0.5,)"
     ordering="NONE"
     side="BOTH"
 

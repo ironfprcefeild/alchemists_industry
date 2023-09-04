@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.Vec3;
 
-public class acceleratorScences {
+public class acceleratorScenes {
 
     public static void accelerator(SceneBuilder scene, SceneBuildingUtil util){
         scene.title("accelerator_scene", "Rotating an Accelerator to manage Arcana Machines");

@@ -2,20 +2,13 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "item": "alchemind:flicker_stone"
-    },
-    {
-      "item": "minecraft:amethyst_shard"
-    },
-    {
-      "fluid": "minecraft:lava",
-      "nbt": {},
-      "amount": 900
+      "item": "alchemind:cinder_scrap",
+      "count": 4
     }
   ],
   "results": [
     {
-      "item": "minecraft:emerald"
+      "item": "alchemind:cinderite"
     }
   ],
   "heatRequirement": "heated"

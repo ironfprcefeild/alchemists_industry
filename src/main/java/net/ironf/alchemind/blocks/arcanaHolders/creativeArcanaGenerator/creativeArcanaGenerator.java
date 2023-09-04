@@ -10,24 +10,26 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class CreativeArcanaGenerator extends arcanaHoldingBlock {
+public class creativeArcanaGenerator extends arcanaHoldingBlock {
 
-    public CreativeArcanaGenerator(Properties properties, boolean accepts, boolean sends) {
-        super(properties, accepts, sends);
+    public creativeArcanaGenerator(Properties properties) {
+        super(properties, false, true);
 
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new CreativeArcanaGeneratorBlockEntity(pos, state);
+        return new creativeArcanaGeneratorBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, ModBlockEntities.CREATIVE_ARCANA_GENERATOR.get(),CreativeArcanaGeneratorBlockEntity::tick);
+        return createTickerHelper(blockEntityType, ModBlockEntities.CREATIVE_ARCANA_GENERATOR.get(), creativeArcanaGeneratorBlockEntity::tick);
     }
+
+
 
 
 

@@ -1,0 +1,83 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "alchemind:block/arcana_infuser",
+		"particle": "alchemind:item/philosophers_stone"
+	},
+	"elements": [
+		{
+			"name": "main",
+			"from": [0, 3, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 8, 6.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 6.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 6.5], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 6.5], "texture": "#0"},
+				"up": {"uv": [8, 0, 16, 8], "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "accelerator_interface",
+			"from": [6, 16, 6],
+			"to": [10, 17, 10],
+			"faces": {
+				"north": {"uv": [0, 8, 2, 8.5], "texture": "#0"},
+				"east": {"uv": [0, 8, 2, 8.5], "texture": "#0"},
+				"south": {"uv": [0, 8, 2, 8.5], "texture": "#0"},
+				"west": {"uv": [0, 8, 2, 8.5], "texture": "#0"},
+				"up": {"uv": [0, 8, 2, 10], "texture": "#0"}
+			}
+		},
+		{
+			"name": "tube",
+			"from": [6, -10, 6],
+			"to": [10, 3, 10],
+			"faces": {
+				"north": {"uv": [3, 8, 5, 16], "texture": "#0"},
+				"east": {"uv": [3, 8, 5, 16], "texture": "#0"},
+				"south": {"uv": [3, 8, 5, 16], "texture": "#0"},
+				"west": {"uv": [3, 8, 5, 16], "texture": "#0"},
+				"up": {"uv": [3, 8, 5, 16], "texture": "#0"},
+				"down": {"uv": [3, 8, 5, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, -11, 5],
+			"to": [11, -10, 11],
+			"faces": {
+				"north": {"uv": [0, 11, 3, 11.5], "texture": "#0"},
+				"east": {"uv": [0, 11, 3, 11.5], "texture": "#0"},
+				"south": {"uv": [0, 11, 3, 11.5], "texture": "#0"},
+				"west": {"uv": [0, 11, 3, 11.5], "texture": "#0"},
+				"up": {"uv": [0, 11, 3, 14], "texture": "#0"},
+				"down": {"uv": [0, 11, 3, 14], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"firstperson_righthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"ground": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.41, 0.41, 0.42]
+		}
+	}
+}

@@ -2,33 +2,30 @@
   "type": "create:mechanical_crafting",
   "acceptMirrored": false,
   "key": {
-    "f": {
-      "item": "create:fluid_tank"
-    },
     "c": {
       "item": "alchemind:arcane_casing"
     },
-    "m": {
-      "item": "alchemind:arcane_mechanism"
+    "r": {
+      "item": "alchemind:rotor_component"
     },
     "g": {
       "item": "alchemind:galaxium_shard"
     },
     "a": {
-      "item": "alchemind:accelerator"
+      "item": "alchemind:arcana_accelerator"
     },
-    "b": {
-      "item": "minecraft:brewing_stand"
+    "s": {
+      "item": "create:shaft"
     }
   },
   "pattern": [
-    "gpg",
-    "bfb",
-    "gmg",
-    "cac"
+    " s ",
+    "csc",
+    "gag",
+    "ara"
   ],
   "result": {
-    "count": 2,
-    "item": "alchemind:potion_catalyzer"
+    "count": 1,
+    "item": "alchemind:arcana_rotor"
   }
 }

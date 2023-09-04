@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "alchemind:block/terra_conduit"
+    "all": "alchemind:block/zoomdust_block"
   }
 }

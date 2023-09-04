@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "alchemind:block/arcane_casing"
-  }
-}

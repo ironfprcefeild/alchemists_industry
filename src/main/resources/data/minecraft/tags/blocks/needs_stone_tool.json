@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "alchemind:corvium"
+    "alchemind:corvium",
+    "alchemind:galaxite",
+    "alchemind:pure_basalt",
+    "alchemind:zoomdust_block"
+
   ]
 }

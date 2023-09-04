@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "alchemind:block/arcana_radiator",
-		"particle": "alchemind:block/arcana_radiator"
+		"particle": "alchemind:block/pewter_block"
 	},
 	"elements": [
 		{
@@ -342,5 +342,29 @@
 				"down": {"uv": [7, 11.5, 6.75, 14], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"firstperson_righthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"ground": {
+			"scale": [0.41, 0.41, 0.42]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.41, 0.41, 0.42]
+		}
+	}
 }

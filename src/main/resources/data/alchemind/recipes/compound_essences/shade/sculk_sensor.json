@@ -2,17 +2,17 @@
   "type": "create:filling",
   "ingredients": [
     {
-      "item": "minecraft:charcoal"
+      "item": "minecraft:observer"
     },
     {
-      "fluid": "alchemind:source_aero",
+      "fluid": "alchemind:source_shade",
       "nbt": {},
-      "amount": 125
+      "amount": 500
     }
   ],
   "results": [
     {
-      "item": "minecraft:coal"
+      "item": "minecraft:sculk_sensor"
     }
   ]
 }

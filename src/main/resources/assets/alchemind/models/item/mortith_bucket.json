@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/aero_bucket"
+    "layer0": "alchemind:item/mortith_bucket"
   }
 }

@@ -2,11 +2,11 @@
   "type": "alchemind:essence_mixing",
   "ingredients": [
     {
-      "fluid": "alchemind:source_aqua",
+      "fluid": "alchemind:source_gheigh",
       "amount": 500
     },
     {
-      "fluid": "alchemind:source_ignus",
+      "fluid": "alchemind:source_vivorn",
       "amount": 500
     },
     {
@@ -15,7 +15,7 @@
     }
   ],
   "output": {
-    "fluid": "alchemind:source_gheigh",
+    "fluid": "alchemind:source_mortith",
     "amount": 1000
   },
   "arcana_required": 500

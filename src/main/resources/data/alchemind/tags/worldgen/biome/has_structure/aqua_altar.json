@@ -1,7 +1,17 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:spawns_cold_variant_frogs",
-    "#minecraft:is_end"
+    "minecraft:frozen_ocean",
+    "minecraft:frozen_river",
+    "minecraft:snowy_plains",
+    "minecraft:snowy_beach",
+    "minecraft:snowy_taiga",
+    "minecraft:grove",
+    "minecraft:snowy_slopes",
+    "minecraft:jagged_peaks",
+    "minecraft:frozen_peaks",
+    "minecraft:ice_spikes",
+    "#minecraft:is_ocean",
+    "#minecraft:is_river"
   ]
 }

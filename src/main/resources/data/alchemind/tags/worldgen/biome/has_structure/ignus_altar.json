@@ -3,7 +3,6 @@
   "values": [
     "#minecraft:is_badlands",
     "minecraft:desert",
-    "#minecraft:is_savanna",
-    "#minecraft:is_end"
+    "#minecraft:is_savanna"
   ]
 }

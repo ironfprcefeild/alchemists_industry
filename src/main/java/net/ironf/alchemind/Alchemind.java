@@ -1,23 +1,31 @@
 package net.ironf.alchemind;
 
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.content.logistics.item.filter.attribute.FluidContentsAttribute;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.ironf.alchemind.blocks.ModBlocks;
+import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
+import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.arcanaInfuserRenderer;
+import net.ironf.alchemind.blocks.entity.ModBlockEntities;
+import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.fluid.ModFluidTypes;
 import net.ironf.alchemind.fluid.ModFluids;
 import net.ironf.alchemind.item.ModItems;
+import net.ironf.alchemind.ponders.AllPonderTags;
+import net.ironf.alchemind.ponders.PonderIndex;
+import net.ironf.alchemind.recipe.ModRecipes;
 import net.ironf.alchemind.world.feature.ModConfiguredFeatures;
 import net.ironf.alchemind.world.feature.ModPlacedFeatures;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
@@ -26,16 +34,19 @@ import org.slf4j.Logger;
 public class Alchemind
 {
     public static final String MODID = "alchemind";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID);
+
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Alchemind()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        REGISTRATE.registerEventListeners(modEventBus);
+
         ModItems.register(modEventBus);
 
         ModBlocks.register(modEventBus);
-
 
         ModFluids.register(modEventBus);
         ModFluidTypes.register(modEventBus);
@@ -43,7 +54,14 @@ public class Alchemind
         ModPlacedFeatures.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
+
+
         modEventBus.addListener(this::commonSetup);
+
+
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -55,10 +73,47 @@ public class Alchemind
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
+    public void ServerStarting(ServerStartingEvent event)
     {
         // Do something when the server starts
-        LOGGER.info("alchemist's industry is running");
+        LOGGER.info("Alchemist's industry is running on the server");
+        AllPonderTags.register();
+        PonderIndex.register();
+
+        LoadArcana(event.getServer());
+
+    }
+
+
+    @SubscribeEvent
+    public void ServerStopping(ServerStoppingEvent event)
+    {
+        // Do something when the server closes
+        LOGGER.info("Alchemist's industry is closing on the server");
+        SaveArcana(event.getServer());
+    }
+
+
+
+    public void SaveArcana(net.minecraft.server.MinecraftServer server){
+
+        LOGGER.info("Alchemist's Industry is saving Arcana Information");
+
+        arcana_maps data = arcana_maps.manage(server);
+
+        data.setIsArcanaTakerMap(arcana_maps.IsArcanaTaker);
+        data.setArcanaMap(arcana_maps.ArcanaMap);
+    }
+
+    public void LoadArcana(net.minecraft.server.MinecraftServer server){
+
+        LOGGER.info("Alchemist's Industry is loading Arcana Information");
+
+        arcana_maps data = arcana_maps.manage(server);
+
+        arcana_maps.IsArcanaTaker = data.getisArcanaTakerMap();
+        arcana_maps.ArcanaMap = data.getArcanaMap();
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -69,10 +124,26 @@ public class Alchemind
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            LOGGER.info("alchemist's industry is running");
-            //ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_IGNUS.get(), RenderType.translucent());
-            //ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_IGNUS.get(), RenderType.translucent());
+            LOGGER.info("alchemist's industry is running on the client");
+
 
         }
+
+        @SubscribeEvent
+        public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.ACCELERATOR.get(),
+                   acceleratorRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.ARCANA_INFUSER.get(),
+                    arcanaInfuserRenderer::new);
+        }
     }
+
+    //Assisting Functions
+
+    public static ResourceLocation createRL(String path){
+        return new ResourceLocation(MODID,path);
+    }
+
+
+
 }

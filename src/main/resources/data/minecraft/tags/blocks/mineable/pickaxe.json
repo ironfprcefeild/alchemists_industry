@@ -7,6 +7,18 @@
     "alchemind:lead_block",
     "alchemind:pewter_block",
     "alchemind:corvium",
-    "alchemind:crystal_glass"
+    "alchemind:galaxite",
+    "alchemind:crystal_glass",
+    "alchemind:arcana_radiator",
+    "alchemind:arcana_infuser",
+    "alchemind:mineral_extractor",
+    "alchemind:potion_catalyzer",
+    "alchemind:arcana_accelerator",
+    "alchemind:essence_mixer",
+    "alchemind:unstable_debris",
+    "alchemind:infused_endstone",
+    "alchemind:pure_basalt",
+    "alchemind:shinedust_lantern",
+    "alchemind:arcane_casing"
   ]
 }

@@ -2,18 +2,27 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "minecraft:packed_ice"
+      "item": "minecraft:rotten_flesh"
     },
     {
-      "fluid": "alchemind:source_aqua",
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "create:copper_diving_helmet"
+    },
+    {
+      "fluid": "alchemind:source_mortith",
       "nbt": {},
-      "amount": 75
+      "amount": 1000
     }
   ],
   "results": [
     {
-      "item": "minecraft:ice",
-      "count": 2
+      "item": "minecraft:zombie_head",
+      "count": 1
     }
   ]
 }
