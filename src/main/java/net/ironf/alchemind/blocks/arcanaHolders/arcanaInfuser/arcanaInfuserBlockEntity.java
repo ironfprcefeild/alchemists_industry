@@ -9,6 +9,7 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import net.ironf.alchemind.BlockDimPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
+import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
 import net.minecraft.core.BlockPos;
@@ -28,7 +29,7 @@ import java.util.*;
 
 import static net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity.findAcceleratorSpeed;
 
-public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
+public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation, IArcanaReader, IAcceleratorReaderBlockEntity {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public arcanaInfuserBlockEntity(BlockPos pos, BlockState state) {
@@ -43,7 +44,7 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
             return;
         }
 
-        pEntity.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(pos,level));
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
 
         arcanaInfuser.ArcanaTick(level, pos, 8000, 10, 0, false, true);
         if (pEntity.processingTicks < processingSpeed(pEntity)){
@@ -55,32 +56,23 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
 
     public static boolean processingReady(arcanaInfuserBlockEntity pEntity){
         float pSpeed = processingSpeed(pEntity);
-        return pSpeed != 80 && pEntity.processingTicks >= pSpeed;
+        return pSpeed != 160 && pEntity.processingTicks >= pSpeed;
     }
 
     public static float processingSpeed(arcanaInfuserBlockEntity pEntity){
-        return (80 - Math.round(findAcceleratorSpeed(pEntity)/16));
-    }
-
-    public float getRenderedHeadOffset(float partialTicks) {
-        if (findAcceleratorSpeed(this) == 0)
-            return 0;
-        int runningTicks = Math.abs(processingTicks);
-        float pSpeed = processingSpeed(this);
-        float ticks = Mth.lerp(partialTicks, pSpeed , runningTicks);
-        return Mth.clamp((pSpeed - ticks) / pSpeed * 3, 0, 1);
+        return (160 - Math.round(findAcceleratorSpeed(pEntity)/16));
     }
 
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(), this.level)) + "/8000"));
+        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(), this.level)) + "/8000"));
         return true;
     }
 
     @Override
     public void onLoad() {
-        this.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(),this.getLevel()));
         super.onLoad();
     }
 
@@ -93,8 +85,6 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
     }
 
 
-
-    private static final RecipeWrapper WRAPPER = new RecipeWrapper(new ItemStackHandler(1));
 
     public static Optional<ArcanaInfuserRecipe> grabRecipe(Level level, ItemStack stack){
         SimpleContainer inventory = new SimpleContainer(1);
@@ -162,7 +152,7 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
     private static void createEffect(arcanaInfuserBlockEntity pEntity){
         Level level = pEntity.getLevel();
         assert level != null;
-        level.addParticle(ParticleTypes.ELECTRIC_SPARK, pEntity.getBlockPos().getX(),pEntity.getBlockPos().getY()-0.9,pEntity.getBlockPos().getZ(),0,0.45,3);
+        level.addParticle(ParticleTypes.DRAGON_BREATH, pEntity.getBlockPos().getX(),pEntity.getBlockPos().getY()-0.9,pEntity.getBlockPos().getZ(),0,0.45,0);
     }
 
     @Override

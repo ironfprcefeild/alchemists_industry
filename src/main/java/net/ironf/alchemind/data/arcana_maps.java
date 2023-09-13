@@ -21,10 +21,13 @@ public class arcana_maps extends SavedData {
     ///Arcana Map
     public static HashMap<BlockDimPos, Integer> ArcanaMap = new HashMap<>();
 
-    public HashMap<BlockDimPos, Integer> getArcanaMap() {
-        return this.ArcanaMap;
+    public static HashMap<BlockDimPos, Integer> getArcanaMap() {
+        return ArcanaMap;
     }
 
+    public Integer getOnArcanaMap(BlockDimPos pos){
+        return ArcanaMap.get(pos) == null ? 0 : ArcanaMap.get(pos);
+    }
     public void addToArcanaMap(BlockDimPos key, int newValue) {
         this.ArcanaMap.put(key,newValue);
         this.setDirty();
@@ -125,27 +128,6 @@ public class arcana_maps extends SavedData {
         return ToReturnMap;
     }
 
-    //Doing the Do (yes)
-
-    /*
-    private static final Logger LOGGER = LogUtils.getLogger();
-    @SubscribeEvent
-    public void ServerStarting(ServerStartingEvent event)
-    {
-
-
-
-
-    }
-
-    @SubscribeEvent
-    public void ServerStopping(ServerStoppingEvent event)
-    {
-
-
-    }
-
-     */
 }
 
 

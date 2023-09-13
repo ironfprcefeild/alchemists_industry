@@ -58,9 +58,12 @@ public class acceleratorScenes {
         scene.idle(65);
         scene.overlay.showText(60).text("The Potion Catalyzer, when functioning, quadruples the effective speed of the Accelerator").pointAt(new Vec3(2,3,2));
         scene.idle(65);
+        /*
         scene.overlay.showText(60).text("This benefit is most helpful for high level Arcana Rotors").pointAt(new Vec3(2,3,2));
         scene.world.showSection(util.select.fromTo(1,1,2,1,2,1),Direction.NORTH);
         scene.idle(65);
+
+         */
 
         scene.markAsFinished();
     }

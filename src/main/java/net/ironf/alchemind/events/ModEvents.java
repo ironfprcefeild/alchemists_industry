@@ -17,6 +17,7 @@ public class ModEvents {
     public class modEvents {
         @SubscribeEvent
         public static void onLivingTick(LivingEvent.LivingTickEvent event){
+            /*
             if (event.getEntity() != null && !event.getEntity().getLevel().isClientSide){
                 if (event.getEntity().getLevel().getBlockState(event.getEntity().getOnPos().below()).getBlock() instanceof effectLiquidBlock){
                     event.getEntity().addEffect(((effectLiquidBlock) event.getEntity().getLevel().getBlockState(event.getEntity().getOnPos().below()).getBlock()).getEffect());
@@ -26,7 +27,10 @@ public class ModEvents {
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 150, 4));
                 }
             }
+
+             */
         }
+
 
 
 

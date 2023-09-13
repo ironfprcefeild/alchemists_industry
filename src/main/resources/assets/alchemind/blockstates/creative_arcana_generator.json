@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": {"model": "alchemind:block/arcane_link"}
+    "": {"model": "alchemind:block/arcana_generator"}
   }
 }

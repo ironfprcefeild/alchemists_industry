@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/powerpowder"
+    "layer0": "alchemind:item/power_powder"
   }
 }

@@ -5,9 +5,11 @@ import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.foundation.block.IBE;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.ArcanaRadiatorBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -29,6 +31,11 @@ public class potionCatalyzer extends BaseEntityBlock implements IBE<potionCataly
     @Override
     public BlockEntityType<? extends potionCatalyzerBlockEntity> getBlockEntityType() {
         return ModBlockEntities.POTION_CATALYZER.get();
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState p_49232_) {
+        return RenderShape.MODEL;
     }
 
     @Nullable

@@ -4,7 +4,6 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
-import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.arcanaInfuserRenderer;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.fluid.ModFluidTypes;
@@ -133,8 +132,7 @@ public class Alchemind
         public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.ACCELERATOR.get(),
                    acceleratorRenderer::new);
-            event.registerBlockEntityRenderer(ModBlockEntities.ARCANA_INFUSER.get(),
-                    arcanaInfuserRenderer::new);
+
         }
     }
 

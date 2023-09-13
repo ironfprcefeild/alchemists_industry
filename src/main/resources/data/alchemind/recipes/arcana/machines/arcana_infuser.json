@@ -13,12 +13,19 @@
     },
     "p": {
       "item": "alchemind:philosophers_fragment"
+    },
+    "g": {
+      "item": "alchemind:galaxium_shard"
+    },
+    "b": {
+      "item": "minecraft:copper_block"
     }
   },
   "pattern": [
-    "ccc",
+    "bmb",
+    "cmc",
     "cpc",
-    "msm"
+    "gsg"
   ],
   "result": {
     "count": 1,

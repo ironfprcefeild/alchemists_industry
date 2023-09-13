@@ -5,6 +5,7 @@ import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.arcanaInfuserBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
@@ -87,7 +88,7 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
             return;
         }
 
-        pEntity.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(pos, level));
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos, level));
 
         mineralExtractor.ArcanaTick(level, pos, 100, 10, 0, false, true);
 
@@ -121,7 +122,7 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
                 level.setBlock(pEntity.getBlockPos().below(), Blocks.AIR.defaultBlockState(), 3);
             }
 
-            arcana_maps.ArcanaMap.put(new BlockDimPos(pEntity.getBlockPos(), level), arcana_maps.ArcanaMap.get(new BlockDimPos(pEntity.getBlockPos(), level)) - recipe.get().getArcanaRequired());
+            arcana_maps.ArcanaMap.put(new BlockDimPos(pEntity.getBlockPos(), level), IArcanaReader.getOnArcanaMap(new BlockDimPos(pEntity.getBlockPos(), level)) - recipe.get().getArcanaRequired());
 
         }
     }
@@ -175,7 +176,7 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(), this.level)) + "/100"));
+        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(), this.level)) + "/100"));
         return true;
     }
 
@@ -187,7 +188,7 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
-        this.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(),this.getLevel()));
     }
 
     @Override

@@ -6,7 +6,6 @@ import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorCogInstance;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
-import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.arcanaInfuserRenderer;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.arcanaInfuserBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.ArcanaRadiatorBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor.arcanaRotorBlockEntity;
@@ -55,7 +54,8 @@ public class ModBlockEntities {
 
 
     public static final RegistryObject<BlockEntityType<potionCatalyzerBlockEntity>> POTION_CATALYZER =
-            BLOCK_ENTITIES.register("potion_catalyzer", () -> BlockEntityType.Builder.of(potionCatalyzerBlockEntity::new, ModBlocks.POTION_CATALYZER.get()).build(null));
+            BLOCK_ENTITIES.register("potion_catalyzer", () -> BlockEntityType.Builder
+                    .of(potionCatalyzerBlockEntity::new, ModBlocks.POTION_CATALYZER.get()).build(null));
     public static void register(IEventBus eventBus){
         BLOCK_ENTITIES.register(eventBus);
         register();

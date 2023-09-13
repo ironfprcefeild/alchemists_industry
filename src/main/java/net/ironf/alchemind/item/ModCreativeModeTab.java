@@ -11,11 +11,6 @@ public class ModCreativeModeTab {
         }
     };
 
-    public static final CreativeModeTab BAD_TAB = new CreativeModeTab("bad_tab") {
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(ModItems.AMETHYST_POWDER.get());
-        }
-    };
+
 
 }

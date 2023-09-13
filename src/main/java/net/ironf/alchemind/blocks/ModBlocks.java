@@ -105,8 +105,8 @@ public class ModBlocks {
 
     public static  final RegistryObject<Block> SHINEDUST_LANTERN = registerBlock("shinedust_lantern", () ->
             new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(2f).lightLevel(value -> 80)), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> ZOOMDUST_BLOCK = registerBlock("zoomdust_block", () ->
-            new zoomdustBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(2f)), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static  final RegistryObject<Block> ZOOMDUST_BLOCK = registerToolTipBlock("zoomdust_block", () ->
+            new zoomdustBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(2f)), ModCreativeModeTab.ALCHEMIND_TAB,"block.alchemind.zoomdust_block.tooltip");
     public static  final RegistryObject<Block> PURE_BASALT = registerBlock("pure_basalt", () ->
             new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(2f)), ModCreativeModeTab.ALCHEMIND_TAB);
 
@@ -140,13 +140,11 @@ public class ModBlocks {
     public static final BlockEntry<arcanaRotorBase> ARCANA_ROTOR_BASE = REGISTRATE.block("arcana_rotor_base", arcanaRotorBase::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops())
-            .simpleItem()
             .register();
 
     public static final BlockEntry<arcanaRotor> ARCANA_ROTOR = REGISTRATE.block("arcana_rotor", arcanaRotor::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops())
-            .simpleItem()
             .register();
 
     public static final BlockEntry<arcanaInfuser> ARCANA_INFUSER = REGISTRATE.block("arcana_infuser", arcanaInfuser::new)

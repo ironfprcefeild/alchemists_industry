@@ -11,6 +11,7 @@ import com.simibubi.create.foundation.fluid.SmartFluidTank;
 
 import net.ironf.alchemind.BlockDimPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
+import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
@@ -38,7 +39,7 @@ import java.util.List;
 
 import static net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity.findAcceleratorSpeed;
 
-public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
+public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation, IAcceleratorReaderBlockEntity, IArcanaReader {
 
     //Traditional Arcana Stuff
     public ArcanaRadiatorBlockEntity(BlockPos pos, BlockState state) {
@@ -52,8 +53,8 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
 
         SmartFluidTank FluidTank = pEntity.tank.getPrimaryHandler();
 
-        pEntity.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(pos,level));
-        if (FluidTank.getFluid().getAmount() > 0 && FluidTank.getFluid().getFluid().getFluidType() instanceof EssenceFluidType && arcana_maps.ArcanaMap.get(new BlockDimPos(pos,level)) != 500){
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
+        if (FluidTank.getFluid().getAmount() > 0 && FluidTank.getFluid().getFluid().getFluidType() instanceof EssenceFluidType && IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level)) != 500){
             ArcanaRadiator.ArcanaTick(level, pos, 500,findTransferValue(pEntity),((EssenceFluidType) FluidTank.getFluid().getFluid().getFluidType()).arcanaValue * Mth.roundToward(findGenerationValue(pEntity),1), true, false);
             FluidTank.drain(Mth.roundToward(findGenerationValue(pEntity),1), IFluidHandler.FluidAction.EXECUTE);
         } else {

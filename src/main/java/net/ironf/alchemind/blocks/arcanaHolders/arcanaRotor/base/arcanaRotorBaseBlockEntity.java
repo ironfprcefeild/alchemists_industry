@@ -5,6 +5,7 @@ import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor.arcanaRotorBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.mineralExtractorBlockEntity;
@@ -24,7 +25,7 @@ import org.slf4j.Logger;
 
 import java.util.List;
 
-public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
+public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation, IArcanaReader {
 
     public arcanaRotorBaseBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ARCANA_ROTOR_BASE.get(), pos, state);
@@ -42,7 +43,7 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
 
         ///Helpys
         BlockDimPos dPos = new BlockDimPos(pos,level);
-        pEntity.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(pEntity.getBlockPos(),level));
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pEntity.getBlockPos(),level));
         Float acSpeed = findAcceleratorSpeed(pEntity);
 
         ///Prepare Next Load Score
@@ -128,7 +129,7 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
 
     @Override
     public void onLoad() {
-        this.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(),this.getLevel()));
         super.onLoad();
     }
 

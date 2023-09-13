@@ -56,7 +56,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> ARCANE_MECHANISM = ITEMS.register("arcane_mechanism", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 
-    public static final RegistryObject<Item> ROTOR_COMPONENT = ITEMS.register("rotor_component", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    public static final RegistryObject<Item> ROTOR_COMPONENT = ITEMS.register("rotor_component", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ACCELERTING_CRYSTAL = ITEMS.register("accelerating_crystal", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 

@@ -64,10 +64,7 @@ public class ArcanaRadiator extends arcanaHoldingBlock implements IBE<ArcanaRadi
 
     /* BLOCK ENTITY */
 
-    @Override
-    public RenderShape getRenderShape(BlockState p_49232_) {
-        return RenderShape.MODEL;
-    }
+
 
     @Override
     public Class<ArcanaRadiatorBlockEntity> getBlockEntityClass() {

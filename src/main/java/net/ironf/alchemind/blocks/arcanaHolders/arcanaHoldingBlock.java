@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
-public class arcanaHoldingBlock extends BaseEntityBlock {
+public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader {
 
     boolean accepts;
     boolean sends;
@@ -33,6 +33,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
     }
     private static final Logger LOGGER = LogUtils.getLogger();
 
+
     public static void ArcanaTick(Level Level, BlockPos preblockPos,int maximumArcana,  int maximumTransfer, int passiveGen, boolean sends, boolean accepts) {
 
 
@@ -42,7 +43,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
 
             //Increase Arcana
 
-            arcana_maps.ArcanaMap.put(blockPos,  arcana_maps.ArcanaMap.get(blockPos)+passiveGen);
+            arcana_maps.ArcanaMap.put(blockPos, IArcanaReader.getOnArcanaMap(blockPos)+passiveGen);
 
             //Distribute arcana
             if (sends) {
@@ -79,7 +80,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
 
                 //Distribute
                 if (Dis != 0) {
-                    int toDistribute = Integer.min(arcana_maps.ArcanaMap.get(blockPos), Mth.roundToward(maximumTransfer,1)) / Dis;
+                    int toDistribute = Integer.min(IArcanaReader.getOnArcanaMap(blockPos), Mth.roundToward(maximumTransfer,1)) / Dis;
 
                     TempBlockPos = new BlockDimPos(blockPos.above(), Level);
                     feed(TempBlockPos, blockPos, toDistribute);
@@ -103,10 +104,10 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
 
 
             //Limit At maximum
-            if ( arcana_maps.ArcanaMap.get(blockPos) >= maximumArcana) {
+            if (IArcanaReader.getOnArcanaMap(blockPos) >= maximumArcana) {
                 arcana_maps.ArcanaMap.put(blockPos, maximumArcana);
                 arcana_maps.IsArcanaTaker.put(blockPos, false);
-            } else if (accepts && arcana_maps.ArcanaMap.get(blockPos) < maximumArcana){
+            } else if (accepts && IArcanaReader.getOnArcanaMap(blockPos) < maximumArcana){
                 arcana_maps.IsArcanaTaker.put(blockPos, true);
             }
         }
@@ -114,8 +115,8 @@ public class arcanaHoldingBlock extends BaseEntityBlock {
 
     public static void feed(BlockDimPos target, BlockDimPos sender, int amount){
         if (arcana_maps.IsArcanaTaker.get(target) != null && arcana_maps.IsArcanaTaker.get(target)) {
-            arcana_maps.ArcanaMap.put(target, arcana_maps.ArcanaMap.get(target) + amount);
-            arcana_maps.ArcanaMap.put(sender, arcana_maps.ArcanaMap.get(sender) - amount);
+            arcana_maps.ArcanaMap.put(target, IArcanaReader.getOnArcanaMap(target) + amount);
+            arcana_maps.ArcanaMap.put(sender, IArcanaReader.getOnArcanaMap(sender) - amount);
         }
     }
     @Override
