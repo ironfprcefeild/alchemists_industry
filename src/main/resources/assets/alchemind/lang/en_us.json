@@ -124,5 +124,57 @@
   "fluid_type.alchemind.source_gheigh": "Gheigh",
   "fluid_type.alchemind.source_mortith": "Mortith",
   "fluid_type.alchemind.source_movere": "Movere",
-  "fluid_type.alchemind.source_vivorn": "Vivorn"
+  "fluid_type.alchemind.source_vivorn": "Vivorn",
+
+  "alchemind.ponder.accelerator_scene.header": "Rotating an Accelerator to manage Arcana Machines",
+  "alchemind.ponder.accelerator_scene.text_1":"The Accelerator is used to Manage Arcana Machines beneath it, like this radiator",
+  "alchemind.ponder.accelerator_scene.text_2": "The Accelerator's speed controls the efficiency of the machine beneath it, but the Accelerator is very Stress intensive",
+  "alchemind.ponder.accelerator_scene.text_3": "As you can see, it has a wide variety of applications",
+
+  "alchemind.ponder.catalyzer_scene.header": "Using a Potion Catalyzer to improve Accelerator Efficiency",
+  "alchemind.ponder.catalyzer_scene.text_1": "When your Accelerator isn't cutting it, you can introduce a Potion Catalyzer above it to improve it",
+  "alchemind.ponder.catalyzer_scene.text_2":"Place a potion catalyzer above the Accelerator, and a Fluid Tank above the Catalyzer",
+  "alchemind.ponder.catalyzer_scene.text_3": "The Catalyzer uses potion fluid in the tank above it, the rate of which is controlled by the speed of accelerator",
+  "alchemind.ponder.catalyzer_scene.text_4": "You can use any potion, but all potions are considered equal to the Potion Catalyzer",
+  "alchemind.ponder.catalyzer_scene.text_5": "The Potion Catalyzer, when functioning, quadruples the effective speed of the Accelerator",
+
+  "alchemind.ponder.essence_mixer_scene.header": "Mixing Essences with an Essene Mixer",
+  "alchemind.ponder.essence_mixer_scene.text_1": "The essence mixer pulls from the 3 drains below it to make new essences",
+  "alchemind.ponder.essence_mixer_scene.text_2": "It Requires Arcana and an Accelerator, which control the speed of the machine",
+  "alchemind.ponder.essence_mixer_scene.text_3": "The fluids must be placed in the drains in the proper order based on the recipe shown in JEI",
+  "alchemind.ponder.essence_mixer_scene.text_4": "If enough Arcana is provided, the recipe completes, and the resulting fluid can be extracted from the Essence Mixer",
+  "alchemind.ponder.essence_mixer_scene.text_5": "You may want to consider using Mechanical Arms and Spouts to insert fluids automatically, but using belts may work",
+
+  "alchemind.ponder.compound_essence_radiating.header": "Radiating Compound Essences",
+  "alchemind.ponder.compound_essence_radiating.text_1": "Compound Essences made with the Essence Mixer create more Arcana per mB for fluid",
+  "alchemind.ponder.compound_essence_radiating.text_2": "This makes arcana storage more compact. Potere is especially Arcana dense",
+
+  "alchemind.ponder.arcana_infuser_scene.header": "Infusing Items with Arcana using the Arcana Infuser",
+  "alchemind.ponder.arcana_infuser_scene.text_1": "The Arcana Infuser can be used to infuse items below it",
+  "alchemind.ponder.arcana_infuser_scene.text_2": "It requires an Arcana Accelerator, the speed of the Infuser is based on it's speed",
+  "alchemind.ponder.arcana_infuser_scene.text_3": "Don't forget to provide Arcana, the Infuser usually needs a lot.",
+
+  "alchemind.ponder.mineral_extractor_scene.header": "Using the Mineral Extractor",
+  "alchemind.ponder.mineral_extractor_scene.text_1": "The Mineral Extractor removes material from the block beneath it using Arcana",
+  "alchemind.ponder.mineral_extractor_scene.text_2": "It requires an Arcana Accelerator, which controls its extraction speed",
+  "alchemind.ponder.mineral_extractor_scene.text_3": "Remember to provide Arcana",
+  "alchemind.ponder.mineral_extractor_scene.text_4": "Different Recipes use different amounts of Arcana",
+  "alchemind.ponder.mineral_extractor_scene.text_5": "Different Recipes have different chances to successfully extract, as well to break the source block when the recipe is successful",
+
+  "alchemind.ponder.arcana_radiator_scene.header": "Radiating Essence to make Arcana",
+  "alchemind.ponder.arcana_radiator_scene.text_1": "Arcana is a magical energy used to power various machines",
+  "alchemind.ponder.arcana_radiator_scene.text_2": "Its produced though the Arcana Radiator, using Essence liquid",
+  "alchemind.ponder.arcana_radiator_scene.text_3": "Like all arcana machines, an Arcana Accelerator is required above it for it to function",
+  "alchemind.ponder.arcana_radiator_scene.text_4": "The Accelerator requires Rotational Energy, its speed controls the speed of the Radiator",
+  "alchemind.ponder.arcana_radiator_scene.text_5": "The Radiator will send arcana to all Adjacent blocks, like this mineral extractor ",
+
+  "alchemind.ponder.heated_essence_radiating.header": "Heated Essence Radiating",
+  "alchemind.ponder.heated_essence_radiating.text_1": "When your radiator isn't providing arcana fast enough you can multiply its efficiency with heating",
+  "alchemind.ponder.heated_essence_radiating.text_2": "Even while heating is provided, the Accelerator's speed still takes an effect on the radiator",
+  "alchemind.ponder.heated_essence_radiating.text_3": "Place and heat a blase burner below",
+  "alchemind.ponder.heated_essence_radiating.text_4": "Only fueled burners improve the radiator, superheated burners even more so",
+  "alchemind.ponder.heated_essence_radiating.text_5": "you may want to consider adding a system to input fuel automatically using a mechanical arm"
+
+
+
 }

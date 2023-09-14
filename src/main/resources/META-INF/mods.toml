@@ -29,7 +29,7 @@ displayName="Alchemist's Industry" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="alchemind_logo.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java, People who Contributed: Feellian - For creating the Russian translation and texturing the fluids, as well as loose and solid essence blocks. Kiberkotla - For Creating the textures for all the Lead Stuff, amethyst powder, impure ghast tear, and gunpowder dusts. YellowHawk - For Building the structures that spawn in game. Elenterius - Being consistently very helpful when I had questions. BlazeHen - For the Brazilian Portuguese translation " #optional
+credits="Thanks for this example mod goes to Java, People who Contributed: Feellian - For creating the Russian translation and texturing the fluids, as well as loose and solid essence blocks. Kiberkotla - For Creating the textures for all the Lead Stuff, amethyst powder, impure ghast tear, and gunpowder dusts. YellowHawk - For Building the structures that spawn in game. Elenterius - Being consistently very helpful when I had questions. BlazeHen - For the Brazilian Portuguese translation. LunarAntic - For a wide varietry of Textures, Kayla the Bee for the sigil textures, and Kelad8_Mk_VIII for all of the good models " #optional
 # A text field displayed in the mod UI
 authors="Ironforcefeild" #optional
 # Display Test controls the display for your mod in the server connection screen
