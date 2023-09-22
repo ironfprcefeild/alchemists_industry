@@ -177,8 +177,9 @@ public class ModBlocks {
     public static final RegistryObject<LiquidBlock> AQUA_FLUID_BLOCK = BLOCKS.register("aqua_fluid_block", () -> new effectLiquidBlock(ModFluids.SOURCE_AQUA, BlockBehaviour.Properties.copy(Blocks.WATER), new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 100, 11)));
 
     public static final RegistryObject<LiquidBlock> AERO_FLUID_BLOCK = BLOCKS.register("aero_fluid_block", () -> new effectLiquidBlock(ModFluids.SOURCE_AERO, BlockBehaviour.Properties.copy(Blocks.WATER), new MobEffectInstance(MobEffects.LEVITATION,  20, 31)));
-
     public static final RegistryObject<LiquidBlock> REAGENT_FLUID_BLOCK = BLOCKS.register("reagent_fluid_block", () -> new LiquidBlock(ModFluids.SOURCE_REAGENT, BlockBehaviour.Properties.copy(Blocks.WATER)));
+    public static final RegistryObject<LiquidBlock> STELLAR_FUEL_FLUID_BLOCK = BLOCKS.register("stellar_fuel_fluid_block", () -> new LiquidBlock(ModFluids.SOURCE_STELLAR_FUEL, BlockBehaviour.Properties.copy(Blocks.WATER).lightLevel(value -> 7)));
+
     public static final RegistryObject<LiquidBlock> GLIMA_FLUID_BLOCK = BLOCKS.register("glima_fluid_block", () -> new effectLiquidBlock(ModFluids.SOURCE_GLIMA, BlockBehaviour.Properties.copy(Blocks.WATER).lightLevel(value -> 60), new MobEffectInstance(MobEffects.GLOWING,  150, 31)));
     public static final RegistryObject<LiquidBlock> SHADE_FLUID_BLOCK = BLOCKS.register("shade_fluid_block", () -> new effectLiquidBlock(ModFluids.SOURCE_SHADE, BlockBehaviour.Properties.copy(Blocks.WATER), new MobEffectInstance(MobEffects.DARKNESS,  150, 31)));
     public static final RegistryObject<LiquidBlock> ORDER_FLUID_BLOCK = BLOCKS.register("order_fluid_block", () -> new effectLiquidBlock(ModFluids.SOURCE_ORDER, BlockBehaviour.Properties.copy(Blocks.WATER), new MobEffectInstance(MobEffects.LUCK,  150, 31)));

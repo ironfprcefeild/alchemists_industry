@@ -141,7 +141,7 @@ repositories {
     // }
 
 }
-
+/*
 mixin {
     // MixinGradle Settings
     add sourceSets.main, 'mixins.alchemind.refmap.json'
@@ -149,6 +149,10 @@ mixin {
     debug.verbose = true
     debug.export = true
 }
+
+ */
+
+
 
 dependencies {
 

@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "alchemind:galaxium_shard"
+    },
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "fluid": "alchemind:source_stellar_fuel",
+      "nbt": {},
+      "amount": 1000
+    }
+  ],
+  "heatRequirement": "heated"
+}

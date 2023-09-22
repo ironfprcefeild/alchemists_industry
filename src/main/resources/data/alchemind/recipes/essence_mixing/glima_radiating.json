@@ -1,0 +1,8 @@
+{
+  "type": "alchemind:arcana_radiating",
+  "input_fluid": {
+    "fluid": "alchemind:source_glima",
+    "amount": 1
+  },
+  "arcana_per_mb": 2
+}

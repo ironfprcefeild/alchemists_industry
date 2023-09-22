@@ -122,6 +122,9 @@ public class ModItems {
     public static final RegistryObject<Item> REAGENT_BUCKET = ITEMS.register("reagent_bucket",
             () -> new BucketItem(ModFluids.SOURCE_REAGENT, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
 
+    public static final RegistryObject<Item> STELLAR_FUEL_BUCKET = ITEMS.register("stellar_fuel_bucket",
+            () -> new BucketItem(ModFluids.SOURCE_STELLAR_FUEL, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+
     public static final RegistryObject<Item> GLIMA_BUCKET = ITEMS.register("glima_bucket",
             () -> new BucketItem(ModFluids.SOURCE_GLIMA, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
 

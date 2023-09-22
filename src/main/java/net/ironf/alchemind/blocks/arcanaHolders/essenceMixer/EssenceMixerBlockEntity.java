@@ -83,24 +83,8 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
     }
 
     public List<EssenceMixerRecipe> createRecipeCollection(EssenceMixerBlockEntity pEntity){
-
-
         Level level = pEntity.getLevel();
         assert level != null;
-
-        /*
-        Collection<Recipe<?>> recipesCollection = level.getRecipeManager().getRecipes();
-        List<EssenceMixerRecipe> outputList = new ArrayList<>();
-
-        for (Recipe<?> recipe:recipesCollection) {
-            if (recipe.getType() == EssenceMixerRecipe.Type.INSTANCE){
-                outputList.add((EssenceMixerRecipe) recipe);
-            }
-        }
-
-         */
-        //LOGGER.info("Alchemist's Industry has reconstructed Essence Mixer Recipe set (COOOL AND NEWWW");
-        //LOGGER.info(outputList.toString());
         return level.getRecipeManager().getAllRecipesFor(EssenceMixerRecipe.Type.INSTANCE);
     }
     public static Fluid getFluidFromID(ResourceLocation id){

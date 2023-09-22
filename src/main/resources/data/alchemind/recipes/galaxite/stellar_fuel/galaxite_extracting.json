@@ -1,0 +1,15 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "alchemind:galaxite"
+    }
+  ],
+  "output": {
+    "item": "alchemind:hard_galaxium"
+  },
+  "chance": 1,
+  "break_chance": 0,
+  "arcana_required": 250,
+  "extraction_speed": 3
+}

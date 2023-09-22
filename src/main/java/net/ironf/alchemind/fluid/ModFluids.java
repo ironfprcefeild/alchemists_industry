@@ -1,6 +1,8 @@
 package net.ironf.alchemind.fluid;
 
 
+import com.simibubi.create.content.fluids.VirtualFluid;
+import com.tterrag.registrate.util.entry.FluidEntry;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.item.ModItems;
@@ -18,6 +20,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
+
+import static net.ironf.alchemind.Alchemind.REGISTRATE;
 
 
 public class ModFluids {
@@ -61,6 +65,13 @@ public class ModFluids {
 
     public static final ForgeFlowingFluid.Properties REAGENT_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(
             ModFluidTypes.REAGENT_FLUID_TYPE, SOURCE_REAGENT, FLOWING_REAGENT).slopeFindDistance(1).levelDecreasePerBlock(3).block(ModBlocks.REAGENT_FLUID_BLOCK).bucket(ModItems.REAGENT_BUCKET);
+
+    //STELLAR FUEL
+    public static final RegistryObject<FlowingFluid> FLOWING_STELLAR_FUEL = FLUIDS.register("flowing_stellar_fuel", () -> new ForgeFlowingFluid.Flowing(ModFluids.STELLAR_FUEL_FLUID_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> SOURCE_STELLAR_FUEL = FLUIDS.register("source_stellar_fuel", () -> new ForgeFlowingFluid.Source(ModFluids.STELLAR_FUEL_FLUID_PROPERTIES));
+
+    public static final ForgeFlowingFluid.Properties STELLAR_FUEL_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(
+            ModFluidTypes.STELLAR_FUEL_FLUID_TYPE, SOURCE_STELLAR_FUEL, FLOWING_STELLAR_FUEL).slopeFindDistance(1).levelDecreasePerBlock(3).block(ModBlocks.STELLAR_FUEL_FLUID_BLOCK).bucket(ModItems.STELLAR_FUEL_BUCKET);
 
     //GLIMA
     public static final RegistryObject<FlowingFluid> FLOWING_GLIMA = FLUIDS.register("flowing_glima", () -> new ForgeFlowingFluid.Flowing(ModFluids.GLIMA_FLUID_PROPERTIES));

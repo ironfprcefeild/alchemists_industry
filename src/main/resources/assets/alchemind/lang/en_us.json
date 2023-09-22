@@ -19,6 +19,7 @@
   "item.alchemind.movere_bucket": "Bucket of Movere",
   "item.alchemind.vivorn_bucket": "Bucket of Vivorn",
   "item.alchemind.reagent_bucket": "Bucket of Reagent",
+  "item.alchemind.stellar_fuel_bucket": "Bucket of Stellar Fuel",
   "item.alchemind.flicker_stone": "Flicker Stone",
   "item.alchemind.amethyst_powder": "Powdered Amethyst",
   "item.alchemind.pyrite": "Pyrite",
@@ -68,14 +69,8 @@
   "item.alchemind.rotor_component": "[In-Dev] Rotor Component [In-Dev]",
   "item.alchemind.accelerating_crystal": "Accelerating Crystal",
   "item.alchemind.incomplete_accelerating_crystal": "Incomplete Accelerating Crystal",
-  "item.alchemind.raw_ignus": "Raw Ignus",
-  "item.alchemind.raw_aero": "Raw Aero",
-  "item.alchemind.raw_terra": "Raw Terra",
-  "item.alchemind.raw_aqua": "Raw Aqua",
-  "block.alchemind.ignus_conduit": "Ignus Conduit",
-  "block.alchemind.aqua_conduit": "Aqua Conduit",
-  "block.alchemind.aero_conduit": "Aero Conduit",
-  "block.alchemind.terra_conduit": "Terra Conduit",
+
+
   "block.alchemind.solid_ignus": "Solid Ignus",
   "block.alchemind.loose_ignus": "Loose Ignus",
   "block.alchemind.solid_terra": "Solid Terra",
@@ -112,11 +107,14 @@
   "block.alchemind.zoomdust_block": "Block of Zoom Dust",
   "block.alchemind.zoomdust_block.tooltip": "Moves you against your will when stood on",
   "alchemind.hold_shift": "Hold SHIFT for more info",
+
+
   "fluid_type.alchemind.source_terra": "Terra",
   "fluid_type.alchemind.source_aqua": "Aqua",
   "fluid_type.alchemind.source_aero": "Aero",
   "fluid_type.alchemind.source_ignus": "Ignus",
   "fluid_type.alchemind.source_reagent": "Alchemical Mixing Reagent",
+  "fluid_type.alchemind.stellar_fuel": "Stellar Fuel",
   "fluid_type.alchemind.source_glima": "Glima",
   "fluid_type.alchemind.source_shade": "Shade",
   "fluid_type.alchemind.source_order": "Order",
@@ -125,6 +123,7 @@
   "fluid_type.alchemind.source_mortith": "Mortith",
   "fluid_type.alchemind.source_movere": "Movere",
   "fluid_type.alchemind.source_vivorn": "Vivorn",
+
 
   "alchemind.ponder.accelerator_scene.header": "Rotating an Accelerator to manage Arcana Machines",
   "alchemind.ponder.accelerator_scene.text_1":"The Accelerator is used to Manage Arcana Machines beneath it, like this radiator",

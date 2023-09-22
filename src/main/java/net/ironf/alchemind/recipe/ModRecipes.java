@@ -2,6 +2,7 @@ package net.ironf.alchemind.recipe;
 
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.ArcanaInfuserRecipe;
+import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.ArcanaRadiatorRecipe;
 import net.ironf.alchemind.blocks.arcanaHolders.essenceMixer.EssenceMixerRecipe;
 import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.MineralExtractorRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -23,6 +24,9 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<ArcanaInfuserRecipe>> ARCANA_INFUSER_SERIALIZER =
             SERIALIZERS.register("arcana_infusing", () -> ArcanaInfuserRecipe.Serializer.INSTANCE);
+
+    public static final RegistryObject<RecipeSerializer<ArcanaRadiatorRecipe>> ARCANA_RADIATOR_SERIALIZER =
+            SERIALIZERS.register("arcana_radiating", () -> ArcanaRadiatorRecipe.Serializer.INSTANCE);
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
     }

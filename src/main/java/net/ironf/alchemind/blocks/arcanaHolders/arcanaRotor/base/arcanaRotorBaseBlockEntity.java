@@ -111,7 +111,7 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
     public Boolean isFreeTick = false;
     public Integer arcanaRef;
 
-    public static Integer getSU(arcanaRotorBaseBlockEntity pEntity) {
+    public static float getSU(arcanaRotorBaseBlockEntity pEntity) {
         return pEntity.loadValue > 0 || pEntity.nextLoadScore != 0 ? Math.round((float) pEntity.loadScore * findAcceleratorSpeed(pEntity)) : 0;
     }
 

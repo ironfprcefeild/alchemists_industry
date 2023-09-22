@@ -8,18 +8,18 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import com.simibubi.create.foundation.fluid.SmartFluidTank;
-
+import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.BlockDimPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
-import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.fluid.custom.EssenceFluidType;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -29,13 +29,12 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
 
 import static net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity.findAcceleratorSpeed;
 
@@ -52,21 +51,58 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
         }
 
         SmartFluidTank FluidTank = pEntity.tank.getPrimaryHandler();
-
+        FluidStack fluidStack = FluidTank.getFluid();
         pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
-        if (FluidTank.getFluid().getAmount() > 0 && FluidTank.getFluid().getFluid().getFluidType() instanceof EssenceFluidType && IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level)) != 500){
-            ArcanaRadiator.ArcanaTick(level, pos, 500,findTransferValue(pEntity),((EssenceFluidType) FluidTank.getFluid().getFluid().getFluidType()).arcanaValue * Mth.roundToward(findGenerationValue(pEntity),1), true, false);
+        Optional<Integer> arcanaPerMB = findArcanaPerMB(fluidStack);
+
+        if (fluidStack.getAmount() > 0 && arcanaPerMB.isPresent() && IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level)) < 500){
+
+            ArcanaRadiator.ArcanaTick(level, pos,
+                    500,
+                    findTransferValue(pEntity),
+                    arcanaPerMB.get() * findGenerationValue(pEntity),
+                    true, false);
+
             FluidTank.drain(Mth.roundToward(findGenerationValue(pEntity),1), IFluidHandler.FluidAction.EXECUTE);
         } else {
             ArcanaRadiator.ArcanaTick(level, pos, 500,findTransferValue(pEntity),0, true, false);
         }
     }
 
+    //Recipe Magic
+    public static List<ArcanaRadiatorRecipe> recipeList;
+    public List<ArcanaRadiatorRecipe> createRecipeCollection(ArcanaRadiatorBlockEntity pEntity){
+        Level level = pEntity.getLevel();
+        assert level != null;
+        return level.getRecipeManager().getAllRecipesFor(ArcanaRadiatorRecipe.Type.INSTANCE);
+    }
+
+    ArcanaRadiatorBlockEntity selfReference = this;
+    ResourceManagerReloadListener listener = new ResourceManagerReloadListener() {
+        @Override
+        public void onResourceManagerReload(ResourceManager resourceManager) {
+            recipeList = createRecipeCollection(selfReference);
+        }
+    };
+
+
+
+    public static Optional<Integer> findArcanaPerMB(FluidStack fluid){
+        for (ArcanaRadiatorRecipe r : recipeList){
+            if (r.tester(fluid)){
+                return Optional.of(r.getArcanaPerMB());
+            }
+        }
+        return Optional.empty();
+    }
+
+
+    //Values
     public static int findGenerationValue(ArcanaRadiatorBlockEntity pEntity){
         return switch (findHeating(pEntity)) {
-            case KINDLED -> (int) ((findAcceleratorSpeed(pEntity) / 2));
-            case SEETHING -> (int) ((findAcceleratorSpeed(pEntity)));
-            default -> (int) (findAcceleratorSpeed(pEntity) / 4 );
+            case KINDLED -> Math.round(findAcceleratorSpeed(pEntity) / 2);
+            case SEETHING -> Math.round(findAcceleratorSpeed(pEntity));
+            default -> Math.round(findAcceleratorSpeed(pEntity) / 4 );
         };
     }
 
@@ -101,6 +137,7 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     public void onLoad() {
         super.onLoad();
         lazyFluidHandler = LazyOptional.of(() -> this.tank.getPrimaryHandler());
+        recipeList = createRecipeCollection(this);
 
     }
 
@@ -136,7 +173,7 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
         tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(), this.level)) + "/500"));
-        return containedFluidTooltip(tooltip,isPlayerSneaking,getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY));
+        return containedFluidTooltip(tooltip,isPlayerSneaking,getCapability(ForgeCapabilities.FLUID_HANDLER));
     }
 
 }

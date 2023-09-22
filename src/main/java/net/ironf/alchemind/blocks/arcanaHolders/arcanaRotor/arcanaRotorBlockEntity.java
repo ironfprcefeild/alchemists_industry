@@ -49,7 +49,7 @@ public class arcanaRotorBlockEntity extends GeneratingKineticBlockEntity impleme
 
     @Override
     public float getGeneratedSpeed() {
-        return findBaseSu(this)/8 > 0 ? 8 : 0;
+        return findBaseSu(this) > 0 ? 8 : 0;
     }
 
     @Override
@@ -58,6 +58,7 @@ public class arcanaRotorBlockEntity extends GeneratingKineticBlockEntity impleme
             return 0;
         }
         float capacity = findBaseSu(this)/8;
+        LOGGER.info(String.valueOf(capacity));
         this.lastCapacityProvided = capacity;
         return capacity;
     }
@@ -69,16 +70,8 @@ public class arcanaRotorBlockEntity extends GeneratingKineticBlockEntity impleme
     }
 
     public static float findBaseSu(arcanaRotorBlockEntity pEntity){
-        BlockEntity preBase = pEntity.level.getBlockEntity(pEntity.getBlockPos().below());
-        if (preBase != null && preBase.getType() == ModBlockEntities.ARCANA_ROTOR_BASE.get()){
-            ticker++;
-            LOGGER.info(String.valueOf(arcanaRotorBaseBlockEntity.getSU((arcanaRotorBaseBlockEntity) preBase)) + ", " + ticker);
-            return arcanaRotorBaseBlockEntity.getSU((arcanaRotorBaseBlockEntity) preBase);
-        } else {
-
-            LOGGER.info("No Base Found!");
-            return 0;
-        }
+        arcanaRotorBaseBlockEntity base = findBase(pEntity);
+        return base == null ? 0 : arcanaRotorBaseBlockEntity.getSU(base);
 
     }
 
