@@ -61,6 +61,10 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
+    public FluidIngredient getInput() {
+        return input;
+    }
+
     private final ResourceLocation id;
 
     private final FluidIngredient input;

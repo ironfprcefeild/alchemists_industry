@@ -1,0 +1,19 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "alchemind:veridium_chunk"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "chance": 0.8,
+      "item": "create:crushed_raw_copper"
+    },
+    {
+      "chance": 0.8,
+      "item": "minecraft:copper_nugget"
+    }
+  ]
+}

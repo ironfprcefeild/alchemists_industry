@@ -8,13 +8,11 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import com.simibubi.create.foundation.fluid.SmartFluidTank;
-import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.BlockDimPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
-import net.ironf.alchemind.fluid.custom.EssenceFluidType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -63,7 +61,7 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
                     arcanaPerMB.get() * findGenerationValue(pEntity),
                     true, false);
 
-            FluidTank.drain(Mth.roundToward(findGenerationValue(pEntity),1), IFluidHandler.FluidAction.EXECUTE);
+            FluidTank.drain(findGenerationValue(pEntity), IFluidHandler.FluidAction.EXECUTE);
         } else {
             ArcanaRadiator.ArcanaTick(level, pos, 500,findTransferValue(pEntity),0, true, false);
         }
@@ -100,17 +98,17 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     //Values
     public static int findGenerationValue(ArcanaRadiatorBlockEntity pEntity){
         return switch (findHeating(pEntity)) {
-            case KINDLED -> Math.round(findAcceleratorSpeed(pEntity) / 2);
-            case SEETHING -> Math.round(findAcceleratorSpeed(pEntity));
-            default -> Math.round(findAcceleratorSpeed(pEntity) / 4 );
+            case KINDLED -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 2);
+            case SEETHING -> (int) findAcceleratorSpeed(pEntity);
+            default -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 4 );
         };
     }
 
     public static int findTransferValue(ArcanaRadiatorBlockEntity pEntity){
         return switch (findHeating(pEntity)) {
-            case KINDLED -> (int) ((findAcceleratorSpeed(pEntity) / 4));
-            case SEETHING -> (int) ((findAcceleratorSpeed(pEntity) / 2));
-            default -> (int) (findAcceleratorSpeed(pEntity) / 8);
+            case KINDLED -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 4);
+            case SEETHING -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 2);
+            default -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 8);
         };
     }
 

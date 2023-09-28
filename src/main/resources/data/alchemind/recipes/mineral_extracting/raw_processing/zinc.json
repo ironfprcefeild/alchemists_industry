@@ -1,0 +1,15 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "create:raw_zinc_block"
+    }
+  ],
+  "output": {
+    "item": "create:asurine"
+  },
+  "chance": 100,
+  "break_chance": 0.025,
+  "arcana_required": 2,
+  "extraction_speed": 0
+}

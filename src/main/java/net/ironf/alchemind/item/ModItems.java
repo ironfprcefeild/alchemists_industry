@@ -104,7 +104,12 @@ public class ModItems {
     public static final RegistryObject<Item> PHILOSOPHERS_STONE = ITEMS.register("philosophers_stone", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
     public static final RegistryObject<Item> PHILOSOPHERS_FRAGMENT = ITEMS.register("philosophers_fragment", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 
-    ///Staffs
+    //ORe Chunks
+    public static final RegistryObject<Item> CRIMSITE_CHUNK = ITEMS.register("crimsite_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    public static final RegistryObject<Item> AUSRINE_CHUNK = ITEMS.register("asurine_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    public static final RegistryObject<Item> VERDIUM_CHUNK = ITEMS.register("verdium_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    public static final RegistryObject<Item> OCHRUM_CHUNK = ITEMS.register("orchrum_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    public static final RegistryObject<Item> CORVIUM_CHUNK = ITEMS.register("corvium_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 
 
     //Buckets

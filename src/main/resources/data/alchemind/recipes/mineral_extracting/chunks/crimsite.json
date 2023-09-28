@@ -1,0 +1,15 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "create:crimsite"
+    }
+  ],
+  "output": {
+    "item": "alchemind:crimsite_chunk"
+  },
+  "chance": 100,
+  "break_chance": 0.33,
+  "arcana_required": 5,
+  "extraction_speed": 0
+}

@@ -1,0 +1,15 @@
+{
+  "type": "alchemind:mineral_extracting",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_gold_block"
+    }
+  ],
+  "output": {
+    "item": "create:ochrum"
+  },
+  "chance": 100,
+  "break_chance": 0.015,
+  "arcana_required": 2,
+  "extraction_speed": 0
+}

@@ -10,6 +10,8 @@ import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.ArcanaInfuserRecipe;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.ArcanaInfuserRecipeCategory;
+import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.ArcanaRadiatorRecipe;
+import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.ArcanaRadiatorRecipeCategory;
 import net.ironf.alchemind.blocks.arcanaHolders.essenceMixer.EssenceMixerRecipe;
 import net.ironf.alchemind.blocks.arcanaHolders.essenceMixer.EssenceMixerRecipeCategory;
 import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.MineralExtractorRecipe;
@@ -32,6 +34,9 @@ public class JEIAlchemindPlugin implements IModPlugin {
 
     public static RecipeType<EssenceMixerRecipe> ESSENCE_MIXING_TYPE =
             new RecipeType<>(EssenceMixerRecipeCategory.UID, EssenceMixerRecipe.class);
+
+    public static RecipeType<ArcanaRadiatorRecipe> ARCANA_RADIATING_TYPE =
+            new RecipeType<>(ArcanaRadiatorRecipeCategory.UID, ArcanaRadiatorRecipe.class);
     @Override
     public ResourceLocation getPluginUid() {
         return new ResourceLocation(Alchemind.MODID, "jei_plugin");
@@ -42,6 +47,7 @@ public class JEIAlchemindPlugin implements IModPlugin {
         registration.addRecipeCategories(new ArcanaInfuserRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new MineralExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new EssenceMixerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new ArcanaRadiatorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 
     }
 
@@ -57,6 +63,10 @@ public class JEIAlchemindPlugin implements IModPlugin {
 
         List<EssenceMixerRecipe> recipesEssenceMixing = rm.getAllRecipesFor(EssenceMixerRecipe.Type.INSTANCE);
         registration.addRecipes(ESSENCE_MIXING_TYPE, recipesEssenceMixing);
+
+
+        List<ArcanaRadiatorRecipe> recipesArcanaRadiating = rm.getAllRecipesFor(ArcanaRadiatorRecipe.Type.INSTANCE);
+        registration.addRecipes(ARCANA_RADIATING_TYPE, recipesArcanaRadiating);
     }
 
     @Override
@@ -65,5 +75,6 @@ public class JEIAlchemindPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ARCANA_INFUSER.get().asItem()),ARCANA_INFUSING_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ESSENCE_MIXER.get().asItem()),ESSENCE_MIXING_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.MINERAL_EXTRACTOR.get().asItem()),MINERAL_EXTRACTING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ARCANA_RADIATOR.get().asItem()),ARCANA_RADIATING_TYPE);
     }
 }
