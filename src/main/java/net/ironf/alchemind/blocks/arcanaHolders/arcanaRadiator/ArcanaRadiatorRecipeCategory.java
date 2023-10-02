@@ -33,7 +33,7 @@ public class ArcanaRadiatorRecipeCategory implements IRecipeCategory<ArcanaRadia
 
     public ArcanaRadiatorRecipeCategory(IGuiHelper helper) {
         this.background = new EmptyBackground(177,48);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.ESSENCE_MIXER.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.ARCANA_RADIATOR.get()));
     }
 
     @Override

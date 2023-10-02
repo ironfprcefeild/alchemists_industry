@@ -8,7 +8,7 @@
   "output": {
     "item": "create:crimsite"
   },
-  "chance": 100,
+  "chance": 1.0,
   "break_chance": 0.03,
   "arcana_required": 2,
   "extraction_speed": 0
