@@ -1,22 +1,17 @@
 package net.ironf.alchemind;
 
-import com.google.common.base.MoreObjects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
-import java.awt.*;
-
-public class BlockDimPos extends BlockPos {
+public class SmartBlockPos extends BlockPos {
     Level dimension;
 
-    public BlockDimPos(int x, int y, int z, Level dimension) {
+    public SmartBlockPos(int x, int y, int z) {
         super(x, y, z);
-        this.dimension = dimension;
     }
 
-    public BlockDimPos(BlockPos blockPos, Level dimension) {
+    public SmartBlockPos(BlockPos blockPos) {
         super(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-        this.dimension = dimension;
     }
 
 
@@ -29,7 +24,7 @@ public class BlockDimPos extends BlockPos {
 
     }
 
-    public static BlockDimPos UnString(String og){
+    public static SmartBlockPos UnString(String og){
 
         int A = 0;
         int B = 0;
@@ -61,7 +56,7 @@ public class BlockDimPos extends BlockPos {
             A++;
         }
 
-        return new BlockDimPos(Xset, Yset, Zset, null);
+        return new SmartBlockPos(Xset, Yset, Zset);
     }
 
     public Level getDimension() {

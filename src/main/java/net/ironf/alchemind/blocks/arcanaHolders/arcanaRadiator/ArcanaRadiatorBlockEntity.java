@@ -8,21 +8,20 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import com.simibubi.create.foundation.fluid.SmartFluidTank;
-import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
-import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -32,7 +31,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Optional;
 
 import static net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity.findAcceleratorSpeed;
 
@@ -43,72 +41,56 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
         super(ModBlockEntities.ARCANA_RADIATOR.get(), pos, state);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState blockState, ArcanaRadiatorBlockEntity pEntity) {
-        if (level.isClientSide){
+    public static void tick(Level level, BlockPos prePos, BlockState blockState, ArcanaRadiatorBlockEntity pEntity) {
+        if (level.isClientSide) {
             return;
         }
-
+        SmartBlockPos pos = new SmartBlockPos(prePos);
         SmartFluidTank FluidTank = pEntity.tank.getPrimaryHandler();
         FluidStack fluidStack = FluidTank.getFluid();
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
-        Optional<Integer> arcanaPerMB = findArcanaPerMB(fluidStack);
+        Fluid fluid = fluidStack.getFluid();
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
+        int arcanaPerMB = EssenceRadiationHandler.radiationHandler.getOrDefault(fluid, 0);
 
-        if (fluidStack.getAmount() > 0 && arcanaPerMB.isPresent() && IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level)) < 500){
 
-            ArcanaRadiator.ArcanaTick(level, pos,
-                    500,
-                    findTransferValue(pEntity),
-                    arcanaPerMB.get() * findGenerationValue(pEntity),
-                    true, false);
+        if (arcanaPerMB != 0 && fluidStack.getAmount() > 0 && pEntity.arcanaRef < 500){
+            int mbEssenceUsed = findGenerationValue(pEntity);
+            FluidTank.drain(mbEssenceUsed, IFluidHandler.FluidAction.EXECUTE);
 
-            FluidTank.drain(findGenerationValue(pEntity), IFluidHandler.FluidAction.EXECUTE);
-        } else {
-            ArcanaRadiator.ArcanaTick(level, pos, 500,findTransferValue(pEntity),0, true, false);
+            ArcanaRadiator.ArcanaTick(level, pos, 0, findTransferValue(pEntity), arcanaPerMB * mbEssenceUsed, true, false);
+        } else{
+            ArcanaRadiator.ArcanaTick(level, pos, 0, findTransferValue(pEntity), 0, true, false);
         }
     }
 
-    //Recipe Magic
-    public static List<ArcanaRadiatorRecipe> recipeList;
-    public List<ArcanaRadiatorRecipe> createRecipeCollection(ArcanaRadiatorBlockEntity pEntity){
-        Level level = pEntity.getLevel();
-        assert level != null;
-        return level.getRecipeManager().getAllRecipesFor(ArcanaRadiatorRecipe.Type.INSTANCE);
+    int arcanaQueue = 0;
+
+    @Override
+    protected void read(CompoundTag tag, boolean clientPacket) {
+        super.read(tag, clientPacket);
+        this.arcanaQueue = tag.getInt("queue");
     }
 
-    ArcanaRadiatorBlockEntity selfReference = this;
-    ResourceManagerReloadListener listener = new ResourceManagerReloadListener() {
-        @Override
-        public void onResourceManagerReload(ResourceManager resourceManager) {
-            recipeList = createRecipeCollection(selfReference);
-        }
-    };
-
-
-
-    public static Optional<Integer> findArcanaPerMB(FluidStack fluid){
-        for (ArcanaRadiatorRecipe r : recipeList){
-            if (r.tester(fluid)){
-                return Optional.of(r.getArcanaPerMB());
-            }
-        }
-        return Optional.empty();
+    @Override
+    protected void write(CompoundTag tag, boolean clientPacket) {
+        super.write(tag, clientPacket);
+        tag.putInt("queue",this.arcanaQueue);
     }
-
 
     //Values
     public static int findGenerationValue(ArcanaRadiatorBlockEntity pEntity){
         return switch (findHeating(pEntity)) {
-            case KINDLED -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 2);
+            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 2);
             case SEETHING -> (int) findAcceleratorSpeed(pEntity);
-            default -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 4 );
+            default -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 4 );
         };
     }
 
     public static int findTransferValue(ArcanaRadiatorBlockEntity pEntity){
         return switch (findHeating(pEntity)) {
-            case KINDLED -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 4);
-            case SEETHING -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 2);
-            default -> (int) Math.ceil(findAcceleratorSpeed(pEntity) / 8);
+            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 4);
+            case SEETHING -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 2);
+            default -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 8);
         };
     }
 
@@ -135,7 +117,6 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     public void onLoad() {
         super.onLoad();
         lazyFluidHandler = LazyOptional.of(() -> this.tank.getPrimaryHandler());
-        recipeList = createRecipeCollection(this);
 
     }
 
@@ -170,7 +151,7 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(), this.level)) + "/500"));
+        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcana_maps.ArcanaMap.get(new SmartBlockPos(this.getBlockPos())) + "/500"));
         return containedFluidTooltip(tooltip,isPlayerSneaking,getCapability(ForgeCapabilities.FLUID_HANDLER));
     }
 

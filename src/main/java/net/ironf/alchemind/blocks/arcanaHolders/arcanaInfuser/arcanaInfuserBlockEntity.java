@@ -7,7 +7,7 @@ import com.simibubi.create.content.kinetics.belt.behaviour.TransportedItemStackH
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
-import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
@@ -16,13 +16,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.slf4j.Logger;
 
 import java.util.*;
@@ -44,7 +41,7 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
             return;
         }
 
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
 
         arcanaInfuser.ArcanaTick(level, pos, 8000, 10, 0, false, true);
         if (pEntity.processingTicks < processingSpeed(pEntity)){
@@ -66,13 +63,13 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(), this.level)) + "/8000"));
+        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/8000"));
         return true;
     }
 
     @Override
     public void onLoad() {
-        this.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(this.getBlockPos());
         super.onLoad();
     }
 
@@ -142,7 +139,7 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
             }
             outList.add(result);
             handler.handleProcessingOnItem(transported, TransportedItemStackHandlerBehaviour.TransportedResult.convertToAndLeaveHeld(outList, held));
-            arcana_maps.ArcanaMap.put(new BlockDimPos(this.getBlockPos(),level),(int) (arcanaRef.floatValue() - grabRecipe(level,transported.stack).get().getArcanaRequired()));
+            arcana_maps.ArcanaMap.put(new SmartBlockPos(this.getBlockPos()),(int) (arcanaRef.floatValue() - grabRecipe(level,transported.stack).get().getArcanaRequired()));
         }
 
 

@@ -9,6 +9,7 @@
     "item": "alchemind:veridium_chunk"
   },
   "chance": 1.0,
+
   "break_chance": 0.33,
   "arcana_required": 5,
   "extraction_speed": 0

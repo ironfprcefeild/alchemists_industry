@@ -4,23 +4,18 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
-import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor.arcanaRotorBlockEntity;
-import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.mineralExtractorBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.fml.common.Mod;
-import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
 
 import java.util.List;
@@ -42,8 +37,8 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
 
 
         ///Helpys
-        BlockDimPos dPos = new BlockDimPos(pos,level);
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pEntity.getBlockPos(),level));
+        SmartBlockPos dPos = new SmartBlockPos(pos);
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pEntity.getBlockPos());
         Float acSpeed = findAcceleratorSpeed(pEntity);
 
         ///Prepare Next Load Score
@@ -129,7 +124,7 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
 
     @Override
     public void onLoad() {
-        this.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(this.getBlockPos());
         super.onLoad();
     }
 

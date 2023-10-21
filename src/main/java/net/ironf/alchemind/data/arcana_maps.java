@@ -1,52 +1,41 @@
 package net.ironf.alchemind.data;
 
-import com.mojang.logging.LogUtils;
-import net.ironf.alchemind.BlockDimPos;
-import net.minecraft.core.BlockPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.saveddata.SavedData;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.event.server.ServerStoppingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.slf4j.Logger;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class arcana_maps extends SavedData {
 
     //Stuff to Save
     ///Arcana Map
-    public static HashMap<BlockDimPos, Integer> ArcanaMap = new HashMap<>();
+    public static HashMap<SmartBlockPos, Integer> ArcanaMap = new HashMap<>();
 
-    public static HashMap<BlockDimPos, Integer> getArcanaMap() {
+    public static HashMap<SmartBlockPos, Integer> getArcanaMap() {
         return ArcanaMap;
     }
 
-    public Integer getOnArcanaMap(BlockDimPos pos){
-        return ArcanaMap.get(pos) == null ? 0 : ArcanaMap.get(pos);
-    }
-    public void addToArcanaMap(BlockDimPos key, int newValue) {
-        this.ArcanaMap.put(key,newValue);
+    public void addToArcanaMap(SmartBlockPos key, int newValue) {
+        ArcanaMap.put(key,newValue);
         this.setDirty();
     }
 
-    public void setArcanaMap(HashMap<BlockDimPos, Integer> toSet){
+    public void setArcanaMap(HashMap<SmartBlockPos, Integer> toSet){
         this.ArcanaMap = toSet;
         this.setDirty();
     }
     ///Is Arcana Taker map
-    public static HashMap<BlockDimPos,Boolean> IsArcanaTaker = new HashMap<>();
-    public HashMap<BlockDimPos, Boolean> getisArcanaTakerMap() {
+    public static HashMap<SmartBlockPos,Boolean> IsArcanaTaker = new HashMap<>();
+    public HashMap<SmartBlockPos, Boolean> getisArcanaTakerMap() {
         return this.IsArcanaTaker;
     }
-    public void addToArcanaMap(BlockDimPos key, boolean newValue) {
-        this.IsArcanaTaker.put(key,newValue);
+    public void addToArcanaMap(SmartBlockPos key, boolean newValue) {
+        IsArcanaTaker.put(key,newValue);
         this.setDirty();
     }
-    public void setIsArcanaTakerMap(HashMap<BlockDimPos, Boolean> toSet){
+    public void setIsArcanaTakerMap(HashMap<SmartBlockPos, Boolean> toSet){
         this.IsArcanaTaker = toSet;
         this.setDirty();
     }
@@ -75,12 +64,12 @@ public class arcana_maps extends SavedData {
     }
 
     //Helper Functions because minecraft is a certified hashmap disliker
-    public static HashMap<BlockDimPos, Boolean> booleanHashMapUnString(String og){
-        HashMap<BlockDimPos, Boolean> ToReturnMap = new HashMap<BlockDimPos, Boolean>();
+    public static HashMap<SmartBlockPos, Boolean> booleanHashMapUnString(String og){
+        HashMap<SmartBlockPos, Boolean> ToReturnMap = new HashMap<SmartBlockPos, Boolean>();
         for (int i = 0; i != og.length(); i++){
             Boolean toPut = null;
 
-            BlockDimPos newKey = null;
+            SmartBlockPos newKey = null;
 
             if (og.charAt(i) == '='){
                 int a = i;
@@ -94,19 +83,19 @@ public class arcana_maps extends SavedData {
                     a = a - 1;
                 }
 
-                newKey = BlockDimPos.UnString(og.substring(a, i));
+                newKey = SmartBlockPos.UnString(og.substring(a, i));
 
                 ToReturnMap.put(newKey,toPut);
             }
         }
         return ToReturnMap;
     }
-    public static HashMap<BlockDimPos, Integer> integerHashMapUnString(String og){
-        HashMap<BlockDimPos, Integer> ToReturnMap = new HashMap<BlockDimPos, Integer>();
+    public static HashMap<SmartBlockPos, Integer> integerHashMapUnString(String og){
+        HashMap<SmartBlockPos, Integer> ToReturnMap = new HashMap<SmartBlockPos, Integer>();
         for (int i = 0; i != og.length(); i++){
             Integer toPut = null;
 
-            BlockDimPos newKey = null;
+            SmartBlockPos newKey = null;
 
             if (og.charAt(i) == '='){
                 int a = i;
@@ -120,7 +109,7 @@ public class arcana_maps extends SavedData {
                     a = a - 1;
                 }
 
-                newKey = BlockDimPos.UnString(og.substring(a, i));
+                newKey = SmartBlockPos.UnString(og.substring(a, i));
 
                 ToReturnMap.put(newKey,toPut);
             }

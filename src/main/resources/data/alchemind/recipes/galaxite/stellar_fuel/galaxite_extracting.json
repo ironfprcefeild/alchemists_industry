@@ -10,6 +10,6 @@
   },
   "chance": 1,
   "break_chance": 0,
-  "arcana_required": 250,
+  "arcana_required": 100,
   "extraction_speed": 3
 }

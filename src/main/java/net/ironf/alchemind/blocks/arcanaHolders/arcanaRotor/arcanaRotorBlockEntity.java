@@ -1,29 +1,17 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor;
 
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
-import net.ironf.alchemind.BlockDimPos;
-import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor.base.arcanaRotorBaseBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
-import net.ironf.alchemind.data.arcana_maps;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.LazyOptional;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
-import java.awt.*;
 import java.util.List;
-import java.util.Objects;
 
 public class arcanaRotorBlockEntity extends GeneratingKineticBlockEntity implements IHaveGoggleInformation {
     public arcanaRotorBlockEntity(BlockPos pos, BlockState state) {

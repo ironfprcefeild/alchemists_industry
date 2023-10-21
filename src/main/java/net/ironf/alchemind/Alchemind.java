@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
+import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.EssenceRadiationHandler;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.fluid.ModFluidTypes;
@@ -81,6 +82,9 @@ public class Alchemind
 
         LoadArcana(event.getServer());
 
+        LOGGER.info("Alchemist's Industry is preparing Arcana Radiator Helpers");
+        EssenceRadiationHandler.setLevel(event.getServer().overworld());
+        EssenceRadiationHandler.generateHandler();
     }
 
 

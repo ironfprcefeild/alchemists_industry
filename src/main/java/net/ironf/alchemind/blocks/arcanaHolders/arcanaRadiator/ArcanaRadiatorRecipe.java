@@ -71,9 +71,6 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
 
     private final Integer arcanaPerMB;
 
-    public boolean tester(FluidStack fluid){
-        return input.test(fluid);
-    }
 
     public ArcanaRadiatorRecipe(ResourceLocation id, FluidIngredient input, Integer arcanaPerMB) {
         this.id = id;

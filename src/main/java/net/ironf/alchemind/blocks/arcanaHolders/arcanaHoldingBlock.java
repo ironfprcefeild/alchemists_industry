@@ -1,21 +1,15 @@
 package net.ironf.alchemind.blocks.arcanaHolders;
 
 import com.mojang.logging.LogUtils;
-import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.data.arcana_maps;
-import net.ironf.alchemind.item.ModItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
@@ -39,7 +33,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader
 
         if (!Level.isClientSide){
 
-            BlockDimPos blockPos = new BlockDimPos(preblockPos,Level);
+            SmartBlockPos blockPos = new SmartBlockPos(preblockPos);
 
             //Increase Arcana
 
@@ -50,27 +44,27 @@ public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader
 
                 int Dis = 0;
 
-                BlockDimPos TempBlockPos = new BlockDimPos(blockPos.above(), blockPos.getDimension());
+                SmartBlockPos TempBlockPos = new SmartBlockPos(blockPos.above());
                 if (arcana_maps.IsArcanaTaker.get(TempBlockPos) != null && arcana_maps.IsArcanaTaker.get(TempBlockPos)) {
                     Dis++;
                 }
-                TempBlockPos = new BlockDimPos(blockPos.below(), blockPos.getDimension());
+                TempBlockPos = new SmartBlockPos(blockPos.below());
                 if (arcana_maps.IsArcanaTaker.get(TempBlockPos) != null && arcana_maps.IsArcanaTaker.get(TempBlockPos)) {
                     Dis++;
                 }
-                TempBlockPos = new BlockDimPos(blockPos.east(), blockPos.getDimension());
+                TempBlockPos = new SmartBlockPos(blockPos.east());
                 if (arcana_maps.IsArcanaTaker.get(TempBlockPos) != null && arcana_maps.IsArcanaTaker.get(TempBlockPos)) {
                     Dis++;
                 }
-                TempBlockPos = new BlockDimPos(blockPos.west(), blockPos.getDimension());
+                TempBlockPos = new SmartBlockPos(blockPos.west());
                 if (arcana_maps.IsArcanaTaker.get(TempBlockPos) != null && arcana_maps.IsArcanaTaker.get(TempBlockPos)) {
                     Dis++;
                 }
-                TempBlockPos = new BlockDimPos(blockPos.south(), blockPos.getDimension());
+                TempBlockPos = new SmartBlockPos(blockPos.south());
                 if (arcana_maps.IsArcanaTaker.get(TempBlockPos) != null && arcana_maps.IsArcanaTaker.get(TempBlockPos)) {
                     Dis++;
                 }
-                TempBlockPos = new BlockDimPos(blockPos.north(), blockPos.getDimension());
+                TempBlockPos = new SmartBlockPos(blockPos.north());
                 if (arcana_maps.IsArcanaTaker.get(TempBlockPos) != null && arcana_maps.IsArcanaTaker.get(TempBlockPos)) {
                     Dis++;
                 }
@@ -80,31 +74,31 @@ public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader
 
                 //Distribute
                 if (Dis != 0) {
-                    int toDistribute = Integer.min(IArcanaReader.getOnArcanaMap(blockPos), Mth.roundToward(maximumTransfer,1)) / Dis;
+                    int toDistribute = Integer.min(IArcanaReader.getOnArcanaMap(blockPos), Mth.floor(maximumTransfer / Dis));
 
-                    TempBlockPos = new BlockDimPos(blockPos.above(), Level);
+                    TempBlockPos = new SmartBlockPos(blockPos.above());
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.below(), Level);
+                    TempBlockPos = new SmartBlockPos(blockPos.below());
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.east(), Level);
+                    TempBlockPos = new SmartBlockPos(blockPos.east());
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.west(), Level);
+                    TempBlockPos = new SmartBlockPos(blockPos.west());
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.north(), Level);
+                    TempBlockPos = new SmartBlockPos(blockPos.north());
                     feed(TempBlockPos, blockPos, toDistribute);
 
-                    TempBlockPos = new BlockDimPos(blockPos.south(), Level);
+                    TempBlockPos = new SmartBlockPos(blockPos.south());
                     feed(TempBlockPos, blockPos, toDistribute);
                 }
             }
 
 
             //Limit At maximum
-            if (IArcanaReader.getOnArcanaMap(blockPos) >= maximumArcana) {
+            if (IArcanaReader.getOnArcanaMap(blockPos) >= maximumArcana && maximumArcana != 0) {
                 arcana_maps.ArcanaMap.put(blockPos, maximumArcana);
                 arcana_maps.IsArcanaTaker.put(blockPos, false);
             } else if (accepts && IArcanaReader.getOnArcanaMap(blockPos) < maximumArcana){
@@ -113,7 +107,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader
         }
     }
 
-    public static void feed(BlockDimPos target, BlockDimPos sender, int amount){
+    public static void feed(SmartBlockPos target, SmartBlockPos sender, int amount){
         if (arcana_maps.IsArcanaTaker.get(target) != null && arcana_maps.IsArcanaTaker.get(target)) {
             arcana_maps.ArcanaMap.put(target, IArcanaReader.getOnArcanaMap(target) + amount);
             arcana_maps.ArcanaMap.put(sender, IArcanaReader.getOnArcanaMap(sender) - amount);
@@ -125,7 +119,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader
 
             //LOGGER.info("Arcana Holder placed");
 
-            BlockDimPos blockPos = new BlockDimPos(preblockPos, level);
+            SmartBlockPos blockPos = new SmartBlockPos(preblockPos);
             arcana_maps.ArcanaMap.put(blockPos, 0);
             arcana_maps.IsArcanaTaker.put(blockPos, this.accepts);
         }
@@ -137,7 +131,7 @@ public class arcanaHoldingBlock extends BaseEntityBlock implements IArcanaReader
         if (!level.isClientSide){
             //LOGGER.info("Arcana Holder removed");
 
-            arcana_maps.IsArcanaTaker.put(new BlockDimPos(blockPos,level),false);
+            arcana_maps.IsArcanaTaker.put(new SmartBlockPos(blockPos),false);
         }
         super.onRemove(blockState, level, blockPos, blockState1, b);
     }

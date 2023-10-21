@@ -7,12 +7,10 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import com.simibubi.create.foundation.fluid.SmartFluidTank;
-import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
-import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
-import net.ironf.alchemind.data.arcana_maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -61,7 +59,7 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
             return;
         }
 
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
 
         if (pEntity.processingTicks != (100 - Math.round(findAcceleratorSpeed(pEntity)/20))){
             pEntity.processingTicks++;
@@ -202,7 +200,7 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
         recipeList = createRecipeCollection(this);
 
 
-        this.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(this.getBlockPos());
 
         super.onLoad();
     }
@@ -246,7 +244,7 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(new BlockDimPos(this.getBlockPos(), this.level)) + "/500"));
+        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/500"));
         containedFluidTooltip(tooltip,isPlayerSneaking,lazyFluidHandler);
         return true;
     }

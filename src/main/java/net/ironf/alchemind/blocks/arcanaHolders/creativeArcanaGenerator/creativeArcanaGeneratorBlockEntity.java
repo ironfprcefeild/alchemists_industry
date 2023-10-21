@@ -1,7 +1,7 @@
 package net.ironf.alchemind.blocks.arcanaHolders.creativeArcanaGenerator;
 
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
-import net.ironf.alchemind.BlockDimPos;
+import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.ironf.alchemind.data.arcana_maps;
@@ -25,7 +25,7 @@ public class creativeArcanaGeneratorBlockEntity extends BlockEntity implements I
             return;
         }
 
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(new BlockDimPos(pos,level));
+        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
 
         creativeArcanaGenerator.ArcanaTick(level, pos, 50000, 50000, 50000, true, false);
 
@@ -41,7 +41,7 @@ public class creativeArcanaGeneratorBlockEntity extends BlockEntity implements I
 
     @Override
     public void onLoad() {
-        this.arcanaRef = arcana_maps.ArcanaMap.get(new BlockDimPos(this.getBlockPos(),this.getLevel()));
+        this.arcanaRef = arcana_maps.ArcanaMap.get(new SmartBlockPos(this.getBlockPos()));
         super.onLoad();
     }
 }
