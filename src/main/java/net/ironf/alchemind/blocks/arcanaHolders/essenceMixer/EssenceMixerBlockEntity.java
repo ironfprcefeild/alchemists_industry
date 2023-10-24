@@ -7,7 +7,6 @@ import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import com.simibubi.create.foundation.fluid.SmartFluidTank;
-import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
@@ -54,27 +53,30 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
 
 
     static HashMap<ResourceLocation[], ResourceLocation> validRecipes = new HashMap<>();
-    public static void tick(Level level, BlockPos pos, BlockState blockState, EssenceMixerBlockEntity pEntity) {
+
+    @Override
+    public void tick(){
+        super.tick();
         if (level.isClientSide){
             return;
         }
+        BlockPos pos = this.getBlockPos();
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
 
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
-
-        if (pEntity.processingTicks != (100 - Math.round(findAcceleratorSpeed(pEntity)/20))){
-            pEntity.processingTicks++;
+        if (this.processingTicks != (100 - Math.round(findAcceleratorSpeed(this)/20))){
+            this.processingTicks++;
         }
-        if (pEntity.arcanaRef >= 500 && pEntity.tank.getPrimaryHandler().isEmpty() && processingReady(pEntity) && isValidMix(pEntity)) {
-            mixFluids(pEntity);
+        if (this.arcanaRef >= 500 && this.tank.getPrimaryHandler().isEmpty() && processingReady() && isValidMix()) {
+            mixFluids();
         } else {
             EssenceMixer.ArcanaTick(level, pos, 500, 10, 0, false,true);
 
         }
     }
 
-    public static boolean processingReady(EssenceMixerBlockEntity pEntity){
-        float acSpeed = findAcceleratorSpeed(pEntity);
-        if ((100 - Math.round(acSpeed/20)) != 100 && pEntity.processingTicks >= (100 - Math.round(acSpeed/20))){
+    public boolean processingReady(){
+        float acSpeed = findAcceleratorSpeed(this);
+        if ((100 - Math.round(acSpeed/20)) != 100 && this.processingTicks >= (100 - Math.round(acSpeed/20))){
             return true;
         }
         return false;
@@ -99,11 +101,11 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
             recipeList = createRecipeCollection(selfReference);
         }
     };
-    public static boolean isValidMix(EssenceMixerBlockEntity pEntity){
+    public boolean isValidMix(){
         //LOGGER.info("testing for valid mix");
-        Optional<ItemDrainBlockEntity> Drain1 = getDrain(pEntity,1);
-        Optional<ItemDrainBlockEntity> Drain2 = getDrain(pEntity,2);
-        Optional<ItemDrainBlockEntity> Drain3 = getDrain(pEntity,3);
+        Optional<ItemDrainBlockEntity> Drain1 = getDrain(1);
+        Optional<ItemDrainBlockEntity> Drain2 = getDrain(2);
+        Optional<ItemDrainBlockEntity> Drain3 = getDrain(3);
         if (Drain1.isEmpty() || Drain2.isEmpty() || Drain3.isEmpty()){
             //LOGGER.info("Invalid due to missing drains");
             return false;
@@ -128,11 +130,11 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
         }
         return null;
     }
-    public static void mixFluids(EssenceMixerBlockEntity pEntity){
+    public void mixFluids(){
         //LOGGER.info("Mixing Fluids");
-        Optional<ItemDrainBlockEntity> Drain1 = getDrain(pEntity,1);
-        Optional<ItemDrainBlockEntity> Drain2 = getDrain(pEntity,2);
-        Optional<ItemDrainBlockEntity> Drain3 = getDrain(pEntity,3);
+        Optional<ItemDrainBlockEntity> Drain1 = getDrain(1);
+        Optional<ItemDrainBlockEntity> Drain2 = getDrain(2);
+        Optional<ItemDrainBlockEntity> Drain3 = getDrain(3);
         if (Drain1.isEmpty() || Drain2.isEmpty() || Drain3.isEmpty()){
             return;
         }
@@ -144,18 +146,18 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
         FluidStack[] fluidIngredients = {(drainTank1.getFluid()),(drainTank2.getFluid()),(drainTank3.getFluid())};
         for (EssenceMixerRecipe r : recipeList){
             if (r.tester(fluidIngredients)){
-                pEntity.tank.getPrimaryHandler().fill(r.getResultFluid(),IFluidHandler.FluidAction.EXECUTE);
+                this.tank.getPrimaryHandler().fill(r.getResultFluid(),IFluidHandler.FluidAction.EXECUTE);
                 getTankFromDrain(Drain1.get()).getPrimaryHandler().drain(r.getIngredientsFR().get(0).getRequiredAmount(), IFluidHandler.FluidAction.EXECUTE);
                 getTankFromDrain(Drain2.get()).getPrimaryHandler().drain(r.getIngredientsFR().get(1).getRequiredAmount(), IFluidHandler.FluidAction.EXECUTE);
                 getTankFromDrain(Drain3.get()).getPrimaryHandler().drain(r.getIngredientsFR().get(2).getRequiredAmount(), IFluidHandler.FluidAction.EXECUTE);
-                EssenceMixer.ArcanaTick(pEntity.getLevel(), pEntity.getBlockPos(), 500, 10, -r.getArcanaNeeded(), false,true);
+                EssenceMixer.ArcanaTick(this.getLevel(), this.getBlockPos(), 500, 10, -r.getArcanaNeeded(), false,true);
             }
         }
 
     }
 
-    public static Optional<ItemDrainBlockEntity> getDrain (EssenceMixerBlockEntity pEntity, int n){
-        BlockEntity preTank = pEntity.level.getBlockEntity(pEntity.getBlockPos().below(n));
+    public Optional<ItemDrainBlockEntity> getDrain (int n){
+        BlockEntity preTank = this.level.getBlockEntity(this.getBlockPos().below(n));
 
         if (preTank != null && preTank.getType() == AllBlockEntityTypes.ITEM_DRAIN.get()){
             ItemDrainBlockEntity tank = (ItemDrainBlockEntity) preTank;

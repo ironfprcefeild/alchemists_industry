@@ -17,7 +17,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -41,25 +40,28 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
         super(ModBlockEntities.ARCANA_RADIATOR.get(), pos, state);
     }
 
-    public static void tick(Level level, BlockPos prePos, BlockState blockState, ArcanaRadiatorBlockEntity pEntity) {
+
+    @Override
+    public void tick(){
+        super.tick();
         if (level.isClientSide) {
             return;
         }
-        SmartBlockPos pos = new SmartBlockPos(prePos);
-        SmartFluidTank FluidTank = pEntity.tank.getPrimaryHandler();
+        SmartBlockPos pos = new SmartBlockPos(this.getBlockPos());
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
+        SmartFluidTank FluidTank = this.tank.getPrimaryHandler();
         FluidStack fluidStack = FluidTank.getFluid();
         Fluid fluid = fluidStack.getFluid();
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
         int arcanaPerMB = EssenceRadiationHandler.radiationHandler.getOrDefault(fluid, 0);
 
 
-        if (arcanaPerMB != 0 && fluidStack.getAmount() > 0 && pEntity.arcanaRef < 500){
-            int mbEssenceUsed = findGenerationValue(pEntity);
+        if (arcanaPerMB != 0 && fluidStack.getAmount() > 0 && this.arcanaRef < 500){
+            int mbEssenceUsed = findGenerationValue();
             FluidTank.drain(mbEssenceUsed, IFluidHandler.FluidAction.EXECUTE);
 
-            ArcanaRadiator.ArcanaTick(level, pos, 0, findTransferValue(pEntity), arcanaPerMB * mbEssenceUsed, true, false);
+            ArcanaRadiator.ArcanaTick(level, pos, 0, findTransferValue(), arcanaPerMB * mbEssenceUsed, true, false);
         } else{
-            ArcanaRadiator.ArcanaTick(level, pos, 0, findTransferValue(pEntity), 0, true, false);
+            ArcanaRadiator.ArcanaTick(level, pos, 0, findTransferValue(), 0, true, false);
         }
     }
 
@@ -78,24 +80,24 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     }
 
     //Values
-    public static int findGenerationValue(ArcanaRadiatorBlockEntity pEntity){
-        return switch (findHeating(pEntity)) {
-            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 2);
-            case SEETHING -> (int) findAcceleratorSpeed(pEntity);
-            default -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 4 );
+    public int findGenerationValue(){
+        return switch (findHeating()) {
+            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(this) / 4);
+            case SEETHING -> (int) findAcceleratorSpeed(this) / 2;
+            default -> (int) Math.floor(findAcceleratorSpeed(this) / 8 );
         };
     }
 
-    public static int findTransferValue(ArcanaRadiatorBlockEntity pEntity){
-        return switch (findHeating(pEntity)) {
-            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 4);
-            case SEETHING -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 2);
-            default -> (int) Math.floor(findAcceleratorSpeed(pEntity) / 8);
+    public int findTransferValue(){
+        return switch (findHeating()) {
+            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(this) / 8);
+            case SEETHING -> (int) Math.floor(findAcceleratorSpeed(this) / 4);
+            default -> (int) Math.floor(findAcceleratorSpeed(this) / 16);
         };
     }
 
-    public static BlazeBurnerBlock.HeatLevel findHeating(ArcanaRadiatorBlockEntity pEntity){
-        BlockEntity burner = pEntity.level.getBlockEntity(pEntity.getBlockPos().below());
+    public BlazeBurnerBlock.HeatLevel findHeating(){
+        BlockEntity burner = this.level.getBlockEntity(this.getBlockPos().below());
         return burner != null && burner.getType() == AllBlockEntityTypes.HEATER.get() ? ((BlazeBurnerBlockEntity) burner).getHeatLevelFromBlock() : BlazeBurnerBlock.HeatLevel.NONE;
     }
 
@@ -116,14 +118,14 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     @Override
     public void onLoad() {
         super.onLoad();
-        lazyFluidHandler = LazyOptional.of(() -> this.tank.getPrimaryHandler());
+        this.lazyFluidHandler = LazyOptional.of(() -> this.tank.getPrimaryHandler());
 
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        lazyFluidHandler.invalidate();
+        this.lazyFluidHandler.invalidate();
     }
 
 
@@ -152,7 +154,8 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
         tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + arcana_maps.ArcanaMap.get(new SmartBlockPos(this.getBlockPos())) + "/500"));
-        return containedFluidTooltip(tooltip,isPlayerSneaking,getCapability(ForgeCapabilities.FLUID_HANDLER));
+        containedFluidTooltip(tooltip,isPlayerSneaking,this.lazyFluidHandler);
+        return true;
     }
 
 }

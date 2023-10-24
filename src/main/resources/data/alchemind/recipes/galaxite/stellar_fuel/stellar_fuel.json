@@ -15,6 +15,10 @@
       "fluid": "alchemind:source_stellar_fuel",
       "nbt": {},
       "amount": 1000
+    },
+    {
+      "item": "alchemind:galaxium_shard",
+      "chance": 0.80
     }
   ],
   "heatRequirement": "heated"

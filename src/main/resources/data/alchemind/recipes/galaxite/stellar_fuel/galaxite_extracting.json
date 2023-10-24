@@ -8,8 +8,8 @@
   "output": {
     "item": "alchemind:hard_galaxium"
   },
-  "chance": 1,
+  "chance": 0.1,
   "break_chance": 0,
   "arcana_required": 100,
-  "extraction_speed": 3
+  "extraction_speed": 4
 }

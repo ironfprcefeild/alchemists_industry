@@ -12,7 +12,6 @@ import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.IFluidTank;
@@ -38,29 +37,30 @@ public class potionCatalyzerBlockEntity extends SmartBlockEntity implements IHav
 
     public float ticksSince = 0;
 
-    //Problem is with finding fluid tank
-    public static void tick(Level level, BlockPos pos, BlockState blockState, potionCatalyzerBlockEntity pEntity) {
-        // LOGGER.info("ticking catalyzer");
-        IFluidTank fluidTank = getTank(pEntity);
+
+    @Override
+    public void tick(){
+        super.tick();
+        IFluidTank fluidTank = getTank();
         if (fluidTank != null && fluidTank.getFluid().getFluid().getFluidType() == AllFluids.POTION.get().getFluidType()) {
             //LOGGER.info("Found Tank");
-            if (pEntity.ticksSince >= ((4096 - findAcceleratorSpeedBelow(pEntity) * 15)/32)) {
-                pEntity.ticksSince = 0;
+            if (this.ticksSince >= ((4096 - findAcceleratorSpeedBelow() * 15)/32)) {
+                this.ticksSince = 0;
                 fluidTank.drain(1, IFluidHandler.FluidAction.EXECUTE);
             } else {
-                pEntity.ticksSince++;
+                this.ticksSince++;
             }
         }
     }
 
-    public static IFluidTank getTank(potionCatalyzerBlockEntity pEntity){
-        BlockEntity tank = pEntity.getLevel().getBlockEntity(pEntity.getBlockPos().above());
+    public IFluidTank getTank(){
+        BlockEntity tank = this.getLevel().getBlockEntity(this.getBlockPos().above());
         return tank != null && tank.getType() == AllBlockEntityTypes.FLUID_TANK.get() ? ((FluidTankBlockEntity) tank).getControllerBE().getTankInventory() : null;
     }
 
 
     public boolean active(){
-        return getTank(this) != null && getTank(this).getFluid().getFluid().getFluidType() == AllFluids.POTION.get().getFluidType();
+        return getTank() != null && getTank().getFluid().getFluid().getFluidType() == AllFluids.POTION.get().getFluidType();
     }
 
     @Override
@@ -78,13 +78,13 @@ public class potionCatalyzerBlockEntity extends SmartBlockEntity implements IHav
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Ticks Until Potion Consumption: " + this.ticksSince + "/" + ((4096 - findAcceleratorSpeedBelow(this) * 15)/32)));
+        tooltip.add(componentSpacing.plainCopy().append("Ticks Until Potion Consumption: " + this.ticksSince + "/" + ((4096 - findAcceleratorSpeedBelow() * 15)/32)));
         tooltip.add(componentSpacing.plainCopy().append(this.active() ? "Active, Accelerator speed Quadrupled" : "Inactive, not boosting accelerator"));
         return true;
     }
 
-    static float findAcceleratorSpeedBelow(SmartBlockEntity pEntity){
-        BlockEntity accelerator = pEntity.getLevel().getBlockEntity(pEntity.getBlockPos().below());
+    public float findAcceleratorSpeedBelow(){
+        BlockEntity accelerator = this.getLevel().getBlockEntity(this.getBlockPos().below());
         return accelerator != null && accelerator.getType() == ModBlockEntities.ACCELERATOR.get() ? Math.abs(((acceleratorBlockEntity) accelerator).getSpeed()) : 0;
     }
 }

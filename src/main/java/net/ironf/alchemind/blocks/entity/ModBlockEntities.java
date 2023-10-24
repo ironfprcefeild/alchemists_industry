@@ -21,6 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockEntities {
+
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Alchemind.MODID);
 
     public static final RegistryObject<BlockEntityType<creativeArcanaGeneratorBlockEntity>> CREATIVE_ARCANA_GENERATOR =

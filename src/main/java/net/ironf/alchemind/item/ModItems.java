@@ -22,7 +22,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> GUNPOWDER_PIECE = ITEMS.register("gunpowder_piece", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 
-    //TODO give texture to Incomplete Totem
+
     public static final RegistryObject<Item> TRAPPED_EMBER = ITEMS.register("trapped_ember", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 
     public static final RegistryObject<Item> LOOSE_SLIME_BALL = ITEMS.register("loose_slime_ball", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));

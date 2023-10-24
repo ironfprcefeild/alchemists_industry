@@ -36,28 +36,30 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
 
     public Integer arcanaRef;
 
-    public static void tick(Level level, BlockPos pos, BlockState blockState, arcanaInfuserBlockEntity pEntity) {
-        if (level.isClientSide){
+    @Override
+    public void tick() {
+        if (this.level.isClientSide){
             return;
         }
 
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
+        BlockPos pos = this.getBlockPos();
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
 
         arcanaInfuser.ArcanaTick(level, pos, 8000, 10, 0, false, true);
-        if (pEntity.processingTicks < processingSpeed(pEntity)){
-            pEntity.processingTicks++;
+        if (this.processingTicks < processingSpeed()){
+            this.processingTicks++;
         }
 
     }
 
 
-    public static boolean processingReady(arcanaInfuserBlockEntity pEntity){
-        float pSpeed = processingSpeed(pEntity);
-        return pSpeed != 160 && pEntity.processingTicks >= pSpeed;
+    public boolean processingReady(){
+        float pSpeed = processingSpeed();
+        return pSpeed != 160 && this.processingTicks >= pSpeed;
     }
 
-    public static float processingSpeed(arcanaInfuserBlockEntity pEntity){
-        return (160 - Math.round(findAcceleratorSpeed(pEntity)/16));
+    public float processingSpeed(){
+        return (160 - Math.round(findAcceleratorSpeed(this)/16));
     }
 
 
@@ -108,7 +110,7 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
     }
 
     protected BeltProcessingBehaviour.ProcessingResult whenItemHeld(TransportedItemStack transported, TransportedItemStackHandlerBehaviour handler) {
-        if (!processingReady(this)){
+        if (!processingReady()){
             return BeltProcessingBehaviour.ProcessingResult.HOLD;
         }
 
@@ -133,7 +135,7 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
             TransportedItemStack result = transported.copy();
             result.stack = out;
 
-            createEffect(this);
+            createEffect();
             if (!transported.stack.isEmpty()) {
                 held = new TransportedItemStack(new ItemStack(transported.stack.getItem().asItem(),transported.stack.getCount() - 1));
             }
@@ -146,10 +148,10 @@ public class arcanaInfuserBlockEntity extends SmartBlockEntity implements IHaveG
         return BeltProcessingBehaviour.ProcessingResult.HOLD;
     }
 
-    private static void createEffect(arcanaInfuserBlockEntity pEntity){
-        Level level = pEntity.getLevel();
+    private void createEffect(){
+        Level level = this.getLevel();
         assert level != null;
-        level.addParticle(ParticleTypes.DRAGON_BREATH, pEntity.getBlockPos().getX(),pEntity.getBlockPos().getY()-0.9,pEntity.getBlockPos().getZ(),0,0.45,0);
+        level.addParticle(ParticleTypes.DRAGON_BREATH, this.getBlockPos().getX(),this.getBlockPos().getY()-0.9,this.getBlockPos().getZ(),0,0.45,0);
     }
 
     @Override

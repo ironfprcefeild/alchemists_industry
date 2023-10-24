@@ -81,64 +81,65 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
 
     //Normal Arcana buisness
 
-
-    public static void tick(Level level, BlockPos pos, BlockState blockState, mineralExtractorBlockEntity pEntity) {
+    @Override
+    public void tick(){
+        super.tick();
         if (level.isClientSide) {
             return;
         }
-        pEntity.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
+        BlockPos pos = this.getBlockPos();
+        this.arcanaRef = IArcanaReader.getOnArcanaMap(pos);
         mineralExtractor.ArcanaTick(level, pos, 100, 10, 0, false, true);
-        extractionTick(pEntity);
+        extractionTick();
 
     }
 
-    private static void extractionTick(mineralExtractorBlockEntity pEntity){
+    private void extractionTick(){
 
 
-        SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
-        for (int i = 0; i < pEntity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, pEntity.itemHandler.getStackInSlot(0));
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for (int i = 0; i < this.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, this.itemHandler.getStackInSlot(0));
         }
 
-        ItemStack inputItem = new ItemStack(pEntity.level.getBlockState(pEntity.getBlockPos().below()).getBlock().asItem(),1);
-        Optional<MineralExtractorRecipe> recipe = grabRecipe(pEntity.level,inputItem);
+        ItemStack inputItem = new ItemStack(this.level.getBlockState(this.getBlockPos().below()).getBlock().asItem(),1);
+        Optional<MineralExtractorRecipe> recipe = grabRecipe(this.level,inputItem);
 
         if (recipe.isPresent()) {
-            float acceleratorSpeed = findAcceleratorSpeed(pEntity);
+            float acceleratorSpeed = findAcceleratorSpeed(this);
             if (acceleratorSpeed != 0) {
                 float extractionSpeed = recipe.get().getExtractionSpeed();
                 float realSpeed = extractionSpeed == 0 ? acceleratorSpeed : extractionSpeed;
                 float currentProcessingRate = (80 - Math.round(realSpeed / 14));
 
-                if (pEntity.processingTicks <= currentProcessingRate) {
-                    pEntity.processingTicks++;
+                if (this.processingTicks <= currentProcessingRate) {
+                    this.processingTicks++;
                 } else {
-                    craftItem(pEntity, recipe.get());
+                    craftItem(recipe.get());
                 }
             }
         }
     }
 
-
     //Recipe Junk
-    private static void craftItem(mineralExtractorBlockEntity pEntity, MineralExtractorRecipe recipe) {
-        Level level = pEntity.level;
+    private void craftItem(MineralExtractorRecipe recipe) {
+        Level level = this.level;
 
 
 
-        if (pEntity.arcanaRef >= recipe.getArcanaRequired()) {
+        if (this.arcanaRef >= recipe.getArcanaRequired()) {
             ItemStack resultItem = recipe.getResultItem();
-            if (pEntity.itemHandler.isItemValid(0,resultItem)) {
-                pEntity.processingTicks = 1;
-                if (pEntity.getRandom().nextFloat() < recipe.getChance()) {
-                    pEntity.itemHandler.setStackInSlot(0,resultItem);
+            if (this.itemHandler.isItemValid(0,resultItem)) {
+                this.processingTicks = 1;
+                if (this.getRandom().nextFloat() < recipe.getChance()) {
+                    this.itemHandler.setStackInSlot(0,resultItem);
                 }
 
-                if (pEntity.getRandom().nextFloat() < recipe.getConsumeChance()) {
-                    level.setBlock(pEntity.getBlockPos().below(), Blocks.AIR.defaultBlockState(), 3);
+                if (this.getRandom().nextFloat() < recipe.getConsumeChance()) {
+                    level.setBlock(this.getBlockPos().below(), Blocks.AIR.defaultBlockState(), 3);
                 }
 
-                arcana_maps.ArcanaMap.put(new SmartBlockPos(pEntity.getBlockPos()), IArcanaReader.getOnArcanaMap(pEntity.getBlockPos()) - recipe.getArcanaRequired());
+                arcana_maps.ArcanaMap.put(new SmartBlockPos(this.getBlockPos()), IArcanaReader.getOnArcanaMap(this.getBlockPos()) - recipe.getArcanaRequired());
             }
         }
     }

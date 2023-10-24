@@ -12,7 +12,7 @@ public class infuserScenes {
         scene.showBasePlate();
 
         scene.world.showSection(util.select.layer(0), Direction.UP);
-        scene.world.showSection(util.select.fromTo(1,1,2,4,1,2),Direction.NORTH);
+        scene.world.showSection(util.select.fromTo(0,1,2,4,1,2),Direction.NORTH);
         scene.world.showSection(util.select.position(2,3,2), Direction.DOWN);
         scene.overlay.showText(75).pointAt(new Vec3(2,3,2)).text("The Arcana Infuser can be used to infuse items below it");
         scene.idle(80);

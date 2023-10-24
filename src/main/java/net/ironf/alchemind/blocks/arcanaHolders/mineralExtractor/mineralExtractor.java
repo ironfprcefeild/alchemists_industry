@@ -1,20 +1,16 @@
 package net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor;
 
+import com.simibubi.create.foundation.block.IBE;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaHoldingBlock;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 
-public class mineralExtractor extends arcanaHoldingBlock {
+public class mineralExtractor extends arcanaHoldingBlock implements IBE<mineralExtractorBlockEntity> {
 
     public mineralExtractor(Properties properties) {
         super(properties, true, false);
@@ -34,16 +30,20 @@ public class mineralExtractor extends arcanaHoldingBlock {
 
     }
 
-    @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new mineralExtractorBlockEntity(pos, state);
+    public Class<mineralExtractorBlockEntity> getBlockEntityClass() {
+        return mineralExtractorBlockEntity.class;
+    }
+
+    @Override
+    public BlockEntityType<? extends mineralExtractorBlockEntity> getBlockEntityType() {
+        return ModBlockEntities.MINERAL_EXTRACTOR.get();
     }
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, ModBlockEntities.MINERAL_EXTRACTOR.get(), mineralExtractorBlockEntity::tick);
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new mineralExtractorBlockEntity(pos, state);
     }
 
 
