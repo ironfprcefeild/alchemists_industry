@@ -35,7 +35,7 @@ public class creativeArcanaGeneratorBlockEntity extends BlockEntity implements I
     public Integer arcanaRef;
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Plenty"));
+        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.creative_arcana_generator_tooltip")));
         return true;
     }
 

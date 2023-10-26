@@ -27,8 +27,6 @@ public class EssenceRadiationHandler implements ResourceManagerReloadListener {
         List<ArcanaRadiatorRecipe> recipeList = createRecipeCollection();
         for (ArcanaRadiatorRecipe r : recipeList){
             for (FluidStack f : r.getInput().getMatchingFluidStacks()){
-                Alchemind.LOGGER.info(f.getTranslationKey());
-                Alchemind.LOGGER.info(r.getArcanaPerMB().toString());
                 radiationHandler.put(f.getFluid(),r.getArcanaPerMB());
             }
         }

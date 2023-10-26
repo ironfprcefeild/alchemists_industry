@@ -166,7 +166,7 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/100"));
+        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.arcana_within")).append(IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/100"));
         return true;
     }
 

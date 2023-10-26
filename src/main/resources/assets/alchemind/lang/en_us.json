@@ -68,6 +68,12 @@
   "item.alchemind.hard_galaxium": "Hard Galaxium",
   "item.alchemind.rotor_component": "[In-Dev] Rotor Component [In-Dev]",
   "item.alchemind.accelerating_crystal": "Accelerating Crystal",
+  "item.alchemind.crimsite_chunk": "Crimsite Chunk",
+  "item.alchemind.asurine_chunk": "Asurine Chunk",
+  "item.alchemind.veridium_chunk": "Veridium Chunk",
+  "item.alchemind.ochrum_chunk": "Ochrum Chunk",
+  "item.alchemind.corvium_chunk": "Corvium Chunk",
+
   "item.alchemind.incomplete_accelerating_crystal": "Incomplete Accelerating Crystal",
 
 
@@ -106,15 +112,20 @@
   "block.alchemind.pure_basalt": "Pure Basalt",
   "block.alchemind.zoomdust_block": "Block of Zoom Dust",
   "block.alchemind.zoomdust_block.tooltip": "Moves you against your will when stood on",
-  "alchemind.hold_shift": "Hold SHIFT for more info",
 
+  "alchemind.hold_shift": "Hold SHIFT for more info",
+  "alchemind.arcana_within": "Arcana Within: ",
+  "alchemind.creative_arcana_generator_tooltip": "Alot of Arcana",
+  "alchemind.potion_catalyzer.ticks_until": "Ticks Until Potion Consumption: ",
+  "alchemind.potion_catalyzer.active_tooltip":"Active, Accelerator speed Quadrupled",
+  "alchemind.potion_catalyzer.inactive_tooltip":"Inactive, not boosting accelerator",
 
   "fluid_type.alchemind.source_terra": "Terra",
   "fluid_type.alchemind.source_aqua": "Aqua",
   "fluid_type.alchemind.source_aero": "Aero",
   "fluid_type.alchemind.source_ignus": "Ignus",
   "fluid_type.alchemind.source_reagent": "Alchemical Mixing Reagent",
-  "fluid_type.alchemind.stellar_fuel": "Stellar Fuel",
+  "fluid_type.alchemind.source_stellar_fuel": "Stellar Fuel",
   "fluid_type.alchemind.source_glima": "Glima",
   "fluid_type.alchemind.source_shade": "Shade",
   "fluid_type.alchemind.source_order": "Order",

@@ -78,8 +78,8 @@ public class potionCatalyzerBlockEntity extends SmartBlockEntity implements IHav
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Ticks Until Potion Consumption: " + this.ticksSince + "/" + ((4096 - findAcceleratorSpeedBelow() * 15)/32)));
-        tooltip.add(componentSpacing.plainCopy().append(this.active() ? "Active, Accelerator speed Quadrupled" : "Inactive, not boosting accelerator"));
+        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.potion_catalyzer.ticks_until")).append(this.ticksSince + "/" + ((4096 - findAcceleratorSpeedBelow() * 15)/32)));
+        tooltip.add(componentSpacing.plainCopy().append(this.active() ? Component.translatable("alchemind.potion_catalyzer.active_tooltip") : Component.translatable("alchemind.potion_catalyzer.inactive_tooltip")));
         return true;
     }
 

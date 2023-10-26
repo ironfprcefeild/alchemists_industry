@@ -246,7 +246,7 @@ public class EssenceMixerBlockEntity extends SmartBlockEntity implements IHaveGo
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append("Arcana Within: " + IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/500"));
+        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.arcana_within")).append(IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/500"));
         containedFluidTooltip(tooltip,isPlayerSneaking,lazyFluidHandler);
         return true;
     }
