@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "fluid": "alchemind:source_ignus",
+      "nbt": {},
+      "amount": 400
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:magma_block",
+      "count": 2
+    }
+  ]
+}

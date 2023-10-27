@@ -53,6 +53,9 @@ public class essenceMixerScenes {
         scene.overlay.showText(75).pointAt(new Vec3(2, 2, 2)).text("This makes arcana storage more compact. Potere is especially Arcana dense");
         scene.idle(80);
 
+        scene.overlay.showText(75).pointAt(new Vec3(2, 2, 2)).text("Other Fluids may be radiate-able, check JEI. Stellar Fuel is incredibly effective");
+        scene.idle(80);
+
         scene.markAsFinished();
 
     }

@@ -158,6 +158,7 @@
   "alchemind.ponder.compound_essence_radiating.header": "Radiating Compound Essences",
   "alchemind.ponder.compound_essence_radiating.text_1": "Compound Essences made with the Essence Mixer create more Arcana per mB for fluid",
   "alchemind.ponder.compound_essence_radiating.text_2": "This makes arcana storage more compact. Potere is especially Arcana dense",
+  "alchemind.ponder.compound_essence_radiating.text_3": "Other Fluids may be radiate-able, check JEI. Stellar Fuel is incredibly effective",
 
   "alchemind.ponder.arcana_infuser_scene.header": "Infusing Items with Arcana using the Arcana Infuser",
   "alchemind.ponder.arcana_infuser_scene.text_1": "The Arcana Infuser can be used to infuse items below it",

@@ -1,16 +1,12 @@
 package net.ironf.alchemind.ponders.scenes;
 
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.foundation.ponder.ElementLink;
 import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
-import com.simibubi.create.foundation.ponder.element.WorldSectionElement;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 public class mineralExtractorScene {
@@ -46,8 +42,6 @@ public class mineralExtractorScene {
         scene.idle(80);
         //Move in a Radiator with Accelerator, and connect pipes
 
-        //Remove the temp cog
-        scene.world.hideSection(util.select.position(2,3,3), Direction.UP);
         scene.world.setBlock(new BlockPos(2,3,3), ModBlocks.ACCELERATOR.get().defaultBlockState(), false);
         scene.idle(1);
         scene.world.showSection(util.select.position(2,3,3), Direction.NORTH);
