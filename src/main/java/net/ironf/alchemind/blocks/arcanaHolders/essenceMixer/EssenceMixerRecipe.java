@@ -28,7 +28,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
     }
     @Override
     public ItemStack assemble(SimpleContainer simpleContainer) {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack getResultItem() {
-        return null;
+        return ItemStack.EMPTY;
     }
 
 

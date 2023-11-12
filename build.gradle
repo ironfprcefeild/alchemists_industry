@@ -6,7 +6,7 @@ plugins {
 
 }
 
-version = '0.2.1-1.19.2-create0.5.1'
+version = '0.2.2-kubejsfix-1.19.2-create0.5.1'
 group = 'net.ironf.alchemind' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'alchemind'
 

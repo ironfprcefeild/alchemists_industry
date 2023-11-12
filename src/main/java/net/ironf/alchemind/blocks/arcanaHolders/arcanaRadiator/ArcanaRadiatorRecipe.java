@@ -25,7 +25,7 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack assemble(SimpleContainer p_44001_) {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack getResultItem() {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override
