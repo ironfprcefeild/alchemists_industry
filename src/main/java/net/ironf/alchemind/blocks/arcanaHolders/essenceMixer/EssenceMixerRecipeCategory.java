@@ -1,9 +1,7 @@
 package net.ironf.alchemind.blocks.arcanaHolders.essenceMixer;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.compat.jei.EmptyBackground;
-import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -15,11 +13,10 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
-import net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser.ArcanaInfuserRecipe;
-import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.MineralExtractorRecipe;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
 import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -46,7 +43,7 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
 
     @Override
     public Component getTitle() {
-        return Component.literal("Essence Mixing");
+        return Component.translatable("alchemind.essence_mixing.title");
     }
 
     @Override
@@ -78,22 +75,21 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
     }
 
     @Override
-    public void draw(EssenceMixerRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
+    public void draw(EssenceMixerRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
         Minecraft mc = Minecraft.getInstance();
-        mc.font.draw(stack, recipe.getArcanaNeeded() + " Arcana Required", 56, 5, 0);
+        guiGraphics.drawString(mc.font, recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required"), 56, 5, 0);
 
         new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
-                .draw(stack,80,60);
+                .draw(guiGraphics,80,60);
 
         new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
-                .draw(stack,80,75);
+                .draw(guiGraphics,80,75);
 
         new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
-                .draw(stack,80,90);
+                .draw(guiGraphics,80,90);
 
         new SimpleAnimatedRecipeItem(ModBlocks.ESSENCE_MIXER.getDefaultState())
-                .draw(stack,80,45);
+                .draw(guiGraphics,80,45);
     }
-
 }

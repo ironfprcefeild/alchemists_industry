@@ -1,158 +1,172 @@
 package net.ironf.alchemind.item;
 
+
+import com.tterrag.registrate.util.entry.ItemEntry;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.fluid.ModFluids;
+import net.ironf.alchemind.item.custom.sigil;
 import net.ironf.alchemind.item.custom.tool_tip_item;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.item.Items;
 
+import java.util.ArrayList;
+
+import static com.simibubi.create.AllTags.AllItemTags.CREATE_INGOTS;
+import static com.simibubi.create.AllTags.forgeItemTag;
+import static net.ironf.alchemind.Alchemind.LOGGER;
+import static net.ironf.alchemind.Alchemind.REGISTRATE;
+
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Alchemind.MODID);
-    //Items for real
-    public static final RegistryObject<Item> FLUFFY_AERO = ITEMS.register("fluffy_aero", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
 
-    public static final RegistryObject<Item> DENSE_AERO = ITEMS.register("dense_aero", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    static {
+        REGISTRATE.setCreativeTab(ModCreativeModeTabs.BASE_CREATIVE_TAB);
+    }
 
-    public static final RegistryObject<Item> GUNPOWDER_PIECE = ITEMS.register("gunpowder_piece", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    ///Items for real
 
+    //Essence Ingredient Items
+    public static final ItemEntry<Item>
+            FLUFFY_AERO = REGISTRATE.item("fluffy_aero",Item::new).register(),
+            DENSE_AERO = REGISTRATE.item("dense_aero",Item::new).register(),
+            GUNPOWDER_PIECE = REGISTRATE.item("gunpowder_piece",Item::new).register(),
+            TRAPPED_EMBER = REGISTRATE.item("trapped_ember",Item::new).register(),
+            LOOSE_SLIME_BALL = REGISTRATE.item("loose_slime_ball",Item::new).register();
 
-    public static final RegistryObject<Item> TRAPPED_EMBER = ITEMS.register("trapped_ember", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    //Emerald Crafting
 
-    public static final RegistryObject<Item> LOOSE_SLIME_BALL = ITEMS.register("loose_slime_ball", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> FLICKER_STONE = ITEMS.register("flicker_stone", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> AMETHYST_POWDER = ITEMS.register("amethyst_powder", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> PYRITE = ITEMS.register("pyrite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> GLAMERITE = ITEMS.register("glamerite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> REACTIVITE = ITEMS.register("reactivite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> CINDER_SCRAP = ITEMS.register("cinder_scrap", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> IMPURE_GHAST_TEAR = ITEMS.register("impure_ghast_tear", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> CHARGED_STONE = ITEMS.register("charged_stone", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> SUPER_CHARGED_STONE = ITEMS.register("super_charged_stone", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> GLAMERITE_POWDER = ITEMS.register("glamerite_powder", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> REACTIVITE_POWDER = ITEMS.register("reactivite_powder", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> PYRITE_POWDER = ITEMS.register("pyrite_powder", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> REACITVITE_ALLOY = ITEMS.register("reactivite_alloy", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> GLAMERITE_ALLOY = ITEMS.register("glamerite_alloy", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> ARCANE_MECHANISM = ITEMS.register("arcane_mechanism", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> ROTOR_COMPONENT = ITEMS.register("rotor_component", () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> ACCELERTING_CRYSTAL = ITEMS.register("accelerating_crystal", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> WARPED_DIAMOND_DUST = ITEMS.register("warped_diamond_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> SHINEDUST = ITEMS.register("shinedust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> POWERPOWDER = ITEMS.register("powerpowder", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> ZOOMDUST = ITEMS.register("zoomdust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> CRUSHED_GALAXITE = ITEMS.register("crushed_galaxite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> GALAXITE_BEAD = ITEMS.register("galaxite_bead", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> HARD_GALAXIUM = ITEMS.register("hard_galaxium", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> GALAXIUM_SHARD = ITEMS.register("galaxium_shard", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    ///Lead Stuff
-    public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> LEAD_NUGGET = ITEMS.register("lead_nugget", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> LEAD_SHEET = ITEMS.register("lead_sheet", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    ///Pewter Stuff
-    public static final RegistryObject<Item> PEWTER_INGOT = ITEMS.register("pewter_ingot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    public static final RegistryObject<Item> PEWTER_NUGGET = ITEMS.register("pewter_nugget", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    ///Arcanum Stuff
-    public static final RegistryObject<Item> ARCANUM_INGOT = ITEMS.register("arcanum_ingot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    ///Sigils
-    public static final RegistryObject<Item> BLANK_SIGIL = ITEMS.register("blank_sigil", () -> new tool_tip_item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB),"item.alchemind.blank_sigil.tool_tip"));
-    public static final RegistryObject<Item> AERO_SIGIL = ITEMS.register("aero_sigil", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> AQUA_SIGIL = ITEMS.register("aqua_sigil", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> TERRA_SIGIL = ITEMS.register("terra_sigil", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> IGNUS_SIGIL = ITEMS.register("ignus_sigil", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    //Philosophers Stuff
-
-    public static final RegistryObject<Item> PHILOSOPHERS_DUST = ITEMS.register("philosophers_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> PHILOSOPHERS_GUNK = ITEMS.register("philosophers_gunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> PHILOSOPHERS_STONE = ITEMS.register("philosophers_stone", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> PHILOSOPHERS_FRAGMENT = ITEMS.register("philosophers_fragment", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-
-    //ORe Chunks
-    public static final RegistryObject<Item> CRIMSITE_CHUNK = ITEMS.register("crimsite_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> AUSRINE_CHUNK = ITEMS.register("asurine_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> VERDIUM_CHUNK = ITEMS.register("veridium_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> OCHRUM_CHUNK = ITEMS.register("ochrum_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
-    public static final RegistryObject<Item> CORVIUM_CHUNK = ITEMS.register("corvium_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB)));
+    public static final ItemEntry<Item>
+            FLICKER_STONE = REGISTRATE.item("flicker_stone",Item::new).register(),
+            AMETHYST_POWDER = REGISTRATE.item("amethyst_powder",Item::new).register();
 
 
-    //Buckets
-    public static final RegistryObject<Item> IGNUS_BUCKET = ITEMS.register("ignus_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_IGNUS, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    //-Ites
 
-    public static final RegistryObject<Item> TERRA_BUCKET = ITEMS.register("terra_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_TERRA, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
-    public static final RegistryObject<Item> AQUA_BUCKET = ITEMS.register("aqua_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_AQUA, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final ItemEntry<Item>
+            PYRITE = REGISTRATE.item("pyrite",Item::new).register(),
+            GLAMERITE = REGISTRATE.item("glamerite",Item::new).register(),
+            REACTIVITE = REGISTRATE.item("reactivite",Item::new).register(),
+            PYRITE_POWDER = REGISTRATE.item("pyrite_powder",Item::new).register(),
+            GLAMERITE_POWDER = REGISTRATE.item("glamerite_powder",Item::new).register(),
+            REACTIVITE_POWDER = REGISTRATE.item("reactivite_powder",Item::new).register(),
+            GLAMERITE_ALLOY = REGISTRATE.item("glamerite_alloy",Item::new).register(),
+            REACTIVITE_ALLOY = REGISTRATE.item("reactivite_alloy",Item::new).register();
 
-    public static final RegistryObject<Item> AERO_BUCKET = ITEMS.register("aero_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_AERO, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
 
-    public static final RegistryObject<Item> REAGENT_BUCKET = ITEMS.register("reagent_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_REAGENT, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    //Miscellaneous Materials
+    public static final ItemEntry<Item>
+            IMPURE_GHAST_TEAR = REGISTRATE.item("impure_ghast_tear",Item::new).register(),
+            WARPED_DIAMOND_DUST = REGISTRATE.item("warped_diamond_dust",Item::new).register(),
+            CINDER_SCRAP = REGISTRATE.item("cinder_scrap",Item::new).register();
 
-    public static final RegistryObject<Item> STELLAR_FUEL_BUCKET = ITEMS.register("stellar_fuel_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_STELLAR_FUEL, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    //Galaxite
 
-    public static final RegistryObject<Item> GLIMA_BUCKET = ITEMS.register("glima_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_GLIMA, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final ItemEntry<Item>
+            CRUSHED_GALAXITE = REGISTRATE.item("crushed_galaxite",Item::new).register(),
+            GALAXITE_BEAD = REGISTRATE.item("galaxite_bead",Item::new).register(),
+            HARD_GALAXIUM = REGISTRATE.item("hard_galaxium",Item::new).register(),
+            GALAXIUM_SHARD = REGISTRATE.item("galaxium_shard",Item::new).register();
 
-    public static final RegistryObject<Item> SHADE_BUCKET = ITEMS.register("shade_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_SHADE, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
 
-    public static final RegistryObject<Item> ORDER_BUCKET = ITEMS.register("order_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_ORDER, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    //Lead
 
-    public static final RegistryObject<Item> POTERE_BUCKET = ITEMS.register("potere_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_POTERE, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final ItemEntry<Item>
+            LEAD_INGOT = REGISTRATE.item("lead_ingot",Item::new).register(),
+            LEAD_NUGGET = REGISTRATE.item("lead_nugget",Item::new).register(),
+            LEAD_SHEET = REGISTRATE.item("lead_sheet",Item::new).register();
 
-    public static final RegistryObject<Item> GHEIGH_BUCKET = ITEMS.register("gheigh_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_GHEIGH, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    //Pewter
 
-    public static final RegistryObject<Item> VIVORN_BUCKET = ITEMS.register("vivorn_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_VIVORN, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final ItemEntry<Item>
+            PEWTER_INGOT = REGISTRATE.item("pewter_ingot",Item::new).register(),
+            PEWTER_NUGGET = REGISTRATE.item("pewter_nugget",Item::new).register();
 
-    public static final RegistryObject<Item> MORTITH_BUCKET = ITEMS.register("mortith_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_MORTITH, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    //Sigils
 
-    public static final RegistryObject<Item> MOVERE_BUCKET = ITEMS.register("movere_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_MOVERE, new Item.Properties().tab(ModCreativeModeTab.ALCHEMIND_TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final ItemEntry<sigil>
+            BLANK_SIGIL = REGISTRATE.item("blank_sigil",sigil::new).register(),
+            IGNUS_SIGIL = REGISTRATE.item("ignus_sigil",sigil::new).register(),
+            AQUA_SIGIL = REGISTRATE.item("aqua_sigil",sigil::new).register(),
+            AERO_SIGIL = REGISTRATE.item("aero_sigil",sigil::new).register(),
+            TERRA_SIGIL = REGISTRATE.item("terra_sigil",sigil::new).register();
+
+
+    //Stones
+    public static final ItemEntry<Item>
+            CHARGED_STONE = REGISTRATE.item("charged_stone",Item::new).register(),
+            SUPER_CHARGED_STONE = REGISTRATE.item("super_charged_stone",Item::new).register();
+
+    //Arcana Materials
+    public static final ItemEntry<Item>
+            ARCANE_MECHANISM = REGISTRATE.item("arcane_mechanism",Item::new).register(),
+            ROTOR_COMPONENT = REGISTRATE.item("rotor_component",Item::new).register(),
+            ACCELERATING_CRYSTAL = REGISTRATE.item("accelerating_crystal",Item::new).register();
+
+
+    //Combine Essence Powders
+
+    public static final ItemEntry<Item>
+            SHINEDUST = REGISTRATE.item("shinedust",Item::new).register(),
+            POWERPOWDER = REGISTRATE.item("powerpowder",Item::new).register(),
+            ZOOMDUST = REGISTRATE.item("zoomdust",Item::new).register();
+
+
+
+    //Arcanum Ingot
+
+    public static final ItemEntry<Item> ARCANUM_INGOT = REGISTRATE.item("arcanum_ingot",Item::new).properties(p -> p.rarity(Rarity.EPIC)).register();
+
+    //Philosophers Stone Stuff
+
+    public static final ItemEntry<Item>
+            PHILOSOPHERS_DUST = REGISTRATE.item("philosophers_dust",Item::new).properties(p -> p.rarity(Rarity.RARE)).register(),
+            PHILOSOPHERS_GUNK = REGISTRATE.item("philosophers_gunk",Item::new).properties(p -> p.rarity(Rarity.RARE)).register(),
+            PHILOSOPHERS_STONE = REGISTRATE.item("philosophers_stone",Item::new).properties(p -> p.rarity(Rarity.EPIC)).register(),
+            PHILOSOPHERS_FRAGMENT = REGISTRATE.item("philosophers_fragment",Item::new).properties(p -> p.rarity(Rarity.RARE)).register();
+
+
+    //Ore Chunks
+    public static final ItemEntry<Item>
+            CRIMSITE_CHUNK = REGISTRATE.item("crimsite_chunk",Item::new).register(),
+            ASURINE_CHUNK = REGISTRATE.item("asurine_chunk",Item::new).register(),
+            VERIDIUM_CHUNK = REGISTRATE.item("veridium_chunk",Item::new).register(),
+            OCHRUM_CHUNK = REGISTRATE.item("ochrum_chunk",Item::new).register(),
+            CORVIUM_CHUNK = REGISTRATE.item("corvium_chunk",Item::new).properties(Item.Properties::fireResistant).register();
+
+
+    ///Buckets
+    public static final RegistryObject<BucketItem> IGNUS_BUCKET = registerBucket("ignus",ModFluids.SOURCE_IGNUS);
+    public static final RegistryObject<BucketItem> TERRA_BUCKET = registerBucket("terra",ModFluids.SOURCE_TERRA);
+    public static final RegistryObject<BucketItem> AQUA_BUCKET = registerBucket("aqua",ModFluids.SOURCE_AQUA);
+    public static final RegistryObject<BucketItem> AERO_BUCKET = registerBucket("aero",ModFluids.SOURCE_AERO);
+    public static final RegistryObject<BucketItem> REAGENT_BUCKET = registerBucket("reagent",ModFluids.SOURCE_REAGENT);
+    public static final RegistryObject<BucketItem> STELLAR_FUEL_BUCKET = registerBucket("stellar_fuel_bucket",ModFluids.SOURCE_STELLAR_FUEL);
+    public static final RegistryObject<BucketItem> GLIMA_BUCKET = registerBucket("glima",ModFluids.SOURCE_GLIMA);
+    public static final RegistryObject<BucketItem> SHADE_BUCKET = registerBucket("shade",ModFluids.SOURCE_SHADE);
+    public static final RegistryObject<BucketItem> ORDER_BUCKET = registerBucket("order",ModFluids.SOURCE_MORTITH);
+    public static final RegistryObject<BucketItem> POTERE_BUCKET = registerBucket("potere",ModFluids.SOURCE_POTERE);
+    public static final RegistryObject<BucketItem> GHEIGH_BUCKET = registerBucket("gheigh",ModFluids.SOURCE_GHEIGH);
+    public static final RegistryObject<BucketItem> VIVORN_BUCKET = registerBucket("vivorn",ModFluids.SOURCE_VIVORN);
+    public static final RegistryObject<BucketItem> MORTITH_BUCKET = registerBucket("mortith",ModFluids.SOURCE_MORTITH);
+    public static final RegistryObject<BucketItem> MOVERE_BUCKET = registerBucket("movere",ModFluids.SOURCE_MOVERE);
+
+    //Bucket Helper Functions
+    public static RegistryObject<BucketItem> registerBucket(String fluidName, RegistryObject<FlowingFluid> fluid){
+        RegistryObject<BucketItem> toReturn = ITEMS.register(fluidName + "_bucket", () -> new BucketItem(fluid,new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        LOGGER.info("Trying to add bucket");
+        //allBuckets.add(toReturn);
+        return toReturn;
+    }
+    public static ArrayList<RegistryObject<BucketItem>> allBuckets;
 
     //Sequenced Assembly Incomplete Items
 
@@ -174,10 +188,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> INCOMPLETE_ACCELERATING_CRYSTAL = ITEMS.register("incomplete_accelerating_crystal", () -> new Item(new Item.Properties()));
 
-    //Helper Functions
 
     public static void register(IEventBus eventBus) {
+        allBuckets = new ArrayList<RegistryObject<BucketItem>>();
         ITEMS.register(eventBus);
+        register();
+    }
+
+    public static void register(){
+
     }
 }
 

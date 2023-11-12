@@ -1,7 +1,5 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaInfuser;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.compat.jei.EmptyBackground;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.constants.VanillaTypes;
@@ -18,6 +16,7 @@ import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
 import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -29,9 +28,6 @@ import static com.simibubi.create.compat.jei.category.CreateRecipeCategory.getRe
 @ParametersAreNonnullByDefault
 public class ArcanaInfuserRecipeCategory implements IRecipeCategory<ArcanaInfuserRecipe> {
     public final static ResourceLocation UID = new ResourceLocation(Alchemind.MODID, "arcana_infusing");
-    public final static ResourceLocation TEXTURE =
-            new ResourceLocation(Alchemind.MODID, "textures/bakcg.png");
-
 
     private final IDrawable background;
     private final IDrawable icon;
@@ -47,7 +43,7 @@ public class ArcanaInfuserRecipeCategory implements IRecipeCategory<ArcanaInfuse
 
     @Override
     public Component getTitle() {
-        return Component.literal("Arcana Infuser");
+        return Component.translatable("alchemind.arcana_infusing.title");
     }
 
     @Override
@@ -77,21 +73,19 @@ public class ArcanaInfuserRecipeCategory implements IRecipeCategory<ArcanaInfuse
 
     }
 
+
     @Override
-    public void draw(ArcanaInfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
+    public void draw(ArcanaInfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         Minecraft mc = Minecraft.getInstance();
-        mc.font.draw(stack, recipe.getArcanaRequired() + " Arcana Required", 56, 70, 0);
-        AllGuiTextures.JEI_SHADOW.render(stack, 61, 41);
-        AllGuiTextures.JEI_LONG_ARROW.render(stack, 52, 54);
+
+        guiGraphics.drawString(mc.font, recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 56, 70, 0);
+        AllGuiTextures.JEI_SHADOW.render(guiGraphics, 61, 41);
+        AllGuiTextures.JEI_LONG_ARROW.render(guiGraphics, 52, 54);
 
         new SimpleAnimatedRecipeItem(ModBlocks.ARCANA_INFUSER.getDefaultState())
-                .draw(stack, getBackground().getWidth() / 2 - 17, 22);
-
-
-
+                .draw(guiGraphics, getBackground().getWidth() / 2 - 17, 22);
 
 
     }
-
 
 }

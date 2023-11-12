@@ -3,6 +3,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.ironf.alchemind.Alchemind;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -46,13 +47,13 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pLevel) {
+        return output;
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer) {
-        return output;
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     @Override
@@ -61,6 +62,11 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    public ItemStack getResultItem(RegistryAccess pLevel) {
+        return getResultItem();
+    }
+
+
     public ItemStack getResultItem() {
         return output.copy();
     }

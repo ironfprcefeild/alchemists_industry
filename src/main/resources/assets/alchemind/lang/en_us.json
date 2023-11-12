@@ -27,20 +27,13 @@
   "item.alchemind.glamerite": "Glamerite",
   "item.alchemind.cinder_scrap": "Scrap of Cinder",
   "item.alchemind.impure_ghast_tear": "Impure Ghast Tear",
-  "item.alchemind.incomplete_enchanted_golden_apple": "Weakly Enchanted Golden Apple",
-  "item.alchemind.incomplete_totem_of_undying": "Totem of Still Dying",
-  "item.alchemind.incomplete_netherrack": "Pulsating Nether Blob",
-  "item.alchemind.incomplete_cinder_scrap": "Messy Cinders",
-  "item.alchemind.incomplete_arcane_mechanism": "Incomplete Arcane Mechanism",
-  "item.alchemind.incomplete_philosophers_stone": "Incomplete Philosophers Stone",
-  "item.alchemind.incomplete_philosophers_gunk": "Incomplete Philosophers Gunk",
   "item.alchemind.lead_ingot": "Lead Ingot",
   "item.alchemind.lead_nugget": "Lead Nugget",
   "item.alchemind.lead_sheet": "Lead Sheet",
   "item.alchemind.pewter_ingot": "Pewter Ingot",
   "item.alchemind.pewter_nugget": "Pewter Nugget",
+  "item.alchemind.sigil.tool_tip": "Pour Essence and Drain it out to get 100mb more than you put in! Convert Pewter to Essence",
   "item.alchemind.blank_sigil": "Blank Sigil",
-  "item.alchemind.blank_sigil.tool_tip": "Pour Essence and Drain it out to get 100mb more than you put in! Convert Pewter to Essence",
   "item.alchemind.aero_sigil": "Aero Sigil",
   "item.alchemind.aqua_sigil": "Aqua Sigil",
   "item.alchemind.terra_sigil": "Terra Sigil",
@@ -74,8 +67,14 @@
   "item.alchemind.ochrum_chunk": "Ochrum Chunk",
   "item.alchemind.corvium_chunk": "Corvium Chunk",
 
+  "item.alchemind.incomplete_enchanted_golden_apple": "Weakly Enchanted Golden Apple",
+  "item.alchemind.incomplete_totem_of_undying": "Totem of Still Dying",
+  "item.alchemind.incomplete_netherrack": "Pulsating Nether Blob",
+  "item.alchemind.incomplete_cinder_scrap": "Messy Cinders",
+  "item.alchemind.incomplete_arcane_mechanism": "Incomplete Arcane Mechanism",
+  "item.alchemind.incomplete_philosophers_stone": "Incomplete Philosophers Stone",
+  "item.alchemind.incomplete_philosophers_gunk": "Incomplete Philosophers Gunk",
   "item.alchemind.incomplete_accelerating_crystal": "Incomplete Accelerating Crystal",
-
 
   "block.alchemind.solid_ignus": "Solid Ignus",
   "block.alchemind.loose_ignus": "Loose Ignus",
@@ -184,8 +183,20 @@
   "alchemind.ponder.heated_essence_radiating.text_2": "Even while heating is provided, the Accelerator's speed still takes an effect on the radiator",
   "alchemind.ponder.heated_essence_radiating.text_3": "Place and heat a blase burner below",
   "alchemind.ponder.heated_essence_radiating.text_4": "Only fueled burners improve the radiator, superheated burners even more so",
-  "alchemind.ponder.heated_essence_radiating.text_5": "you may want to consider adding a system to input fuel automatically using a mechanical arm"
+  "alchemind.ponder.heated_essence_radiating.text_5": "you may want to consider adding a system to input fuel automatically using a mechanical arm",
 
+  "alchemind.arcana_infusing.title": "Arcana Infusing",
 
+  "alchemind.essence_radiating.title": "Essence Radiating",
+  "alchemind.essence_radiating.arcana_per_mb": "Arcana/mb",
+
+  "alchemind.essence_mixing.title": "Essence Mixing",
+
+  "alchemind.mineral_extracting.title": "Mineral Extracting",
+  "alchemind.mineral_extracting.extraction_chance": "% Extraction Chance",
+  "alchemind.mineral_extracting.break_chance": "% Break Chance",
+  "alchemind.mineral_extracting.no_accelerator_required": "No Accelerator Required",
+
+  "alchemind.arcana_required": "Arcana Required"
 
 }

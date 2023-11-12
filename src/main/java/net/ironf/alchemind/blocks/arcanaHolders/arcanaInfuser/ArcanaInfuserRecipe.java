@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.mojang.logging.LogUtils;
 import net.ironf.alchemind.Alchemind;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -13,8 +14,6 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
-
-import java.util.HashMap;
 
 public class ArcanaInfuserRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
@@ -44,14 +43,15 @@ public class ArcanaInfuserRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pLevel) {
+        return output;
+    }
+
+    @Override
     public NonNullList<Ingredient> getIngredients() {
         return recipeItems;
     }
 
-    @Override
-    public ItemStack assemble(SimpleContainer pContainer) {
-        return output;
-    }
 
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
@@ -59,10 +59,13 @@ public class ArcanaInfuserRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack getResultItem() {
-        return output.copy();
+    public ItemStack getResultItem(RegistryAccess pLevel) {
+        return getResultItem();
     }
 
+    public ItemStack getResultItem(){
+        return output.copy();
+    }
     @Override
     public ResourceLocation getId() {
         return id;

@@ -6,21 +6,23 @@ import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.EssenceRadiationHandler;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
+import net.ironf.alchemind.data.AlchemindDatagen;
 import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.fluid.ModFluidTypes;
 import net.ironf.alchemind.fluid.ModFluids;
+import net.ironf.alchemind.item.ModCreativeModeTabs;
 import net.ironf.alchemind.item.ModItems;
 import net.ironf.alchemind.ponders.AllPonderTags;
 import net.ironf.alchemind.ponders.PonderIndex;
 import net.ironf.alchemind.recipe.ModRecipes;
 import net.ironf.alchemind.world.feature.ModConfiguredFeatures;
-import net.ironf.alchemind.world.feature.ModPlacedFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -41,26 +43,18 @@ public class Alchemind
     public Alchemind()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         REGISTRATE.registerEventListeners(modEventBus);
-
+        ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
-
         ModBlocks.register(modEventBus);
-
         ModFluids.register(modEventBus);
         ModFluidTypes.register(modEventBus);
-
-        ModPlacedFeatures.register(modEventBus);
-        ModConfiguredFeatures.register(modEventBus);
-
         ModBlockEntities.register(modEventBus);
-
         ModRecipes.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
-
+        modEventBus.addListener(EventPriority.LOWEST, AlchemindDatagen::gatherData);
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -68,7 +62,6 @@ public class Alchemind
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

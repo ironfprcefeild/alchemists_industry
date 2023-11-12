@@ -3,6 +3,7 @@ package net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator;
 import com.google.gson.JsonObject;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.ironf.alchemind.Alchemind;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -24,9 +25,10 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer p_44001_) {
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pLevel) {
         return null;
     }
+
 
     @Override
     public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
@@ -34,6 +36,10 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    public ItemStack getResultItem(RegistryAccess pLevel) {
+        return getResultItem();
+    }
+
     public ItemStack getResultItem() {
         return null;
     }

@@ -1,59 +1,72 @@
 package net.ironf.alchemind.world.feature;
 
-import com.google.common.base.Supplier;
-import com.google.common.base.Suppliers;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
-import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+
 import java.util.List;
 
+import static net.minecraft.data.worldgen.features.FeatureUtils.register;
+
 public class ModConfiguredFeatures {
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
-            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Alchemind.MODID);
-
-    //GALENA
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> GALENA_SUPPLIER = Suppliers.memoize(() -> List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.GALENA.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.GALENA.get().defaultBlockState())));
-
-    public static final RegistryObject<ConfiguredFeature<?, ?>> GALENA_VEIN_ORE = CONFIGURED_FEATURES.register("galena_vein_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(GALENA_SUPPLIER.get(),40))); //Vein Size is 40
+    public static final ResourceKey<ConfiguredFeature<?, ?>>
+            GALENA_VEIN_ORE = key("galena_vein_ore"),
+            GALENA_VEIN_SCATTERED = key("galena_vein_scattered"),
+            CORVIUM_VEIN_ORE = key("corvium_vein_ore"),
+            GALAXITE_VEIN_ORE = key("galaxite_vein_ore"),
+            GALAXITE_VEIN_SCATTERED = key("galaxite_vein_scattered");
 
 
-    public static final RegistryObject<ConfiguredFeature<?, ?>> GALENA_VEIN_SCATTERED = CONFIGURED_FEATURES.register("galena_vein_scattered",
-            () -> new ConfiguredFeature<>(Feature.SCATTERED_ORE, new OreConfiguration(GALENA_SUPPLIER.get(),40))); //Vein Size is 40
-
-
-    //CORVIUM
-
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> CORVIUM_SUPPLIER = Suppliers.memoize(() -> List.of(
-            OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.CORVIUM.get().defaultBlockState())));
-
-    public static final RegistryObject<ConfiguredFeature<?, ?>> CORVIUM_VEIN_ORE = CONFIGURED_FEATURES.register("corvium_vein_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(CORVIUM_SUPPLIER.get(),60))); //Vein Size is 60
-
-    //GALAXITE
-
-
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> GALAXITE_SUPPLIER = Suppliers.memoize(() -> List.of(
-            OreConfiguration.target(new BlockMatchTest(Blocks.END_STONE), ModBlocks.GALAXITE.get().defaultBlockState())));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> GALAXITE_VEIN_ORE = CONFIGURED_FEATURES.register("galaxite_vein_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(GALAXITE_SUPPLIER.get(), 25)));
-
-
-    public static final RegistryObject<ConfiguredFeature<?, ?>> GALAXITE_SCATTERED_VEIN_ORE = CONFIGURED_FEATURES.register("galaxite_scattered_vein_ore",
-            () -> new ConfiguredFeature<>(Feature.SCATTERED_ORE, new OreConfiguration(GALAXITE_SUPPLIER.get(), 60)));
-
-    public static void register(IEventBus eventBus) {
-        CONFIGURED_FEATURES.register(eventBus);
+    //TODO fix this crash
+    private static ResourceKey<ConfiguredFeature<?, ?>> key(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, Alchemind.createRL(name));
     }
+
+
+
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+        RuleTest stoneOreReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslateOreReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+
+        ///Galena
+        List<OreConfiguration.TargetBlockState> galenaTargetStates = List.of(
+                OreConfiguration.target(stoneOreReplaceables, ModBlocks.GALENA.get()
+                        .defaultBlockState()),
+                OreConfiguration.target(deepslateOreReplaceables,ModBlocks.GALENA.get()
+                        .defaultBlockState())
+        );
+
+        register(ctx, GALENA_VEIN_ORE, Feature.ORE, new OreConfiguration(galenaTargetStates, 40));
+        register(ctx, GALENA_VEIN_SCATTERED, Feature.SCATTERED_ORE, new OreConfiguration(galenaTargetStates, 40));
+
+        ///Corvium
+        List<OreConfiguration.TargetBlockState> corviumTargetStates = List.of(
+                OreConfiguration.target(new BlockMatchTest(Blocks.NETHERRACK), ModBlocks.CORVIUM.get()
+                        .defaultBlockState())
+        );
+
+        register(ctx, CORVIUM_VEIN_ORE, Feature.ORE, new OreConfiguration(corviumTargetStates, 40));
+
+        ///Galaxite
+        List<OreConfiguration.TargetBlockState> galaxiteTargetStates = List.of(
+                OreConfiguration.target(new BlockMatchTest(Blocks.END_STONE), ModBlocks.GALAXITE.get()
+                        .defaultBlockState())
+        );
+
+        register(ctx, GALAXITE_VEIN_ORE, Feature.ORE, new OreConfiguration(galaxiteTargetStates, 25));
+        register(ctx, GALAXITE_VEIN_SCATTERED, Feature.SCATTERED_ORE, new OreConfiguration(galaxiteTargetStates, 25));
+
+    }
+
 }

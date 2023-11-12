@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
 public class SmartBlockPos extends BlockPos {
-    Level dimension;
+
 
     public SmartBlockPos(int x, int y, int z) {
         super(x, y, z);
@@ -59,7 +59,4 @@ public class SmartBlockPos extends BlockPos {
         return new SmartBlockPos(Xset, Yset, Zset);
     }
 
-    public Level getDimension() {
-        return this.dimension;
-    }
 }

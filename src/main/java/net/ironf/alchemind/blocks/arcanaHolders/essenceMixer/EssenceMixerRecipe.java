@@ -6,6 +6,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.ironf.alchemind.Alchemind;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -26,17 +27,21 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
     public boolean matches(SimpleContainer container, Level level) {
         return false;
     }
+
     @Override
-    public ItemStack assemble(SimpleContainer simpleContainer) {
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pLevel) {
         return null;
     }
-
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;
     }
 
     @Override
+    public ItemStack getResultItem(RegistryAccess p_267052_) {
+        return getResultItem();
+    }
+
     public ItemStack getResultItem() {
         return null;
     }

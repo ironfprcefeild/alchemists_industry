@@ -1,7 +1,6 @@
 package net.ironf.alchemind.blocks;
 
 
-import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.ironf.alchemind.Alchemind;
@@ -15,28 +14,20 @@ import net.ironf.alchemind.blocks.arcanaHolders.essenceMixer.EssenceMixer;
 import net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor.mineralExtractor;
 import net.ironf.alchemind.blocks.arcanaHolders.potionCatalyzer.potionCatalyzer;
 import net.ironf.alchemind.blocks.custom.effectLiquidBlock;
-import net.ironf.alchemind.blocks.custom.tool_tip_block_item;
 import net.ironf.alchemind.blocks.custom.zoomdustBlock;
 import net.ironf.alchemind.fluid.ModFluids;
-import net.ironf.alchemind.item.ModCreativeModeTab;
-import net.ironf.alchemind.item.ModItems;
+import net.ironf.alchemind.item.ModCreativeModeTabs;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Supplier;
 
 import static net.ironf.alchemind.Alchemind.REGISTRATE;
 
@@ -45,128 +36,205 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Alchemind.MODID);
 
     static {
-        Alchemind.REGISTRATE.creativeModeTab(() -> ModCreativeModeTab.ALCHEMIND_TAB);
+        Alchemind.REGISTRATE.setCreativeTab(ModCreativeModeTabs.BASE_CREATIVE_TAB);
     }
     //Blocks for real
     ///Solid Blocks
-    public static  final RegistryObject<Block> SOLID_IGNUS = registerBlock("solid_ignus", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().lightLevel(value -> 5)), ModCreativeModeTab.ALCHEMIND_TAB);
 
-    public static  final RegistryObject<Block> LOOSE_IGNUS = registerBlock("loose_ignus", () ->
-            new FallingBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops().lightLevel(value -> 10)), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> SOLID_IGNUS = REGISTRATE.block("solid_ignus", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.lightLevel(light -> 5).strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> SOLID_TERRA = registerBlock("solid_terra", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> LOOSE_IGNUS = REGISTRATE.block("loose_ignus", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.lightLevel(light -> 10).strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> LOOSE_TERRA = registerBlock("loose_terra", () ->
-            new FallingBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> SOLID_TERRA = REGISTRATE.block("solid_terra", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+    public static final BlockEntry<FallingBlock> LOOSE_TERRA = REGISTRATE.block("loose_terra", FallingBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> SCULKING_TERRA = registerBlock("sculking_terra", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> SCULKING_TERRA = REGISTRATE.block("sculking_terra", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> SOLID_AQUA = registerBlock("solid_aqua", () ->
-            new Block(BlockBehaviour.Properties.of(Material.CLAY).strength(1f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> LOOSE_AQUA = registerBlock("loose_aqua", () ->
-            new FallingBlock(BlockBehaviour.Properties.of(Material.CLAY).strength(1f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> SOLID_AQUA = REGISTRATE.block("solid_aqua", Block::new)
+            .initialProperties(() -> Blocks.CLAY)
+            .properties(p -> p.strength(1f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> SOLID_AERO = registerBlock("solid_aero", () ->
-            new Block(BlockBehaviour.Properties.of(Material.CLAY).strength(1f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> LOOSE_AERO = registerBlock("loose_aero", () ->
-            new Block(BlockBehaviour.Properties.of(Material.CLAY).strength(1f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> LOOSE_AQUA = REGISTRATE.block("loose_aqua", Block::new)
+            .initialProperties(() -> Blocks.CLAY)
+            .properties(p -> p.strength(1f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> GALENA = registerBlock("galena", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> SOLID_AERO = REGISTRATE.block("solid_aero", Block::new)
+            .initialProperties(() -> Blocks.CLAY)
+            .properties(p -> p.strength(1f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> CORVIUM = registerBlock("corvium", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> GALAXITE = registerBlock("galaxite", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> LOOSE_AERO = REGISTRATE.block("loose_aero", Block::new)
+            .initialProperties(() -> Blocks.CLAY)
+            .properties(p -> p.strength(1f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+    public static final BlockEntry<Block> GALENA = REGISTRATE.block("galena", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> LEAD_BLOCK = registerBlock("lead_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> CORVIUM = REGISTRATE.block("corvium", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+    public static final BlockEntry<Block> GALAXITE = REGISTRATE.block("galaxite", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(3f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> CRYSTAL_GLASS = registerToolTipBlock("crystal_glass", () ->
-            new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB,  "block.alchemind.crystal_glass.tool_tip");
-    public static  final RegistryObject<Block> PEWTER_BLOCK = registerBlock("pewter_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> CINDERITE = registerBlock("cinderite", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> CINDERSTONE = registerBlock("cinderstone", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> LEAD_BLOCK = REGISTRATE.block("lead_block", Block::new)
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(3f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> HEALTHY_NETHERRACK = registerBlock("healthy_netherrack", () ->
-            new Block(BlockBehaviour.Properties.of(Material.DIRT).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> PEWTER_BLOCK = REGISTRATE.block("pewter_block", Block::new)
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> UNSTABLE_DEBRIS = registerBlock("unstable_debris", () ->
-            new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> CRYSTAL_GLASS = REGISTRATE.block("crystal_glass", Block::new)
+            .initialProperties(() -> Blocks.GLASS)
+            .properties(p -> p.strength(1f).requiresCorrectToolForDrops())
+            .register();
+    //TODO figure out how to get crystal glass tooltip
 
-    public static  final RegistryObject<Block> INFUSED_ENDSTONE = registerBlock("infused_endstone", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> CINDERITE = REGISTRATE.block("cinderite", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
-    public static  final RegistryObject<Block> SHINEDUST_LANTERN = registerBlock("shinedust_lantern", () ->
-            new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(2f).lightLevel(value -> 80)), ModCreativeModeTab.ALCHEMIND_TAB);
-    public static  final RegistryObject<Block> ZOOMDUST_BLOCK = registerToolTipBlock("zoomdust_block", () ->
-            new zoomdustBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(2f)), ModCreativeModeTab.ALCHEMIND_TAB,"block.alchemind.zoomdust_block.tooltip");
-    public static  final RegistryObject<Block> PURE_BASALT = registerBlock("pure_basalt", () ->
-            new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(2f)), ModCreativeModeTab.ALCHEMIND_TAB);
+    public static final BlockEntry<Block> CINDERSTONE = REGISTRATE.block("cinderstone", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+
+    public static final BlockEntry<Block> HEALTHY_NETHERRACK = REGISTRATE.block("healthy_netherrack", Block::new)
+            .initialProperties(() -> Blocks.DIRT)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+
+    public static final BlockEntry<Block> UNSTABLE_DEBRIS = REGISTRATE.block("unstable_debris", Block::new)
+            .initialProperties(() -> Blocks.ANCIENT_DEBRIS)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+
+    public static final BlockEntry<Block> INFUSED_ENDSTONE = REGISTRATE.block("infused_endstone", Block::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
+    public static final BlockEntry<Block> SHINEDUST_LANTERN = REGISTRATE.block("shinedust_lantern", Block::new)
+            .initialProperties(() -> Blocks.GLOWSTONE)
+            .properties(p -> p.strength(1f).lightLevel(light -> 80))
+            .simpleItem()
+            .register();
+    public static final BlockEntry<zoomdustBlock> ZOOMDUST_BLOCK_BLOCK = REGISTRATE.block("zoomdust_block", zoomdustBlock::new)
+            .initialProperties(() -> Blocks.DIRT)
+            .properties(p -> p.strength(2f))
+            .simpleItem()
+            .register();
+
+    //TODO figure out how to give tooltip to zoomdut block
+    public static final BlockEntry<Block> PURE_BASALT = REGISTRATE.block("pure_basalt", Block::new)
+            .initialProperties(() -> Blocks.GLASS)
+            .properties(p -> p.strength(3f))
+            .simpleItem()
+            .register();
 
 
     //ARCANA JUNK
 
     public static final BlockEntry<creativeArcanaGenerator> ARCANA_GENERATOR = REGISTRATE.block("creative_arcana_generator", creativeArcanaGenerator::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
             .simpleItem()
             .register();
 
     public static final BlockEntry<ArcanaRadiator> ARCANA_RADIATOR = REGISTRATE.block("arcana_radiator", ArcanaRadiator::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
             .simpleItem()
             .register();
     public static final BlockEntry<EssenceMixer> ESSENCE_MIXER = REGISTRATE.block("essence_mixer", EssenceMixer::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
             .simpleItem()
             .register();
 
     public static final BlockEntry<mineralExtractor> MINERAL_EXTRACTOR = REGISTRATE.block("mineral_extractor", mineralExtractor::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
             .simpleItem()
             .register();
 
 
     public static final BlockEntry<arcanaRotorBase> ARCANA_ROTOR_BASE = REGISTRATE.block("arcana_rotor_base", arcanaRotorBase::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
             .register();
 
     public static final BlockEntry<arcanaRotor> ARCANA_ROTOR = REGISTRATE.block("arcana_rotor", arcanaRotor::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
             .register();
 
     public static final BlockEntry<arcanaInfuser> ARCANA_INFUSER = REGISTRATE.block("arcana_infuser", arcanaInfuser::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
             .simpleItem()
             .register();
 
     public static final BlockEntry<acceleratorBlock> ACCELERATOR = REGISTRATE.block("arcana_accelerator", acceleratorBlock::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
             .simpleItem()
             .register();
 
     public static final BlockEntry<potionCatalyzer> POTION_CATALYZER = REGISTRATE.block("potion_catalyzer", potionCatalyzer::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
             .simpleItem()
             .register();
-    public static  final RegistryObject<Block> ARCANE_CASING =  registerBlock("arcane_casing", () ->
-            new CasingBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.ALCHEMIND_TAB);
 
+    public static final BlockEntry<Block> ARCANE_CASING = REGISTRATE.block("arcane_casing", Block::new)
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
+            .simpleItem()
+            .register();
 
 
     ///Fluid Blocks
@@ -191,26 +259,6 @@ public class ModBlocks {
     public static final RegistryObject<LiquidBlock> MOVERE_FLUID_BLOCK = BLOCKS.register("movere_fluid_block", () -> new effectLiquidBlock(ModFluids.SOURCE_MOVERE, BlockBehaviour.Properties.copy(Blocks.WATER), new MobEffectInstance(MobEffects.MOVEMENT_SPEED,  80, 1)));
 
 
-    //Helper Functions
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerToolTipBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltip){
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockToolTipItem(name, toReturn, tab, tooltip);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, Supplier<T> block, CreativeModeTab tab){
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
-    }
-
-    private static <T extends Block> RegistryObject<Item> registerBlockToolTipItem(String name, Supplier<T> block, CreativeModeTab tab, String tooltip){
-        return ModItems.ITEMS.register(name, () -> new tool_tip_block_item(block.get(), new Item.Properties().tab(tab),tooltip));
-    }
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
         register();
