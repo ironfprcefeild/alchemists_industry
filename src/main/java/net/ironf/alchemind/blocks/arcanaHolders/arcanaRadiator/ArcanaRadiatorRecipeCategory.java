@@ -1,6 +1,5 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.compat.jei.EmptyBackground;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.constants.VanillaTypes;
@@ -76,6 +75,6 @@ public class ArcanaRadiatorRecipeCategory implements IRecipeCategory<ArcanaRadia
         new SimpleAnimatedRecipeItem(ModBlocks.ARCANA_RADIATOR.getDefaultState())
                 .draw(guiGraphics,getBackground().getWidth() / 2 - 13,35);
 
-        guiGraphics.drawString(mc.font,recipe.getArcanaPerMB().toString() + " " + Component.translatable("alchemind.essence_radiating.arcana_per_mb"),111,25,0);
+        guiGraphics.drawString(mc.gui.getFont(),recipe.getArcanaPerMB().toString() + " " + Component.translatable("alchemind.essence_radiating.arcana_per_mb"),111,25,0);
     }
 }

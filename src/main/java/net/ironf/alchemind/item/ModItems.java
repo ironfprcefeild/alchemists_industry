@@ -2,6 +2,8 @@ package net.ironf.alchemind.item;
 
 
 import com.tterrag.registrate.util.entry.ItemEntry;
+import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
+import it.unimi.dsi.fastutil.objects.ReferenceList;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.fluid.ModFluids;
 import net.ironf.alchemind.item.custom.sigil;
@@ -17,6 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.item.Items;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.simibubi.create.AllTags.AllItemTags.CREATE_INGOTS;
 import static com.simibubi.create.AllTags.forgeItemTag;
@@ -143,6 +146,8 @@ public class ModItems {
             CORVIUM_CHUNK = REGISTRATE.item("corvium_chunk",Item::new).properties(Item.Properties::fireResistant).register();
 
 
+    public static List<RegistryObject<BucketItem>> allBuckets = new ReferenceArrayList<>(14);
+
     ///Buckets
     public static final RegistryObject<BucketItem> IGNUS_BUCKET = registerBucket("ignus",ModFluids.SOURCE_IGNUS);
     public static final RegistryObject<BucketItem> TERRA_BUCKET = registerBucket("terra",ModFluids.SOURCE_TERRA);
@@ -163,10 +168,10 @@ public class ModItems {
     public static RegistryObject<BucketItem> registerBucket(String fluidName, RegistryObject<FlowingFluid> fluid){
         RegistryObject<BucketItem> toReturn = ITEMS.register(fluidName + "_bucket", () -> new BucketItem(fluid,new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
         LOGGER.info("Trying to add bucket");
-        //allBuckets.add(toReturn);
+        allBuckets.add(toReturn);
         return toReturn;
     }
-    public static ArrayList<RegistryObject<BucketItem>> allBuckets;
+
 
     //Sequenced Assembly Incomplete Items
 
@@ -190,7 +195,6 @@ public class ModItems {
 
 
     public static void register(IEventBus eventBus) {
-        allBuckets = new ArrayList<RegistryObject<BucketItem>>();
         ITEMS.register(eventBus);
         register();
     }

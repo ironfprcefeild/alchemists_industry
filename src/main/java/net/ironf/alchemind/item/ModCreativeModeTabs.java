@@ -26,10 +26,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.apache.commons.lang3.mutable.MutableObject;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -222,6 +219,7 @@ public class ModCreativeModeTabs {
 
         private List<Item> collectItems(Predicate<Item> exclusionPredicate) {
             List<Item> items = new ReferenceArrayList<>();
+
             for (RegistryEntry<Item> entry : REGISTRATE.getAll(Registries.ITEM)) {
                 if (!CreateRegistrate.isInCreativeTab(entry, tabFilter))
                     continue;
@@ -232,13 +230,11 @@ public class ModCreativeModeTabs {
                     items.add(item);
             }
 
-            /*
+
             for (RegistryObject<BucketItem> bucket : ModItems.allBuckets) {
                 items.add(bucket.get());
             }
 
-             */
-            //TODO properly register buckets
 
             return items;
         }

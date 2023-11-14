@@ -81,9 +81,9 @@ public class MineralExtractorRecipeCategory implements IRecipeCategory<MineralEx
         new SimpleAnimatedRecipeItem(ModBlocks.MINERAL_EXTRACTOR.getDefaultState())
                 .draw(guiGraphics,getBackground().getWidth() / 2 - 13,92);
 
-        guiGraphics.drawString(mc.font, recipe.getChance() * 100 + Component.translatable("alchemind.mineral_extracting.extraction_chance").getString(),20, 5, 0);
-        guiGraphics.drawString(mc.font, recipe.getConsumeChance() * 100 + Component.translatable("alchemind.mineral_extracting.break_chance").getString(), 20, 25, 0);
-        guiGraphics.drawString(mc.font, recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 20, 40, 0);
+        guiGraphics.drawString(mc.gui.getFont(), recipe.getChance() * 100 + Component.translatable("alchemind.mineral_extracting.extraction_chance").getString(),20, 5, 0);
+        guiGraphics.drawString(mc.gui.getFont(), recipe.getConsumeChance() * 100 + Component.translatable("alchemind.mineral_extracting.break_chance").getString(), 20, 25, 0);
+        guiGraphics.drawString(mc.gui.getFont(), recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 20, 40, 0);
 
 
         if (recipe.getExtractionSpeed() != 0){

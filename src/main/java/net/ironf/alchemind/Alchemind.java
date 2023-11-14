@@ -6,7 +6,6 @@ import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.EssenceRadiationHandler;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
-import net.ironf.alchemind.data.AlchemindDatagen;
 import net.ironf.alchemind.data.arcana_maps;
 import net.ironf.alchemind.fluid.ModFluidTypes;
 import net.ironf.alchemind.fluid.ModFluids;
@@ -15,14 +14,12 @@ import net.ironf.alchemind.item.ModItems;
 import net.ironf.alchemind.ponders.AllPonderTags;
 import net.ironf.alchemind.ponders.PonderIndex;
 import net.ironf.alchemind.recipe.ModRecipes;
-import net.ironf.alchemind.world.feature.ModConfiguredFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -54,7 +51,7 @@ public class Alchemind
 
 
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(EventPriority.LOWEST, AlchemindDatagen::gatherData);
+        //modEventBus.addListener(EventPriority.LOWEST, AlchemindDatagen::gatherData);
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -88,6 +85,8 @@ public class Alchemind
         LOGGER.info("Alchemist's industry is closing on the server");
         SaveArcana(event.getServer());
     }
+
+
 
 
 

@@ -78,7 +78,7 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
     public void draw(EssenceMixerRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
         Minecraft mc = Minecraft.getInstance();
-        guiGraphics.drawString(mc.font, recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required"), 56, 5, 0);
+        guiGraphics.drawString(mc.gui.getFont(), recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required"), 56, 5, 0);
 
         new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
                 .draw(guiGraphics,80,60);

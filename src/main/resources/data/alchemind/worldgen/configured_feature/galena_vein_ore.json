@@ -1,0 +1,65 @@
+{
+  "type": "create:layered_ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 25,
+    "layer_patterns": [
+      [
+        {
+          "max_size": 4,
+          "min_size": 1,
+          "targets": [
+            [
+              {
+                "state": {
+                  "Name": "alchemind:galena"
+                },
+                "target": {
+                  "predicate_type": "minecraft:tag_match",
+                  "tag": "minecraft:stone_ore_replaceables"
+                }
+              },
+              {
+                "state": {
+                  "Name": "alchemind:galena"
+                },
+                "target": {
+                  "predicate_type": "minecraft:tag_match",
+                  "tag": "minecraft:deepslate_ore_replaceables"
+                }
+              }
+            ]
+          ],
+          "weight": 1
+        },
+        {
+          "max_size": 2,
+          "min_size": 1,
+          "targets": [
+            [
+              {
+                "state": {
+                  "Name": "create:limestone"
+                },
+                "target": {
+                  "predicate_type": "minecraft:tag_match",
+                  "tag": "minecraft:stone_ore_replaceables"
+                }
+              },
+              {
+                "state": {
+                  "Name": "create:limestone"
+                },
+                "target": {
+                  "predicate_type": "minecraft:tag_match",
+                  "tag": "minecraft:deepslate_ore_replaceables"
+                }
+              }
+            ]
+          ],
+          "weight": 2
+        }
+      ]
+    ]
+  }
+}
