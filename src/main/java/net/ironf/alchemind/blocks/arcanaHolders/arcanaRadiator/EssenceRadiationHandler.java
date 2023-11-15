@@ -19,6 +19,7 @@ public class EssenceRadiationHandler implements ResourceManagerReloadListener {
         EssenceRadiationHandler.level = level;
     }
 
+
     public static void generateHandler(){
         if (level == null){
             return;

@@ -78,7 +78,7 @@ public class ArcanaInfuserRecipeCategory implements IRecipeCategory<ArcanaInfuse
     public void draw(ArcanaInfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         Minecraft mc = Minecraft.getInstance();
 
-        guiGraphics.drawString(mc.font, recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 56, 70, 0);
+        guiGraphics.drawString(mc.font, recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 56, 70, 0, false);
         AllGuiTextures.JEI_SHADOW.render(guiGraphics, 61, 41);
         AllGuiTextures.JEI_LONG_ARROW.render(guiGraphics, 52, 54);
 
