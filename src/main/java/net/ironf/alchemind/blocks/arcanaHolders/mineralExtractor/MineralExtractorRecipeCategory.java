@@ -15,6 +15,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
+import net.ironf.alchemind.integration.jei.JEIAssistant;
 import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -74,20 +75,19 @@ public class MineralExtractorRecipeCategory implements IRecipeCategory<MineralEx
 
     @Override
     public void draw(MineralExtractorRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
-        Minecraft mc = Minecraft.getInstance();
+        JEIAssistant assistant = new JEIAssistant(guiGraphics);
+        assistant.spriteRender(AllGuiTextures.JEI_SHADOW,62,97);
+        assistant.animatedBlock(ModBlocks.MINERAL_EXTRACTOR.getDefaultState(),
+                getBackground().getWidth() / 2 - 13,92);
 
-        AllGuiTextures.JEI_SHADOW.render(guiGraphics, 62, 97);
-        new SimpleAnimatedRecipeItem(ModBlocks.MINERAL_EXTRACTOR.getDefaultState())
-                .draw(guiGraphics,getBackground().getWidth() / 2 - 13,92);
 
-        guiGraphics.drawString(mc.gui.getFont(), recipe.getChance() * 100 + Component.translatable("alchemind.mineral_extracting.extraction_chance").getString(),20, 5, 0,false);
-        guiGraphics.drawString(mc.gui.getFont(), recipe.getConsumeChance() * 100 + Component.translatable("alchemind.mineral_extracting.break_chance").getString(), 20, 25, 0, false);
-        guiGraphics.drawString(mc.gui.getFont(), recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 20, 40, 0, false);
+        assistant.text( recipe.getChance() * 100 + Component.translatable("alchemind.mineral_extracting.extraction_chance").getString(),20, 5);
+        assistant.text( recipe.getConsumeChance() * 100 + Component.translatable("alchemind.mineral_extracting.break_chance").getString(), 20, 25);
+        assistant.text( recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 20, 40);
 
 
         if (recipe.getExtractionSpeed() != 0){
-            guiGraphics.drawString(mc.font, Component.translatable("alchemind.no_accelerator_required"), 20, 60, 0);
+            assistant.text(Component.translatable("alchemind.no_accelerator_required"), 20, 60);
         }
     }
 }

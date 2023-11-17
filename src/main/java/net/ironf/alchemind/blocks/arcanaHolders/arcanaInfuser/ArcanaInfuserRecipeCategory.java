@@ -14,6 +14,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
+import net.ironf.alchemind.integration.jei.JEIAssistant;
 import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -76,16 +77,11 @@ public class ArcanaInfuserRecipeCategory implements IRecipeCategory<ArcanaInfuse
 
     @Override
     public void draw(ArcanaInfuserRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        Minecraft mc = Minecraft.getInstance();
-
-        guiGraphics.drawString(mc.font, recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 56, 70, 0, false);
-        AllGuiTextures.JEI_SHADOW.render(guiGraphics, 61, 41);
-        AllGuiTextures.JEI_LONG_ARROW.render(guiGraphics, 52, 54);
-
-        new SimpleAnimatedRecipeItem(ModBlocks.ARCANA_INFUSER.getDefaultState())
-                .draw(guiGraphics, getBackground().getWidth() / 2 - 17, 22);
-
-
+        JEIAssistant assistant = new JEIAssistant(guiGraphics);
+        assistant.text(recipe.getArcanaRequired() + " " + Component.translatable("alchemind.arcana_required").getString(), 56, 70);
+        assistant.spriteRender(AllGuiTextures.JEI_SHADOW,61,41);
+        assistant.spriteRender(AllGuiTextures.JEI_LONG_ARROW,52,54);
+        assistant.animatedBlock(ModBlocks.ARCANA_INFUSER.getDefaultState(),getBackground().getWidth() / 2 - 17,22);
     }
 
 }

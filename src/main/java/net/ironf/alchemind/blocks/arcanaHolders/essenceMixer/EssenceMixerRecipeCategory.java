@@ -1,6 +1,7 @@
 package net.ironf.alchemind.blocks.arcanaHolders.essenceMixer;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.EmptyBackground;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -14,6 +15,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
+import net.ironf.alchemind.integration.jei.JEIAssistant;
 import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -76,20 +78,12 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
 
     @Override
     public void draw(EssenceMixerRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
-        Minecraft mc = Minecraft.getInstance();
-        guiGraphics.drawString(mc.gui.getFont(), recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required"), 56, 5, 0, false);
+        JEIAssistant assistant = new JEIAssistant(guiGraphics);
+        assistant.text( recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required"), 56, 5);
+        assistant.animatedBlock(AllBlocks.ITEM_DRAIN.getDefaultState(),80,60);
+        assistant.animatedBlock(AllBlocks.ITEM_DRAIN.getDefaultState(),80,75);
+        assistant.animatedBlock(AllBlocks.ITEM_DRAIN.getDefaultState(),80,90);
+        assistant.animatedBlock(ModBlocks.ESSENCE_MIXER.getDefaultState(),80,45);
 
-        new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
-                .draw(guiGraphics,80,60);
-
-        new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
-                .draw(guiGraphics,80,75);
-
-        new SimpleAnimatedRecipeItem(AllBlocks.ITEM_DRAIN.getDefaultState())
-                .draw(guiGraphics,80,90);
-
-        new SimpleAnimatedRecipeItem(ModBlocks.ESSENCE_MIXER.getDefaultState())
-                .draw(guiGraphics,80,45);
     }
 }

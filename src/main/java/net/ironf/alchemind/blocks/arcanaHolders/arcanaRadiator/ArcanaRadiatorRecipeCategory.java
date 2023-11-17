@@ -14,6 +14,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.integration.jei.JEIAlchemindPlugin;
+import net.ironf.alchemind.integration.jei.JEIAssistant;
 import net.ironf.alchemind.integration.jei.SimpleAnimatedRecipeItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -68,13 +69,10 @@ public class ArcanaRadiatorRecipeCategory implements IRecipeCategory<ArcanaRadia
 
     @Override
     public void draw(ArcanaRadiatorRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
-        Minecraft mc = Minecraft.getInstance();
-
-        AllGuiTextures.JEI_SHADOW.render(guiGraphics, 62, 35);
-        new SimpleAnimatedRecipeItem(ModBlocks.ARCANA_RADIATOR.getDefaultState())
-                .draw(guiGraphics,getBackground().getWidth() / 2 - 13,35);
-
-        guiGraphics.drawString(mc.gui.getFont(),recipe.getArcanaPerMB().toString() + " " + Component.translatable("alchemind.essence_radiating.arcana_per_mb"),111,25,0,false);
+        JEIAssistant assistant = new JEIAssistant(guiGraphics);
+        assistant.spriteRender(AllGuiTextures.JEI_SHADOW,62,35);
+        assistant.animatedBlock(ModBlocks.ARCANA_RADIATOR.getDefaultState(),
+                getBackground().getWidth() / 2 - 13,35);
+        assistant.text(recipe.getArcanaPerMB().toString() + " " + Component.translatable("alchemind.essence_radiating.arcana_per_mb"),111,25);
     }
 }
