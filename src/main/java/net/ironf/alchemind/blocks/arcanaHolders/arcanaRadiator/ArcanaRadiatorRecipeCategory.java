@@ -73,6 +73,6 @@ public class ArcanaRadiatorRecipeCategory implements IRecipeCategory<ArcanaRadia
         assistant.spriteRender(AllGuiTextures.JEI_SHADOW,62,35);
         assistant.animatedBlock(ModBlocks.ARCANA_RADIATOR.getDefaultState(),
                 getBackground().getWidth() / 2 - 13,35);
-        assistant.text(recipe.getArcanaPerMB().toString() + " " + Component.translatable("alchemind.essence_radiating.arcana_per_mb"),111,25);
+        assistant.text(recipe.getArcanaPerMB().toString() + " " + Component.translatable("alchemind.essence_radiating.arcana_per_mb").getString(),111,25);
     }
 }

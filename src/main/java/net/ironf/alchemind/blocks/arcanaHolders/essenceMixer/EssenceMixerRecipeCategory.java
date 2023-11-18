@@ -79,7 +79,7 @@ public class EssenceMixerRecipeCategory implements IRecipeCategory<EssenceMixerR
     @Override
     public void draw(EssenceMixerRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         JEIAssistant assistant = new JEIAssistant(guiGraphics);
-        assistant.text( recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required"), 56, 5);
+        assistant.text( recipe.getArcanaNeeded() + " " + Component.translatable("alchemind.arcana_required").getString(), 56, 5);
         assistant.animatedBlock(AllBlocks.ITEM_DRAIN.getDefaultState(),80,60);
         assistant.animatedBlock(AllBlocks.ITEM_DRAIN.getDefaultState(),80,75);
         assistant.animatedBlock(AllBlocks.ITEM_DRAIN.getDefaultState(),80,90);
