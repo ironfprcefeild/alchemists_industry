@@ -1,6 +1,7 @@
 package net.ironf.alchemind;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.CreateClient;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
@@ -23,6 +24,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -41,6 +43,7 @@ public class Alchemind
     public Alchemind()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
         REGISTRATE.registerEventListeners(modEventBus);
 
@@ -58,12 +61,15 @@ public class Alchemind
 
         ModRecipes.register(modEventBus);
 
-
         modEventBus.addListener(this::commonSetup);
-
-
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> onCtorClient(modEventBus, forgeEventBus));
 
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    public static void onCtorClient(IEventBus modEventBus, IEventBus forgeEventBus) {
+        AllPonderTags.register();
+        PonderIndex.register();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -77,8 +83,7 @@ public class Alchemind
     {
         // Do something when the server starts
         LOGGER.info("Alchemist's industry is running on the server");
-        AllPonderTags.register();
-        PonderIndex.register();
+
 
         LoadArcana(event.getServer());
 
