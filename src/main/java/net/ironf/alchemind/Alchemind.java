@@ -62,15 +62,10 @@ public class Alchemind
         ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> onCtorClient(modEventBus, forgeEventBus));
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public static void onCtorClient(IEventBus modEventBus, IEventBus forgeEventBus) {
-        AllPonderTags.register();
-        PonderIndex.register();
-    }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
@@ -133,8 +128,8 @@ public class Alchemind
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             LOGGER.info("alchemist's industry is running on the client");
-
-
+            AllPonderTags.register();
+            PonderIndex.register();
         }
 
         @SubscribeEvent
