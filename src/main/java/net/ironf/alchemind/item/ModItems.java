@@ -3,11 +3,9 @@ package net.ironf.alchemind.item;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
-import it.unimi.dsi.fastutil.objects.ReferenceList;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.fluid.ModFluids;
 import net.ironf.alchemind.item.custom.sigil;
-import net.ironf.alchemind.item.custom.tool_tip_item;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -18,11 +16,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.item.Items;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.simibubi.create.AllTags.AllItemTags.CREATE_INGOTS;
-import static com.simibubi.create.AllTags.forgeItemTag;
 import static net.ironf.alchemind.Alchemind.LOGGER;
 import static net.ironf.alchemind.Alchemind.REGISTRATE;
 

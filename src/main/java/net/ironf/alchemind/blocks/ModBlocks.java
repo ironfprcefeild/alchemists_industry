@@ -17,6 +17,8 @@ import net.ironf.alchemind.blocks.custom.effectLiquidBlock;
 import net.ironf.alchemind.blocks.custom.zoomdustBlock;
 import net.ironf.alchemind.fluid.ModFluids;
 import net.ironf.alchemind.item.ModCreativeModeTabs;
+import net.ironf.alchemind.item.custom.crystalGlassBlockItem;
+import net.ironf.alchemind.item.custom.zoomdustBlockItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
@@ -124,9 +126,11 @@ public class ModBlocks {
 
     public static final BlockEntry<Block> CRYSTAL_GLASS = REGISTRATE.block("crystal_glass", Block::new)
             .initialProperties(() -> Blocks.GLASS)
-            .properties(p -> p.strength(1f).requiresCorrectToolForDrops())
+            .properties(p -> p.strength(1f)
+            .requiresCorrectToolForDrops())
+            .item(crystalGlassBlockItem::new).build()
             .register();
-    //TODO figure out how to get crystal glass tooltip
+
 
     public static final BlockEntry<Block> CINDERITE = REGISTRATE.block("cinderite", Block::new)
             .initialProperties(SharedProperties::stone)
@@ -168,11 +172,10 @@ public class ModBlocks {
             .simpleItem()
             .register();
 
-    //TODO figure out how to give tooltip to zoomdut block
     public static final BlockEntry<Block> PURE_BASALT = REGISTRATE.block("pure_basalt", Block::new)
             .initialProperties(() -> Blocks.GLASS)
             .properties(p -> p.strength(3f))
-            .simpleItem()
+            .item(zoomdustBlockItem::new).build()
             .register();
 
 

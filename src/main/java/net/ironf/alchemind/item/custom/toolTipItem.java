@@ -10,9 +10,9 @@ import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
-public class tool_tip_item extends Item {
+public class toolTipItem extends Item {
     String ToolTipLangKey;
-    public tool_tip_item(Properties properties, String ToolTipLangKey) {
+    public toolTipItem(Properties properties, String ToolTipLangKey) {
         super(properties);
         this.ToolTipLangKey = ToolTipLangKey;
     }

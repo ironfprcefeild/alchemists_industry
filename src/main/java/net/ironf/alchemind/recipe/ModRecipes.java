@@ -31,5 +31,5 @@ public class ModRecipes {
         SERIALIZERS.register(eventBus);
     }
 
-    //TODO figure out if I need to switch all my translateable stuff over to TranslateAbleWithFallBack
+
 }
