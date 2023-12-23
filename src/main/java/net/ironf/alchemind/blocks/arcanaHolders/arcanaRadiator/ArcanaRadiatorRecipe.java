@@ -45,7 +45,7 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return Serializer.INSTANCE;
     }
 
     public static class Type implements RecipeType<ArcanaRadiatorRecipe> {
