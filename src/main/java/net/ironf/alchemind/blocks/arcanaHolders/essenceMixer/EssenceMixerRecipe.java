@@ -140,7 +140,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, EssenceMixerRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
+            buf.writeInt(recipe.getIngredientsFR().size());
 
             for (FluidIngredient ing : recipe.Ingredients) {
                 ing.write(buf);

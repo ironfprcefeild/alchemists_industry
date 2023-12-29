@@ -137,10 +137,10 @@ public class ArcanaInfuserRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
 
+            buf.writeItemStack(recipe.getResultItem(), false);
 
             buf.writeFloat(recipe.getArcanaRequired());
 
-            buf.writeItemStack(recipe.getResultItem(), false);
         }
     }
 }
