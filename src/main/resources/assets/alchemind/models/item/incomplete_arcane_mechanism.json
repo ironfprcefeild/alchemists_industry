@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "alchemind:item/arcane_mechanism"
+    "layer0": "alchemind:item/incomplete_arcane_mechanism"
   }
 }
