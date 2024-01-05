@@ -1,9 +1,7 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator;
 
-import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
-import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity;
+import com.simibubi.create.content.fluids.tank.BoilerHeaters;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
@@ -16,7 +14,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
@@ -80,24 +77,21 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
 
     //Values
     public int findGenerationValue(){
-        return switch (findHeating()) {
-            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(this) / 4);
-            case SEETHING -> (int) findAcceleratorSpeed(this) / 2;
-            default -> (int) Math.floor(findAcceleratorSpeed(this) / 8 );
-        };
+        double factor = 8 * (Math.pow(0.5,findHeating()));
+        factor = factor > 1 ? factor : 1;
+        return (int) Math.floor(findAcceleratorSpeed(this) / factor);
+
     }
 
     public int findTransferValue(){
-        return switch (findHeating()) {
-            case KINDLED -> (int) Math.floor(findAcceleratorSpeed(this) / 8);
-            case SEETHING -> (int) Math.floor(findAcceleratorSpeed(this) / 4);
-            default -> (int) Math.floor(findAcceleratorSpeed(this) / 16);
-        };
+        double factor = 16 * (Math.pow(0.5,findHeating()));
+        factor = factor > 1 ? factor : 1;
+        return (int) Math.floor(findAcceleratorSpeed(this) / factor);
+
     }
 
-    public BlazeBurnerBlock.HeatLevel findHeating(){
-        BlockEntity burner = this.level.getBlockEntity(this.getBlockPos().below());
-        return burner != null && burner.getType() == AllBlockEntityTypes.HEATER.get() ? ((BlazeBurnerBlockEntity) burner).getHeatLevelFromBlock() : BlazeBurnerBlock.HeatLevel.NONE;
+    public int findHeating(){
+        return (int) Math.max(BoilerHeaters.getActiveHeat(this.level, this.getBlockPos().below(), this.level.getBlockState(this.getBlockPos().below())), 0);
     }
 
     //Fluid Handling
