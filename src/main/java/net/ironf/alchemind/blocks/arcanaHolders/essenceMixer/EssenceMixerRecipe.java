@@ -30,7 +30,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pLevel) {
-        return null;
+        return ItemStack.EMPTY;
     }
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
@@ -43,7 +43,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
     }
 
     public ItemStack getResultItem() {
-        return null;
+        return ItemStack.EMPTY;
     }
 
 
@@ -145,7 +145,7 @@ public class EssenceMixerRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, EssenceMixerRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
+            buf.writeInt(recipe.getIngredientsFR().size());
 
             for (FluidIngredient ing : recipe.Ingredients) {
                 ing.write(buf);

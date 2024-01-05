@@ -67,8 +67,6 @@ public class Alchemind
     {
         // Do something when the server starts
         LOGGER.info("Alchemist's industry is running on the server");
-        AllPonderTags.register();
-        PonderIndex.register();
 
         LoadArcana(event.getServer());
 
@@ -120,6 +118,8 @@ public class Alchemind
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             LOGGER.info("alchemist's industry is running on the client");
+            AllPonderTags.register();
+            PonderIndex.register();
 
 
         }

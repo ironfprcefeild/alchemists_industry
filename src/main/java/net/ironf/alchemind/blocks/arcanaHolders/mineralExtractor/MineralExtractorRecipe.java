@@ -160,6 +160,7 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
 
+            buf.writeItemStack(recipe.getResultItem(), false);
 
             buf.writeFloat(recipe.getChance());
             buf.writeFloat(recipe.getConsumeChance());
@@ -167,7 +168,6 @@ public class MineralExtractorRecipe implements Recipe<SimpleContainer> {
             buf.writeFloat(recipe.getExtractionSpeed());
 
 
-            buf.writeItemStack(recipe.getResultItem(), false);
         }
     }
 }
