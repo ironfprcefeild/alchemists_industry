@@ -149,7 +149,7 @@ public class ModItems {
     public static final RegistryObject<BucketItem> AQUA_BUCKET = registerBucket("aqua",ModFluids.SOURCE_AQUA);
     public static final RegistryObject<BucketItem> AERO_BUCKET = registerBucket("aero",ModFluids.SOURCE_AERO);
     public static final RegistryObject<BucketItem> REAGENT_BUCKET = registerBucket("reagent",ModFluids.SOURCE_REAGENT);
-    public static final RegistryObject<BucketItem> STELLAR_FUEL_BUCKET = registerBucket("stellar_fuel_bucket",ModFluids.SOURCE_STELLAR_FUEL);
+    public static final RegistryObject<BucketItem> STELLAR_FUEL_BUCKET = registerBucket("stellar_fuel",ModFluids.SOURCE_STELLAR_FUEL);
     public static final RegistryObject<BucketItem> GLIMA_BUCKET = registerBucket("glima",ModFluids.SOURCE_GLIMA);
     public static final RegistryObject<BucketItem> SHADE_BUCKET = registerBucket("shade",ModFluids.SOURCE_SHADE);
     public static final RegistryObject<BucketItem> ORDER_BUCKET = registerBucket("order",ModFluids.SOURCE_MORTITH);
