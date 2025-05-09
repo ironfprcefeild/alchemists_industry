@@ -53,9 +53,9 @@ public class ModFluidTypes {
     }
 
     //IGNUS
-    public static final ResourceLocation IGNUS_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_ignus_still");
-    public static final ResourceLocation IGNUS_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_ignus_flow");
-    public static final ResourceLocation IGNUS_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_ignus_still");
+    public static final ResourceLocation IGNUS_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_ignus_still");
+    public static final ResourceLocation IGNUS_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_ignus_flow");
+    public static final ResourceLocation IGNUS_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_ignus_still");
     public static final RegistryObject<FluidType> IGNUS_FLUID_TYPE = registerFluidType("source_ignus",
             properties -> properties.
                     temperature(10).lightLevel(2).
@@ -65,9 +65,9 @@ public class ModFluidTypes {
             IGNUS_STILL_RL,IGNUS_FLOWING_RL,IGNUS_OVERLAY_RL);
 
     //AQUA
-    public static final ResourceLocation AQUA_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_aqua_still");
-    public static final ResourceLocation AQUA_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_aqua_flow");
-    public static final ResourceLocation AQUA_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_aqua_still");
+    public static final ResourceLocation AQUA_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_aqua_still");
+    public static final ResourceLocation AQUA_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_aqua_flow");
+    public static final ResourceLocation AQUA_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_aqua_still");
     public static final RegistryObject<FluidType> AQUA_FLUID_TYPE = registerFluidType("source_aqua",
             properties -> properties.
                     temperature(0).
@@ -77,9 +77,9 @@ public class ModFluidTypes {
             AQUA_STILL_RL,AQUA_FLOWING_RL,AQUA_OVERLAY_RL);
 
     //AERO
-    public static final ResourceLocation AERO_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_aero_still");
-    public static final ResourceLocation AERO_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_aero_flow");
-    public static final ResourceLocation AERO_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_aero_still");
+    public static final ResourceLocation AERO_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_aero_still");
+    public static final ResourceLocation AERO_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_aero_flow");
+    public static final ResourceLocation AERO_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_aero_still");
     public static final RegistryObject<FluidType> AERO_FLUID_TYPE = registerFluidType("source_aero",
             properties -> properties.
                     temperature(0).
@@ -89,9 +89,9 @@ public class ModFluidTypes {
             AERO_STILL_RL,AERO_FLOWING_RL,AERO_OVERLAY_RL);
 
     //TERRA
-    public static final ResourceLocation TERRA_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_terra_still");
-    public static final ResourceLocation TERRA_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_terra_flow");
-    public static final ResourceLocation TERRA_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_terra_still");
+    public static final ResourceLocation TERRA_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_terra_still");
+    public static final ResourceLocation TERRA_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_terra_flow");
+    public static final ResourceLocation TERRA_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_terra_still");
     public static final RegistryObject<FluidType> TERRA_FLUID_TYPE = registerFluidType("source_terra",
             properties -> properties.
                     density(20).
@@ -102,9 +102,9 @@ public class ModFluidTypes {
 
     //Reagent
 
-    public static final ResourceLocation REAGENT_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_reagent_still");
-    public static final ResourceLocation REAGENT_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_reagent_flow");
-    public static final ResourceLocation REAGENT_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_reagent_still");
+    public static final ResourceLocation REAGENT_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_reagent_still");
+    public static final ResourceLocation REAGENT_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_reagent_flow");
+    public static final ResourceLocation REAGENT_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_reagent_still");
     public static final RegistryObject<FluidType> REAGENT_FLUID_TYPE = registerFluidType("source_reagent",
             properties -> properties.
                     density(20).
@@ -113,9 +113,9 @@ public class ModFluidTypes {
             REAGENT_STILL_RL,REAGENT_FLOWING_RL,REAGENT_OVERLAY_RL);
 
     //STELLAR FUEL
-    public static final ResourceLocation STELLAR_FUEL_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_stellar_fuel_still");
-    public static final ResourceLocation STELLAR_FUEL_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_stellar_fuel_flow");
-    public static final ResourceLocation STELLAR_FUEL_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_stellar_fuel_still");
+    public static final ResourceLocation STELLAR_FUEL_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_stellar_fuel_still");
+    public static final ResourceLocation STELLAR_FUEL_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_stellar_fuel_flow");
+    public static final ResourceLocation STELLAR_FUEL_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_stellar_fuel_still");
     public static final RegistryObject<FluidType> STELLAR_FUEL_FLUID_TYPE = registerFluidType("source_stellar_fuel",
             properties -> properties.
                     density(20).
@@ -123,9 +123,9 @@ public class ModFluidTypes {
                     sound(SoundAction.get("drink"), SoundEvents.HONEY_DRINK),
             STELLAR_FUEL_STILL_RL,STELLAR_FUEL_FLOWING_RL,STELLAR_FUEL_OVERLAY_RL);
     //GLIMA
-    public static final ResourceLocation GLIMA_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_glima_still");
-    public static final ResourceLocation GLIMA_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_glima_flow");
-    public static final ResourceLocation GLIMA_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_glima_still");
+    public static final ResourceLocation GLIMA_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_glima_still");
+    public static final ResourceLocation GLIMA_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_glima_flow");
+    public static final ResourceLocation GLIMA_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_glima_still");
     public static final RegistryObject<FluidType> GLIMA_FLUID_TYPE = registerFluidType("source_glima",
             properties -> properties.
                     density(20).
@@ -134,9 +134,9 @@ public class ModFluidTypes {
             GLIMA_STILL_RL,GLIMA_FLOWING_RL,GLIMA_OVERLAY_RL);
 
     //SHADE
-    public static final ResourceLocation SHADE_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_shade_still");
-    public static final ResourceLocation SHADE_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_shade_flow");
-    public static final ResourceLocation SHADE_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_shade_still");
+    public static final ResourceLocation SHADE_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_shade_still");
+    public static final ResourceLocation SHADE_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_shade_flow");
+    public static final ResourceLocation SHADE_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_shade_still");
     public static final RegistryObject<FluidType> SHADE_FLUID_TYPE = registerFluidType("source_shade",
             properties -> properties.
                     density(2).
@@ -146,9 +146,9 @@ public class ModFluidTypes {
 
     //ORDER
 
-    public static final ResourceLocation ORDER_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_order_still");
-    public static final ResourceLocation ORDER_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_order_flow");
-    public static final ResourceLocation ORDER_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_order_still");
+    public static final ResourceLocation ORDER_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_order_still");
+    public static final ResourceLocation ORDER_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_order_flow");
+    public static final ResourceLocation ORDER_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_order_still");
     public static final RegistryObject<FluidType> ORDER_FLUID_TYPE = registerFluidType("source_order",
             properties -> properties.
                     density(2).
@@ -157,9 +157,9 @@ public class ModFluidTypes {
             ORDER_STILL_RL,ORDER_FLOWING_RL,ORDER_OVERLAY_RL);
 
     //POTERE
-    public static final ResourceLocation POTERE_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_potere_still");
-    public static final ResourceLocation POTERE_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_potere_flow");
-    public static final ResourceLocation POTERE_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_potere_still");
+    public static final ResourceLocation POTERE_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_potere_still");
+    public static final ResourceLocation POTERE_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_potere_flow");
+    public static final ResourceLocation POTERE_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_potere_still");
     public static final RegistryObject<FluidType> POTERE_FLUID_TYPE = registerFluidType("source_potere",
             properties -> properties.
                     density(2).
@@ -168,9 +168,9 @@ public class ModFluidTypes {
             POTERE_STILL_RL,POTERE_FLOWING_RL,POTERE_OVERLAY_RL);
 
     //Gheigh
-    public static final ResourceLocation GHEIGH_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_gheigh_still");
-    public static final ResourceLocation GHEIGH_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_gheigh_flow");
-    public static final ResourceLocation GHEIGH_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_gheigh_still");
+    public static final ResourceLocation GHEIGH_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_gheigh_still");
+    public static final ResourceLocation GHEIGH_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_gheigh_flow");
+    public static final ResourceLocation GHEIGH_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_gheigh_still");
     public static final RegistryObject<FluidType> GHEIGH_FLUID_TYPE = registerFluidType("source_gheigh",
             properties -> properties.
                     density(2).
@@ -180,9 +180,9 @@ public class ModFluidTypes {
 
     //Vivorn
 
-    public static final ResourceLocation VIVORN_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_vivorn_still");
-    public static final ResourceLocation VIVORN_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_vivorn_flow");
-    public static final ResourceLocation VIVORN_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_vivorn_still");
+    public static final ResourceLocation VIVORN_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_vivorn_still");
+    public static final ResourceLocation VIVORN_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_vivorn_flow");
+    public static final ResourceLocation VIVORN_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_vivorn_still");
     public static final RegistryObject<FluidType> VIVORN_FLUID_TYPE = registerFluidType("source_vivorn",
             properties -> properties.
                     density(2).
@@ -192,9 +192,9 @@ public class ModFluidTypes {
 
     //Mortith
 
-    public static final ResourceLocation MORTITH_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_mortith_still");
-    public static final ResourceLocation MORTITH_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_mortith_flow");
-    public static final ResourceLocation MORTITH_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_mortith_still");
+    public static final ResourceLocation MORTITH_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_mortith_still");
+    public static final ResourceLocation MORTITH_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_mortith_flow");
+    public static final ResourceLocation MORTITH_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_mortith_still");
     public static final RegistryObject<FluidType> MORTITH_FLUID_TYPE = registerFluidType("source_mortith",
             properties -> properties.
                     density(2).
@@ -203,9 +203,9 @@ public class ModFluidTypes {
             MORTITH_STILL_RL,MORTITH_FLOWING_RL,MORTITH_OVERLAY_RL);
 
     //Movere
-    public static final ResourceLocation MOVERE_STILL_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_movere_still");
-    public static final ResourceLocation MOVERE_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"fluids/in_movere_flow");
-    public static final ResourceLocation MOVERE_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "fluids/in_movere_still");
+    public static final ResourceLocation MOVERE_STILL_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_movere_still");
+    public static final ResourceLocation MOVERE_FLOWING_RL = new ResourceLocation(Alchemind.MODID,"block/fluids/in_movere_flow");
+    public static final ResourceLocation MOVERE_OVERLAY_RL = new ResourceLocation(Alchemind.MODID, "block/fluids/in_movere_still");
     public static final RegistryObject<FluidType> MOVERE_FLUID_TYPE = registerFluidType("source_movere",
             properties -> properties.
                     density(2).
