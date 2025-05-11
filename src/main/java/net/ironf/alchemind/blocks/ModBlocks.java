@@ -169,13 +169,13 @@ public class ModBlocks {
     public static final BlockEntry<zoomdustBlock> ZOOMDUST_BLOCK_BLOCK = REGISTRATE.block("zoomdust_block", zoomdustBlock::new)
             .initialProperties(() -> Blocks.DIRT)
             .properties(p -> p.strength(2f))
-            .simpleItem()
+            .item(zoomdustBlockItem::new).build()
             .register();
 
     public static final BlockEntry<Block> PURE_BASALT = REGISTRATE.block("pure_basalt", Block::new)
             .initialProperties(() -> Blocks.GLASS)
             .properties(p -> p.strength(3f))
-            .item(zoomdustBlockItem::new).build()
+            .simpleItem()
             .register();
 
 

@@ -9,6 +9,6 @@ public class zoomdustBlockItem extends toolTipBlockItem{
 
     @Override
     public String getToolTipLangKey() {
-        return "block.alchemind.zoomdust_block.tool_tip";
+        return "block.alchemind.zoomdust_block.tooltip";
     }
 }
