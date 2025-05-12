@@ -137,19 +137,7 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
 
     @Override
     protected void read(CompoundTag tag, boolean clientPacket) {
-        tag.putInt("load_value",this.loadValue);
-        tag.putInt("load_score",this.loadScore);
-        tag.putInt("next_load_score",this.nextLoadScore);
-        tag.putInt("prev_load_score",this.prevLoadScore);
-        tag.putFloat("prev_speed", this.prevAcceleratorSpeed);
-        tag.putBoolean("is_running",this.running);
-        tag.putBoolean("is_free_tick",this.isFreeTick);
-        super.read(tag, clientPacket);
-    }
 
-
-    @Override
-    protected void write(CompoundTag tag, boolean clientPacket) {
         this.loadValue = tag.getInt("load_value");
         this.loadScore = tag.getInt("load_score");
         this.nextLoadScore = tag.getInt("next_load_score");
@@ -157,6 +145,19 @@ public class arcanaRotorBaseBlockEntity extends SmartBlockEntity implements IHav
         this.prevAcceleratorSpeed = tag.getFloat("prev_speed");
         this.running = tag.getBoolean("is_running");
         this.isFreeTick = tag.getBoolean("is_free_tick");
+        super.read(tag, clientPacket);
+    }
+
+
+    @Override
+    protected void write(CompoundTag tag, boolean clientPacket) {
+        tag.putInt("load_value",this.loadValue);
+        tag.putInt("load_score",this.loadScore);
+        tag.putInt("next_load_score",this.nextLoadScore);
+        tag.putInt("prev_load_score",this.prevLoadScore);
+        tag.putFloat("prev_speed", this.prevAcceleratorSpeed);
+        tag.putBoolean("is_running",this.running);
+        tag.putBoolean("is_free_tick",this.isFreeTick);
         super.write(tag, clientPacket);
     }
 

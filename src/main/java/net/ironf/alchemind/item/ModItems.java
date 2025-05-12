@@ -106,7 +106,7 @@ public class ModItems {
     //Arcana Materials
     public static final ItemEntry<Item>
             ARCANE_MECHANISM = REGISTRATE.item("arcane_mechanism",Item::new).register(),
-            ROTOR_COMPONENT = REGISTRATE.item("rotor_component",Item::new).register(),
+        //    ROTOR_COMPONENT = REGISTRATE.item("rotor_component",Item::new).register(),
             ACCELERATING_CRYSTAL = REGISTRATE.item("accelerating_crystal",Item::new).register();
 
 
