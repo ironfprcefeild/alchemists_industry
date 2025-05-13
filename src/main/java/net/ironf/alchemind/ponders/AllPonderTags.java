@@ -1,47 +1,61 @@
 package net.ironf.alchemind.ponders;
 
-import com.simibubi.create.foundation.ponder.PonderRegistry;
-import com.simibubi.create.foundation.ponder.PonderTag;
+
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.infrastructure.ponder.AllCreatePonderTags;
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
+import net.createmod.ponder.foundation.PonderTag;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+
+import static net.ironf.alchemind.Alchemind.createRL;
 
 public class AllPonderTags {
 
-    public static final PonderTag
+    public static final ResourceLocation
 
-    ARCANA = create("arcana").item(ModBlocks.ARCANA_RADIATOR.get())
-            .defaultLang("Arcana", "Components which use or generate Arcana Power")
-            .addToIndex(),
+    ARCANA = createRL("pondertag_arcana"),
 
-    ACCELERATORS = create("accelerators").item(ModBlocks.ACCELERATOR.get())
-            .defaultLang("Accelerators","Components which are used to control Arcana Machinery")
-            .addToIndex();
-    private static PonderTag create(String id) {
-        return new PonderTag(Alchemind.createRL(id));
-    }
+    ACCELERATORS = createRL("pondertag_accelerators");
 
-    public static void register() {
-        PonderRegistry.TAGS.forTag(ARCANA)
-                .add(ModBlocks.ARCANA_RADIATOR.get())
-                .add(ModBlocks.ARCANA_INFUSER.get())
-                .add(ModBlocks.MINERAL_EXTRACTOR.get())
-                .add(ModBlocks.ARCANA_ROTOR.get())
-                .add(ModBlocks.ARCANA_ROTOR_BASE.get())
-                .add(ModBlocks.ESSENCE_MIXER.get())
-                .add(ModBlocks.ACCELERATOR.get())
-                .add(ModBlocks.POTION_CATALYZER.get());
+    public static void register(PonderTagRegistrationHelper<ResourceLocation> helper) {
+        PonderTagRegistrationHelper<RegistryEntry<?>> HELPER = helper.withKeyFunction(RegistryEntry::getId);
 
-        PonderRegistry.TAGS.forTag(ACCELERATORS)
-                .add(ModBlocks.ACCELERATOR.get())
-                .add(ModBlocks.POTION_CATALYZER.get());
-
-        PonderRegistry.TAGS.forTag(com.simibubi.create.infrastructure.ponder.AllPonderTags.CREATIVE).add(ModBlocks.ARCANA_GENERATOR);
-        PonderRegistry.TAGS.forTag(com.simibubi.create.infrastructure.ponder.AllPonderTags.FLUIDS).add(ModBlocks.ARCANA_RADIATOR);
-        PonderRegistry.TAGS.forTag(com.simibubi.create.infrastructure.ponder.AllPonderTags.KINETIC_APPLIANCES).add(ModBlocks.ACCELERATOR);
-        PonderRegistry.TAGS.forTag(com.simibubi.create.infrastructure.ponder.AllPonderTags.KINETIC_SOURCES).add(ModBlocks.ARCANA_ROTOR);
-        PonderRegistry.TAGS.forTag(com.simibubi.create.infrastructure.ponder.AllPonderTags.KINETIC_SOURCES).add(ModBlocks.ARCANA_ROTOR_BASE);
+        helper.registerTag(ARCANA)
+                .addToIndex()
+                .item(ModBlocks.ARCANA_RADIATOR.get(), true, false)
+                .title("Arcana")
+                .description("Machines which exploit Arcana, a magical current of energy.")
+                .register();
+        helper.registerTag(ACCELERATORS)
+                .addToIndex()
+                .item(ModBlocks.ACCELERATOR.get(), true, false)
+                .title("Accelerators")
+                .description("The Arcana Accelerator and related components.")
+                .register();
 
 
+        HELPER.addToTag(ARCANA)
+                .add(ModBlocks.ARCANA_RADIATOR)
+                .add(ModBlocks.ARCANA_INFUSER)
+                .add(ModBlocks.MINERAL_EXTRACTOR)
+                .add(ModBlocks.ARCANA_ROTOR)
+                .add(ModBlocks.ARCANA_ROTOR_BASE)
+                .add(ModBlocks.ESSENCE_MIXER)
+                .add(ModBlocks.ACCELERATOR)
+                .add(ModBlocks.POTION_CATALYZER);
+
+        HELPER.addToTag(ACCELERATORS)
+                .add(ModBlocks.ACCELERATOR)
+                .add(ModBlocks.POTION_CATALYZER);
+
+        HELPER.addToTag(AllCreatePonderTags.CREATIVE).add(ModBlocks.ARCANA_GENERATOR);
+        HELPER.addToTag(AllCreatePonderTags.FLUIDS).add(ModBlocks.ARCANA_RADIATOR);
+        HELPER.addToTag(AllCreatePonderTags.KINETIC_APPLIANCES).add(ModBlocks.ACCELERATOR);
 
 
     }

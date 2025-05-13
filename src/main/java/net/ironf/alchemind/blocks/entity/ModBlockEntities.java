@@ -1,5 +1,7 @@
 package net.ironf.alchemind.blocks.entity;
 
+import com.simibubi.create.AllPartialModels;
+import com.simibubi.create.content.kinetics.base.SingleAxisRotatingVisual;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
@@ -48,7 +50,7 @@ public class ModBlockEntities {
 
     public static final BlockEntityEntry<acceleratorBlockEntity> ACCELERATOR = Alchemind.REGISTRATE
             .blockEntity("accelerator", acceleratorBlockEntity::new)
-            .instance(() -> acceleratorCogInstance::new, false)
+            .visual(() -> SingleAxisRotatingVisual.of(AllPartialModels.ARM_COG))
             .validBlocks(ModBlocks.ACCELERATOR)
             .renderer(() -> acceleratorRenderer::new)
             .register();

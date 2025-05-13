@@ -1,7 +1,7 @@
 package net.ironf.alchemind.blocks.arcanaHolders.mineralExtractor;
 
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import net.ironf.alchemind.SmartBlockPos;
@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import static net.ironf.alchemind.Alchemind.addIndent;
 import static net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity.findAcceleratorSpeed;
 
 public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
@@ -166,7 +167,7 @@ public class mineralExtractorBlockEntity extends SmartBlockEntity implements IHa
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
-        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.arcana_within")).append(IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/100"));
+        tooltip.add(addIndent(Component.translatable("alchemind.arcana_within").append(IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/100")));
         return true;
     }
 

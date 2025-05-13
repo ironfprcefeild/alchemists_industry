@@ -6,7 +6,7 @@ plugins {
 
 }
 
-version = '0.2.2-1.20.1-create0.5.1'
+version = '0.2.2-1.20.1-create6.0.4'
 group = 'net.ironf.alchemind' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'alchemind'
 
@@ -44,8 +44,8 @@ minecraft {
             // "REGISTRIES": For firing of registry events.
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            //property 'mixin.env.remapRefMap', 'true'
+            //property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             // Recommended logging level for the console
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
@@ -122,6 +122,10 @@ repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
     maven {
+        name = "createmod maven"
+        url = "https://maven.createmod.net"
+    } // Create, Ponder, Flywheel
+    maven {
         name = 'tterrag maven'
         url = 'https://maven.tterrag.com/'
     }
@@ -157,12 +161,16 @@ mixin {
 dependencies {
 
     //Minecraft
-    minecraft 'net.minecraftforge:forge:1.20.1-47.2.1'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.0'
 
     //Create
-    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
-    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
+    implementation(fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false })
+    implementation(fg.deobf("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}"))
+    compileOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-api-${minecraft_version}:${flywheel_version}"))
+    runtimeOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}"))
+    //Registrate
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
 
     //JEI
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))

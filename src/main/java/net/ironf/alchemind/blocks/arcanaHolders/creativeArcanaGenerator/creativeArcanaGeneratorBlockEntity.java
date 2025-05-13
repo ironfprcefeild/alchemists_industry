@@ -1,6 +1,6 @@
 package net.ironf.alchemind.blocks.arcanaHolders.creativeArcanaGenerator;
 
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import net.ironf.alchemind.SmartBlockPos;
 import net.ironf.alchemind.blocks.arcanaHolders.IArcanaReader;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
+
+import static net.ironf.alchemind.Alchemind.addIndent;
 
 public class creativeArcanaGeneratorBlockEntity extends BlockEntity implements IHaveGoggleInformation, IArcanaReader {
 
@@ -35,7 +37,7 @@ public class creativeArcanaGeneratorBlockEntity extends BlockEntity implements I
     public Integer arcanaRef;
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.creative_arcana_generator_tooltip")));
+        tooltip.add(addIndent(Component.translatable("alchemind.creative_arcana_generator_tooltip")));
         return true;
     }
 

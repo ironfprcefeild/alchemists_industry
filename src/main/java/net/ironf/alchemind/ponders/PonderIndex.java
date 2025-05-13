@@ -1,39 +1,43 @@
 package net.ironf.alchemind.ponders;
 
-import com.simibubi.create.foundation.ponder.PonderRegistrationHelper;
+import com.tterrag.registrate.util.entry.ItemProviderEntry;
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.ponders.scenes.*;
+import net.minecraft.resources.ResourceLocation;
 
 public class PonderIndex {
 
 
-    static final PonderRegistrationHelper HELPER = new PonderRegistrationHelper(Alchemind.MODID);
+ 
 
-    public static final boolean REGISTER_DEBUG_SCENES = false;
+    public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper){
+        PonderSceneRegistrationHelper<ItemProviderEntry<?>> HELPER = helper.withKeyFunction(RegistryEntry::getId);
 
-    public static void register(){
+
         HELPER.forComponents(ModBlocks.MINERAL_EXTRACTOR)
-                .addStoryBoard("mineral_extractor", mineralExtractorScene::extracting, AllPonderTags.ARCANA);
+                .addStoryBoard("mineral_extractor", mineralExtractorScene::extracting);
 
         HELPER.forComponents(ModBlocks.ARCANA_RADIATOR)
-                .addStoryBoard("radiator", radiatorScene::essenceRadiating, AllPonderTags.ARCANA)
-                .addStoryBoard("heated_radiator", radiatorScene::HeatedEssenceRadiating, AllPonderTags.ARCANA)
-                .addStoryBoard("radiator",essenceMixerScenes::compoundEssenceRadiating, AllPonderTags.ARCANA);
+                .addStoryBoard("radiator", radiatorScene::essenceRadiating)
+                .addStoryBoard("heated_radiator", radiatorScene::HeatedEssenceRadiating)
+                .addStoryBoard("radiator",essenceMixerScenes::compoundEssenceRadiating);
 
         HELPER.forComponents(ModBlocks.ACCELERATOR)
-                .addStoryBoard("accelerator", acceleratorScenes::accelerator, AllPonderTags.ACCELERATORS)
-                .addStoryBoard("potion_catalyzer", acceleratorScenes::catalyzer, AllPonderTags.ACCELERATORS);
+                .addStoryBoard("accelerator", acceleratorScenes::accelerator)
+                .addStoryBoard("potion_catalyzer", acceleratorScenes::catalyzer);
 
         HELPER.forComponents(ModBlocks.POTION_CATALYZER)
-                .addStoryBoard("potion_catalyzer", acceleratorScenes::catalyzer, AllPonderTags.ACCELERATORS);
+                .addStoryBoard("potion_catalyzer", acceleratorScenes::catalyzer);
 
         HELPER.forComponents(ModBlocks.ESSENCE_MIXER)
-                .addStoryBoard("essence_mixer", essenceMixerScenes::essenceMixing, AllPonderTags.ARCANA)
-                .addStoryBoard("radiator",essenceMixerScenes::compoundEssenceRadiating, AllPonderTags.ARCANA);
+                .addStoryBoard("essence_mixer", essenceMixerScenes::essenceMixing)
+                .addStoryBoard("radiator",essenceMixerScenes::compoundEssenceRadiating);
 
         HELPER.forComponents(ModBlocks.ARCANA_INFUSER)
-                .addStoryBoard("arcana_infuser", infuserScenes::infusing,AllPonderTags.ARCANA);
+                .addStoryBoard("arcana_infuser", infuserScenes::infusing);
 
 
 

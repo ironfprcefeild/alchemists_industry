@@ -2,6 +2,8 @@ package net.ironf.alchemind;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.ponder.CreatePonderPlugin;
+import joptsimple.internal.Strings;
 import net.ironf.alchemind.blocks.ModBlocks;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorRenderer;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator.EssenceRadiationHandler;
@@ -11,9 +13,11 @@ import net.ironf.alchemind.fluid.ModFluidTypes;
 import net.ironf.alchemind.fluid.ModFluids;
 import net.ironf.alchemind.item.ModCreativeModeTabs;
 import net.ironf.alchemind.item.ModItems;
+import net.ironf.alchemind.ponders.AlchemindPonderPlugin;
 import net.ironf.alchemind.ponders.AllPonderTags;
 import net.ironf.alchemind.ponders.PonderIndex;
 import net.ironf.alchemind.recipe.ModRecipes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -117,9 +121,8 @@ public class Alchemind
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            LOGGER.info("alchemist's industry is running on the client");
-            AllPonderTags.register();
-            PonderIndex.register();
+            LOGGER.info("Alchemist's industry is running on the client");
+            net.createmod.ponder.foundation.PonderIndex.addPlugin(new AlchemindPonderPlugin());
 
 
         }
@@ -138,6 +141,8 @@ public class Alchemind
         return new ResourceLocation(MODID,path);
     }
 
-
+    public static Component addIndent(Component prep){
+        return Component.literal(Strings.repeat(' ', 4)).append(prep);
+    }
 
 }

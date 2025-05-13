@@ -1,6 +1,6 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator;
 
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.fluids.tank.BoilerHeaters;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -27,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static net.ironf.alchemind.Alchemind.addIndent;
 import static net.ironf.alchemind.blocks.arcanaHolders.IAcceleratorReaderBlockEntity.findAcceleratorSpeed;
 
 public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation, IAcceleratorReaderBlockEntity, IArcanaReader {
@@ -91,7 +92,7 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     }
 
     public int findHeating(){
-        return (int) Math.max(BoilerHeaters.getActiveHeat(this.level, this.getBlockPos().below(), this.level.getBlockState(this.getBlockPos().below())), 0);
+        return Math.max(BoilerHeaters.blazeBurner(this.level, this.getBlockPos().below(), this.level.getBlockState(this.getBlockPos().below())), 0);
     }
 
     //Fluid Handling
@@ -146,7 +147,7 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
-        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.arcana_within")).append(IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/500"));
+        tooltip.add(addIndent(Component.translatable("alchemind.arcana_within").append(IArcanaReader.getOnArcanaMap(this.getBlockPos()) + "/500")));
         containedFluidTooltip(tooltip,isPlayerSneaking,this.lazyFluidHandler);
         return true;
     }

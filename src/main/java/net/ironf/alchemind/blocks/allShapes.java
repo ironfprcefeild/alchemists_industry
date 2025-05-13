@@ -1,22 +1,6 @@
 package net.ironf.alchemind.blocks;
 
-import static net.minecraft.core.Direction.EAST;
-import static net.minecraft.core.Direction.NORTH;
-import static net.minecraft.core.Direction.SOUTH;
-import static net.minecraft.core.Direction.UP;
-
-import java.util.function.BiFunction;
-
-import com.simibubi.create.content.logistics.chute.ChuteShapes;
-import com.simibubi.create.content.trains.track.TrackVoxelShapes;
-import com.simibubi.create.foundation.utility.VoxelShaper;
-
-import net.minecraft.core.Direction;
-import net.minecraft.core.Direction.Axis;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DirectionalBlock;
-import net.minecraft.world.level.block.piston.PistonHeadBlock;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -66,34 +50,5 @@ public class allShapes {
         public VoxelShape build() {
             return shape;
         }
-
-        public VoxelShaper build(BiFunction<VoxelShape, Direction, VoxelShaper> factory, Direction direction) {
-            return factory.apply(shape, direction);
-        }
-
-        public VoxelShaper build(BiFunction<VoxelShape, Axis, VoxelShaper> factory, Axis axis) {
-            return factory.apply(shape, axis);
-        }
-
-        public VoxelShaper forDirectional(Direction direction) {
-            return build(VoxelShaper::forDirectional, direction);
-        }
-
-        public VoxelShaper forAxis() {
-            return build(VoxelShaper::forAxis, Axis.Y);
-        }
-
-        public VoxelShaper forHorizontalAxis() {
-            return build(VoxelShaper::forHorizontalAxis, Axis.Z);
-        }
-
-        public VoxelShaper forHorizontal(Direction direction) {
-            return build(VoxelShaper::forHorizontal, direction);
-        }
-
-        public VoxelShaper forDirectional() {
-            return forDirectional(UP);
-        }
-
     }
 }

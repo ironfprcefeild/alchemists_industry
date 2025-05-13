@@ -3,6 +3,13 @@ package net.ironf.alchemind;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
+
+//For any github sleuths, I was a dumbass when I wrote this class,
+//I know it is bad and inefficient, I know BlockPos are just Longs,
+//But I am too busy and too lazy to uproot it from this old project
+//So witness my moderately clever (but ultimately typical)
+// code made to serve a bad purpose.
+
 public class SmartBlockPos extends BlockPos {
 
 

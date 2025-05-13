@@ -90,6 +90,7 @@ public class ArcanaRadiatorRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<ArcanaRadiatorRecipe> {
         public static final Serializer INSTANCE = new Serializer();
+        @SuppressWarnings("removal")
         public static final ResourceLocation ID =
                 new ResourceLocation(Alchemind.MODID, "arcana_radiating");
 

@@ -1,7 +1,7 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor;
 
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaRotor.base.arcanaRotorBaseBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;

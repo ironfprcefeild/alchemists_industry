@@ -1,18 +1,12 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator;
 
-import com.simibubi.create.content.kinetics.BlockStressValues;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
-import com.simibubi.create.foundation.data.CreateBlockEntityBuilder;
-import net.ironf.alchemind.Alchemind;
 import net.ironf.alchemind.blocks.arcanaHolders.potionCatalyzer.potionCatalyzerBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.List;
 
 public class acceleratorBlockEntity extends KineticBlockEntity {
     public acceleratorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {

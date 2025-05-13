@@ -3,7 +3,7 @@ package net.ironf.alchemind.blocks.arcanaHolders.potionCatalyzer;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.AllFluids;
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -19,6 +19,8 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.slf4j.Logger;
 
 import java.util.List;
+
+import static net.ironf.alchemind.Alchemind.addIndent;
 
 public class potionCatalyzerBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
 
@@ -78,8 +80,8 @@ public class potionCatalyzerBlockEntity extends SmartBlockEntity implements IHav
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        tooltip.add(componentSpacing.plainCopy().append(Component.translatable("alchemind.potion_catalyzer.ticks_until")).append(this.ticksSince + "/" + ((4096 - findAcceleratorSpeedBelow() * 15)/32)));
-        tooltip.add(componentSpacing.plainCopy().append(this.active() ? Component.translatable("alchemind.potion_catalyzer.active_tooltip") : Component.translatable("alchemind.potion_catalyzer.inactive_tooltip")));
+        tooltip.add(addIndent(Component.translatable("alchemind.potion_catalyzer.ticks_until").append(this.ticksSince + "/" + ((4096 - findAcceleratorSpeedBelow() * 15)/32))));
+        tooltip.add(addIndent((this.active() ? Component.translatable("alchemind.potion_catalyzer.active_tooltip") : Component.translatable("alchemind.potion_catalyzer.inactive_tooltip"))));
         return true;
     }
 
