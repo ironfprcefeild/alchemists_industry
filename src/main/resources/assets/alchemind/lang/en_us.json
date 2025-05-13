@@ -200,7 +200,7 @@
   "alchemind.mineral_extracting.title": "Mineral Extracting",
   "alchemind.mineral_extracting.extraction_chance": "% Extraction Chance",
   "alchemind.mineral_extracting.break_chance": "% Break Chance",
-  "alchemind.mineral_extracting.no_accelerator_required": "No Accelerator Required",
+  "alchemind.no_accelerator_required": "No Accelerator Required",
 
   "alchemind.arcana_required": "Arcana Required"
 
