@@ -6,14 +6,14 @@
     },
     {
       "fluid": "minecraft:lava",
-      "nbt": {},
+     
       "amount": 1000
     }
   ],
   "results": [
     {
       "fluid": "alchemind:source_ignus",
-      "nbt": {},
+     
       "amount": 1000
     }
   ],

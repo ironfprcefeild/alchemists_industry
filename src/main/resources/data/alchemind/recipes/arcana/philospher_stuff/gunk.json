@@ -16,7 +16,7 @@
         },
         {
           "fluid": "alchemind:source_aero",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -34,7 +34,7 @@
         },
         {
           "fluid": "alchemind:source_aqua",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -52,7 +52,7 @@
         },
         {
           "fluid": "alchemind:source_ignus",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -70,7 +70,7 @@
         },
         {
           "fluid": "alchemind:source_terra",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -88,7 +88,7 @@
         },
         {
           "fluid": "alchemind:source_gheigh",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -106,7 +106,7 @@
         },
         {
           "fluid": "alchemind:source_order",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -124,7 +124,7 @@
         },
         {
           "fluid": "alchemind:source_movere",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -142,7 +142,7 @@
         },
         {
           "fluid": "alchemind:source_potere",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -160,7 +160,7 @@
         },
         {
           "fluid": "alchemind:source_glima",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -178,7 +178,7 @@
         },
         {
           "fluid": "alchemind:source_shade",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -196,7 +196,7 @@
         },
         {
           "fluid": "alchemind:source_vivorn",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
@@ -214,7 +214,7 @@
         },
         {
           "fluid": "alchemind:source_mortith",
-          "nbt": {},
+          
           "amount": 100
         }
       ],
