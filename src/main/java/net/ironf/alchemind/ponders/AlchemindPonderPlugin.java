@@ -19,12 +19,12 @@ public class AlchemindPonderPlugin implements PonderPlugin {
 
     @Override
     public void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
-        AllCreatePonderScenes.register(helper);
+        PonderIndex.register(helper);
     }
 
     @Override
     public void registerTags(PonderTagRegistrationHelper<ResourceLocation> helper) {
-        AllCreatePonderTags.register(helper);
+        AllPonderTags.register(helper);
     }
 
     @Override

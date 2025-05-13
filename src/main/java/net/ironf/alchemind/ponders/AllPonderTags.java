@@ -43,8 +43,6 @@ public class AllPonderTags {
                 .add(ModBlocks.ARCANA_RADIATOR)
                 .add(ModBlocks.ARCANA_INFUSER)
                 .add(ModBlocks.MINERAL_EXTRACTOR)
-                .add(ModBlocks.ARCANA_ROTOR)
-                .add(ModBlocks.ARCANA_ROTOR_BASE)
                 .add(ModBlocks.ESSENCE_MIXER)
                 .add(ModBlocks.ACCELERATOR)
                 .add(ModBlocks.POTION_CATALYZER);

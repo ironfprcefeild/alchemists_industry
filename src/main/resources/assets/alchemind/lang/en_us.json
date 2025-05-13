@@ -134,10 +134,10 @@
   "fluid_type.alchemind.source_movere": "Movere",
   "fluid_type.alchemind.source_vivorn": "Vivorn",
 
-  "alchemind.ponder.tag.arcana": "Arcana",
-  "alchemind.ponder.tag.arcana.description": "Machines which exploit Arcana, a magical current of energy",
-  "alchemind.ponder.tag.accelerators": "Arcana Accelerators",
-  "alchemind.ponder.tag.accelerators.description": "The Arcana Accelerator and related components",
+  "alchemind.ponder.tag.pondertag_arcana": "Arcana",
+  "alchemind.ponder.tag.pondertag_arcana.description": "Machines which exploit Arcana, a magical current of energy",
+  "alchemind.ponder.tag.pondertag_accelerators": "Arcana Accelerators",
+  "alchemind.ponder.tag.pondertag_accelerators.description": "The Arcana Accelerator and related components",
 
 
   "alchemind.ponder.accelerator_scene.header": "Rotating an Accelerator to manage Arcana Machines",
