@@ -208,7 +208,6 @@ public class ModBlocks {
     public static final BlockEntry<arcanaRotorBase> ARCANA_ROTOR_BASE = REGISTRATE.block("arcana_rotor_base", arcanaRotorBase::new)
             .initialProperties(SharedProperties::copperMetal)
             .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
-            .simpleItem()
             .register();
 
     public static final BlockEntry<arcanaRotor> ARCANA_ROTOR = REGISTRATE.block("arcana_rotor", arcanaRotor::new)
@@ -219,6 +218,7 @@ public class ModBlocks {
     public static final BlockEntry<arcanaInfuser> ARCANA_INFUSER = REGISTRATE.block("arcana_infuser", arcanaInfuser::new)
             .initialProperties(SharedProperties::copperMetal)
             .properties(p -> p.strength(2f).requiresCorrectToolForDrops().noOcclusion())
+            .simpleItem()
             .register();
 
     public static final BlockEntry<acceleratorBlock> ACCELERATOR = REGISTRATE.block("arcana_accelerator", acceleratorBlock::new)
