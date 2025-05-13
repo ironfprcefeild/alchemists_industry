@@ -18,7 +18,6 @@
     },
     {
       "fluid": "minecraft:lava",
-      "nbt": {},
       "amount": 1000
     }
   ],

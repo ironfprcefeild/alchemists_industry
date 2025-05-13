@@ -6,14 +6,12 @@
     },
     {
       "fluid": "minecraft:water",
-      "nbt": {},
       "amount": 1000
     }
   ],
   "results": [
     {
       "fluid": "alchemind:source_aqua",
-      "nbt": {},
       "amount": 1000
     }
   ]
