@@ -104,8 +104,9 @@ public class ModBlocks {
     public static final BlockEntry<Block> CORVIUM = REGISTRATE.block("corvium", Block::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.strength(2f).requiresCorrectToolForDrops())
-            .simpleItem()
+            .item().properties(p -> p.fireResistant()).build()
             .register();
+
     public static final BlockEntry<Block> GALAXITE = REGISTRATE.block("galaxite", Block::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.strength(3f).requiresCorrectToolForDrops())
