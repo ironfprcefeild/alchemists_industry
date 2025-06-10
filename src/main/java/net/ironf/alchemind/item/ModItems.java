@@ -162,7 +162,6 @@ public class ModItems {
     //Bucket Helper Functions
     public static RegistryObject<BucketItem> registerBucket(String fluidName, RegistryObject<FlowingFluid> fluid){
         RegistryObject<BucketItem> toReturn = ITEMS.register(fluidName + "_bucket", () -> new BucketItem(fluid,new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-        LOGGER.info("Trying to add bucket");
         allBuckets.add(toReturn);
         return toReturn;
     }

@@ -10,6 +10,7 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour
 import net.ironf.alchemind.blocks.arcanaHolders.arcanaAccelerator.acceleratorBlockEntity;
 import net.ironf.alchemind.blocks.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -56,8 +57,7 @@ public class potionCatalyzerBlockEntity extends SmartBlockEntity implements IHav
     }
 
     public IFluidTank getTank(){
-        BlockEntity tank = this.getLevel().getBlockEntity(this.getBlockPos().above());
-        return tank != null && tank.getType() == AllBlockEntityTypes.FLUID_TANK.get() ? ((FluidTankBlockEntity) tank).getControllerBE().getTankInventory() : null;
+        return (level.getBlockEntity(getBlockPos().relative(Direction.UP)) instanceof FluidTankBlockEntity fbe) ? (fbe.getControllerBE() != null ? fbe.getControllerBE().getTankInventory() : null) : null;
     }
 
 

@@ -1,5 +1,6 @@
 package net.ironf.alchemind.blocks.arcanaHolders.arcanaRadiator;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.fluids.tank.BoilerHeaters;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
@@ -92,8 +93,11 @@ public class ArcanaRadiatorBlockEntity extends SmartBlockEntity implements IHave
     }
 
     public int findHeating(){
-        return Math.max(BoilerHeaters.blazeBurner(this.level, this.getBlockPos().below(), this.level.getBlockState(this.getBlockPos().below())), 0);
+        BlockState state = level.getBlockState(getBlockPos().below());
+        return  state.is(AllBlocks.BLAZE_BURNER.get()) ? Math.max(BoilerHeaters.blazeBurner(this.level, this.getBlockPos().below(), state), 0) : 0;
+
     }
+
 
     //Fluid Handling
 
